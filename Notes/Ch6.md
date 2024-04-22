@@ -60,3 +60,40 @@
 Test-NetConnection -Port {port} {ip}
 
 1..1024 | % {echo ((New-Object Net.Sockets.TcpClient).Connect("{ip}", $_)) "TCP port $_ is open"} 2>$null
+```
+## 4. SMB Enum
+- Scan for SMB services
+
+  ``` nmap ```
+- identifying NetBIOS information
+  
+  ``` nbtscan -r {ip} ```
+
+- smb discovery script(nmap) works on SMBv1 only
+
+- Windows SMB enum
+  
+  Replace dc01 with the name or IP address of the server you want to view shared resources on
+
+  ``` net view \\dc01 /all ```
+
+- SMB Enum tool:
+  
+  ``` enum4linux ``` find users list
+
+  ``` smbmap ``` find disks
+
+## 5. SMTP Enum
+
+- nc(linux) / telnet(windows) to communicate with SMTP server
+- ``` VRFY ``` verify users existence
+- If return 252 = yes, 550 = no
+
+## 6. SNMP Enum
+
+- SNMP Mangement information base -> netw management
+- MIB Tree info: https://www.ibm.com/support/knowledgecenter/ssw_aix_71/commprogramming/mib.html
+- Enum which opened service first ``` sudo nmap -sU --open -p 161 {ip} -oG open-snmp.txt ``` 
+- ``` onesixtyone ``` also can do similar enum
+- ``` snmpwalk -c {community name} {ip} {mib code} ``` to search info from mib e.g. running process, user acc
+- ``` -Oa ``` can translate hex to ascii for snmpwalk 
