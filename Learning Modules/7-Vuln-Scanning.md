@@ -15,4 +15,11 @@ sudo nmap -sV -p 443 --script "vuln" 192.168.50.124
 ```
 
 ## Work with NSE vuln
+## Update db with new script
+- Paste the new script to nmap/scripts
+``` sudo nmap --script-updatedb ```
+
+## Use
+``` sudo nmap -sV -p 443 --script "http-vuln-cve2021-41773" {ip} ```
+
 
