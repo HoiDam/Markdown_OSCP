@@ -48,12 +48,4 @@
 - mysql
     ``` sqlmap -u http://192.168.50.19/blindsqli.php?user=1 -p user ```
 
-## Wordpress
-
-- Wordpress scan
-``` wpscan ```
-
-- Enum plugins & themes for vulns
-
-- Possble to use hashcat reverse hash (Not suggest)
 
