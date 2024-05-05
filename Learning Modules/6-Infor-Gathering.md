@@ -97,3 +97,6 @@ Test-NetConnection -Port {port} {ip}
 - ``` onesixtyone ``` also can do similar enum
 - ``` snmpwalk -c {community name} {ip} {mib code} ``` to search info from mib e.g. running process, user acc
 - ``` -Oa ``` can translate hex to ascii for snmpwalk 
+
+## 7. Connect Windows w/ rdp
+``` xfreerdp /v:192.168.220.196 /u:offsec /p:lab  ```
