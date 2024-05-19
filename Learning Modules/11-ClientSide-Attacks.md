@@ -14,7 +14,8 @@
 - smbserver to transfer files:
    
    ``` 
-   
+   impacket-smbserver -smb2support share .
+   \\ip-address-of-your-linux-machine\SHARE
    ```
 
 - Macro example: 
