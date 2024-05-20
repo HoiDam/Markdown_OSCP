@@ -12,9 +12,9 @@
 - macro func must enabled
 - windows use utf-16le base64 decode encode
 - smbserver to transfer files:
-   
+   sometimes anonymous dont work due to policy
    ``` 
-   impacket-smbserver -smb2support share .
+   impacket-smbserver -smb2support -username $usrname -password $password  share .
    \\ip-address-of-your-linux-machine\SHARE
    ```
 
