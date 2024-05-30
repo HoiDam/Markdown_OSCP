@@ -82,8 +82,7 @@
 - ``` /usr/sbin/getcap -r / 2>/dev/null ``` search misconfigured capabilities e.g. will find perl, ping , or even other binary
 - see have ``` cap_setuid+ep```
 - go gtfobins look for Capabilities 
-
-
+- find harder (lookup all bins & PwnKits!!)
 
 ### Logic behind
 - check if the process is being used by root but normal user trigger ``` ps u -C passwd ```
@@ -96,3 +95,8 @@
 - brute force those capabilities to PE
 - if not success -> check error ``` cat /var/log/syslog | grep {binary_name} ```
 - sometimes blocked by apparmor
+
+## Kernal fuck
+- search public exploit | sometime need pull file to victim compile and run
+- ``` file {binary}``` can see ELF file architecture
+- 
