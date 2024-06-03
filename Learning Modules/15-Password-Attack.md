@@ -20,6 +20,7 @@
 - hashcat rule explained: [https://github.com/zh54321/hashcat_rule_gen ](https://hashcat.net/wiki/doku.php?id=rule_based_attack)
 - writing rule to xx.rule ``` $1 $2 $3 c $!  ``` 
 - running crack ``` hashcat -m 0 crackme.txt /usr/share/wordlists/rockyou.txt -r xx.rule --force  ```
+- sometimes use fasttrack.txt too
 - ``` c ``` in rule = captilized letter
 - ``` u d ``` in rule = upper all char & duplicated once
 

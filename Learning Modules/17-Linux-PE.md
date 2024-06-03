@@ -99,4 +99,4 @@
 ## Kernal fuck
 - search public exploit | sometime need pull file to victim compile and run
 - ``` file {binary}``` can see ELF file architecture
-- 
+- useful search: ``` searchsploit "linux kernel Ubuntu 16 Local Privilege Escalation"   | grep  "4." | grep -v " < 4.4.0" | grep -v "4.8" ```
