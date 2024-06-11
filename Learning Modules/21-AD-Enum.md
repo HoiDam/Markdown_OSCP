@@ -1,5 +1,6 @@
 # AD
 - ``` xfreerdp /u:stephanie /d:corp.com /v:192.168.50.75 ``` req domain name if AD activated
+- target domain admin
 ## Manual Enum
 ### Legacy Tools
 - w/ CMD / PWSH
@@ -48,3 +49,21 @@
 - https://gist.github.com/HarmJ0y/184f9822b195c52dd50c379ed3117993 
 - ``` Get-NetUser ``` | ``` Get-NetGroup ``` common cmd
   
+## Useful Info
+### OS
+-  w/ powerview.ps1
+-  ``` Get-NetComputer ``` get all details of computer object in the doman
+-  ``` Get-NetComputer | select operatingsystem,operatingsystemversion,dnshostname,distinguishedname ``` OS & OSVersion & HostName & {cn=??,cn=??,dc=??,dc=??,ou=??}@LDAP
+-  usually fuck the oldest OS first
+
+### Permissions & LoggedOn@Users
+- w/ powerview.ps1
+-  ``` Find-LocalAdminAccess ``` find all computers in domain has admin access with current user context
+-  ``` Get-NetSession -ComputerName {computer name} -Verbose ``` check users logged in on that computer
+-  5 level of net session enum: lv0: only have name | lv1,2 more info but req admin | lv10,502 more info 
+-  ``` Get-Acl -Path HKLM:SYSTEM\CurrentControlSet\Services\LanmanServer\DefaultSecurity\ | fl ``` view permissions of "NetSessionEnum" in registry path:``` HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\LanmanServer\DefaultSecurity ```
+-  registry key : ``` SrvsvcSessionInfo ```
+-  w/ psloggedon.exe
+-  req ``` Remote Registry ``` service & admin
+-  ``` .\PsLoggedon.exe \\files04 ``` check recent loggin activity on certain machine
+-  try to see if he/she has loggon other machine before = can access again!
