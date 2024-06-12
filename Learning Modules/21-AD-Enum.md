@@ -67,3 +67,51 @@
 -  req ``` Remote Registry ``` service & admin
 -  ``` .\PsLoggedon.exe \\files04 ``` check recent loggin activity on certain machine
 -  try to see if he/she has loggon other machine before = can access again!
+
+### Principal Names
+- Target Service prinicipal 
+- ``` setspn -L {service name} ``` from setspn.exe (built-in) 
+- ``` Get-NetUser -SPN | select samaccountname,serviceprincipalname ``` from powerview.ps1
+
+### Object permission (Access Control Entries & ACL)
+- ``` 
+    GenericAll: Full permissions on object
+    GenericWrite: Edit certain attributes on the object
+    WriteOwner: Change ownership of the object
+    WriteDACL: Edit ACE's applied to object
+    AllExtendedRights: Change password, reset password, etc.
+    ForceChangePassword: Password change for object
+    Self (Self-Membership): Add ourselves to for example a group
+  ```
+- ``` Get-ObjectAcl -Identity {object name} ``` from powerview.ps1: get details of the object with the name e.g. ObjectSID & SecurityIdentifier & ActiveDirectoryRights
+- ``` Convert-SidToName {sid} ```  from powerview.ps1: convert to domain object name e.g. CORP\hoidam
+- ``` 
+    Get-ObjectAcl -Identity {object name} | ? {$_.ActiveDirectoryRights -eq "GenericAll"} | select SecurityIdentifier,ActiveDirectoryRights
+  ```
+  check who has rights to interact with this object (permission as above)
+- Can assign users to that group e.g. ``` net group "Management Department" stephanie /del /domain ```
+- ``` Find-InterestingDomainAcl | select identityreferencename,activedirectoryrights,acetype,objectdn | ?{$_.IdentityReferenceName -NotContains "DnsAdmins"} | ft ```
+
+### Domain Shares (SMB)
+- ``` Find-DomainShare ``` from powersview.ps1 
+- check directory with ls 
+- interesting files: sysvol . Have domain policy file (for DC)
+- $ dollar sign = hidden share
+
+# Auto Enum
+## SharpHound
+- ``` Import-Module .\Sharphound.ps1 ```
+- ``` Invoke-BloodHound -CollectionMethod All -OutputDirectory C:\Users\stephanie\Desktop\ -OutputPrefix {custom prefix name} ``` Get all
+- enable ``` looping ``` to make snapshot (record changes)
+
+## BloodHound
+- my neo4j ~ usrname: neo4j | password: kali
+- reset db: ``` sudo rm -rf /usr/share/neo4j/data ```
+- get new data set when have new user compromised
+- useful thing: local admin rights -> first degree local admin
+- Thoughts: Can start from AD -> switch user by abusing AD weakness e.g. can control someone AD password -> login to that guy (maybe that guy is local admin of some machine) -> boom
+
+
+# Window shit
+1. change user: ``` runas /user:{domain_name}\{user_name} "cmd" ```
+2. change someone password: ``` net user {username} {new password} /domain ``` 
