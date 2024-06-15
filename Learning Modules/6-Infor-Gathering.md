@@ -99,4 +99,4 @@ Test-NetConnection -Port {port} {ip}
 - ``` -Oa ``` can translate hex to ascii for snmpwalk 
 
 ## 7. Connect Windows w/ rdp
-``` xfreerdp /v:192.168.220.196 /u:offsec /p:lab  ```
+``` xfreerdp /v:192.168.220.196 /u:offsec /p:lab /cert-ignore  ```
