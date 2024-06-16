@@ -8,7 +8,7 @@
 - ``` net group "{group name}" /domain ``` get user list in xx group | get all without providing name
 
 ### .NET & Pwsh modules/classes
-- Get ldap path (since ldap can support other than AD)
+1. Get ldap path (since ldap can support other than AD)
 - Pwsh only
 - ```$domainObj =  [System.DirectoryServices.ActiveDirectory.Domain]::GetCurrentDomain() ``` check domain by PdcRoleOwner 
 - ``` $DN = ([adsi]'').distinguishedName ``` check domain by adsi

