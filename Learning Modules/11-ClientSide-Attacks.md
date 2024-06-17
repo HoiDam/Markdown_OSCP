@@ -14,7 +14,7 @@
 - smbserver to transfer files:
    sometimes anonymous dont work due to policy
    ``` 
-   impacket-smbserver -smb2support -username $usrname -password $password  share .
+   impacket-smbserver -smb2support -username kali -password kali share .
    \\ip-address-of-your-linux-machine\SHARE
    ```
 
