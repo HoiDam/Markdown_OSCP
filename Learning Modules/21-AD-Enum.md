@@ -10,39 +10,39 @@
 ### .NET & Pwsh modules/classes
 1. Get ldap path (since ldap can support other than AD)
 - Pwsh only
-- ```$domainObj =  [System.DirectoryServices.ActiveDirectory.Domain]::GetCurrentDomain() ``` check domain by PdcRoleOwner 
-- ``` $DN = ([adsi]'').distinguishedName ``` check domain by adsi
-- ps1 module to get LDAP path
+  - ```$domainObj =  [System.DirectoryServices.ActiveDirectory.Domain]::GetCurrentDomain() ``` check domain by PdcRoleOwner 
+  - ``` $DN = ([adsi]'').distinguishedName ``` check domain by adsi
+  - ps1 module to get LDAP path
+       ``` 
+          $PDC = [System.DirectoryServices.ActiveDirectory.Domain]::GetCurrentDomain().PdcRoleOwner.Name
+          $DN = ([adsi]'').distinguishedName 
+          $LDAP = "LDAP://$PDC/$DN"
+          $LDAP
+       ``` 
+
+2. Enum by ldap ``` $direntry = New-Object System.DirectoryServices.DirectoryEntry($LDAP) ```
+   - user type id:  samAccountType=805306368 
+   - LDAP search ps1 module: 
      ``` 
-        $PDC = [System.DirectoryServices.ActiveDirectory.Domain]::GetCurrentDomain().PdcRoleOwner.Name
-        $DN = ([adsi]'').distinguishedName 
-        $LDAP = "LDAP://$PDC/$DN"
-        $LDAP
-     ``` 
+       function LDAPSearch {
+       param (
+           [string]$LDAPQuery
+       )
 
-- Enum by ldap ``` $direntry = New-Object System.DirectoryServices.DirectoryEntry($LDAP) ```
-- user type id:  samAccountType=805306368 
-- LDAP search ps1 module: 
-  ``` 
-    function LDAPSearch {
-    param (
-        [string]$LDAPQuery
-    )
+       $PDC = [System.DirectoryServices.ActiveDirectory.Domain]::GetCurrentDomain().PdcRoleOwner.Name
+       $DistinguishedName = ([adsi]'').distinguishedName
 
-    $PDC = [System.DirectoryServices.ActiveDirectory.Domain]::GetCurrentDomain().PdcRoleOwner.Name
-    $DistinguishedName = ([adsi]'').distinguishedName
+       $DirectoryEntry = New-Object System.DirectoryServices.DirectoryEntry("LDAP://$PDC/$DistinguishedName")
 
-    $DirectoryEntry = New-Object System.DirectoryServices.DirectoryEntry("LDAP://$PDC/$DistinguishedName")
+       $DirectorySearcher = New-Object System.DirectoryServices.DirectorySearcher($DirectoryEntry, $LDAPQuery)
 
-    $DirectorySearcher = New-Object System.DirectoryServices.DirectorySearcher($DirectoryEntry, $LDAPQuery)
+       return $DirectorySearcher.FindAll()
 
-    return $DirectorySearcher.FindAll()
-
-    }
-    ``` 
-- usage: ``` LDAPSearch -LDAPQuery "(objectclass=group)" ```
-- reference LDAP query online for query issue
-- Group maybe nested which means its a tree. Group A -> Group B + C -> Group D -> User
+       }
+       ``` 
+   - usage: ``` LDAPSearch -LDAPQuery "(objectclass=group)" ```
+   - reference LDAP query online for query issue
+   - Group maybe nested which means its a tree. Group A -> Group B + C -> Group D -> User
 
 ### Auto Enum 
 - PowerView.ps1 ``` Import-Module .\PowerView.ps1 ```
@@ -57,13 +57,14 @@
 -  usually fuck the oldest OS first
 
 ### Permissions & LoggedOn@Users
-- w/ powerview.ps1
--  ``` Find-LocalAdminAccess ``` find all computers in domain has admin access with current user context
--  ``` Get-NetSession -ComputerName {computer name} -Verbose ``` check users logged in on that computer
--  5 level of net session enum: lv0: only have name | lv1,2 more info but req admin | lv10,502 more info 
--  ``` Get-Acl -Path HKLM:SYSTEM\CurrentControlSet\Services\LanmanServer\DefaultSecurity\ | fl ``` view permissions of "NetSessionEnum" in registry path:``` HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\LanmanServer\DefaultSecurity ```
+#### w/ powerview.ps1
+1. ``` Find-LocalAdminAccess ``` find all computers in domain has admin access with current user context
+2.  ``` Get-NetSession -ComputerName {computer name} -Verbose ``` check users logged in on that computer
+    -  5 level of net session enum: lv0: only have name | lv1,2 more info but req admin | lv10,502 more info 
+3.  ``` Get-Acl -Path HKLM:SYSTEM\CurrentControlSet\Services\LanmanServer\DefaultSecurity\ | fl ``` view permissions of "NetSessionEnum" in registry path:``` HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\LanmanServer\DefaultSecurity ```
 -  registry key : ``` SrvsvcSessionInfo ```
--  w/ psloggedon.exe
+
+####  w/ psloggedon.exe
 -  req ``` Remote Registry ``` service & admin
 -  ``` .\PsLoggedon.exe \\files04 ``` check recent loggin activity on certain machine
 -  try to see if he/she has loggon other machine before = can access again!

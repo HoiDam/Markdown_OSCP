@@ -5,7 +5,7 @@
 - rdp
 - ``` hydra -L /usr/share/wordlists/dirb/others/names.txt -p "SuperS3cure1337#" rdp://192.168.50.202 ```
 - port 
-- ``` -s ```
+- add ``` -s ```
 
 - care 302 redirect
 - HTTP POST Form
