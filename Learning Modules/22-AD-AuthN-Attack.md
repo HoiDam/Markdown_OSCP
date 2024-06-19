@@ -53,6 +53,7 @@
 
 ## Silver Tickets
 - Forge service tickets step
+- Target forging TGS
 - Requires: 
     1. SPN password hash
     2. Domain SID
