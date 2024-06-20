@@ -90,7 +90,8 @@
 2. Find all ticket and select the one we want ``` pwsh> dir *.kirbi ``` (remember same directory as mimikatz.exe) 
    - our target have record in Group 2 - T... G... S...
    - e.g. ```[0;12bd0]-0-0-40810000-dave@cifs-web04.kirbi ``` means dave = the user we want to impersnate and web04 is domain name
-3. Run as admin shell & access the service
+3. Inject to klist ``` kerberos::ptt {that kirbi file}```
+4. Run as admin shell & access the service
 
 ## DCOM
 - Distributed Component Object Model & abusing Microsoft Management Console COM app
@@ -121,3 +122,9 @@
   4. Copy the 2 files to kali (ntds.dit.bak & system.bak)
   5. Use Kali : ``` impacket-secretsdump -ntds ntds.dit.bak -system system.bak LOCAL ``` 
   6. (Optional) Can use pass the hash to get shell 
+
+
+# How distinguish NLTM vs Kerberos service?
+1. Use tools like Mimikatz to dump the cached credentials and look for Kerberos tickets.
+2. Check the type of tickets being used when accessing a service. For example, if you see TGTs (Ticket Granting Tickets) or TGSs (Ticket Granting Services), it indicates Kerberos authentication.
+3. if you have NTLM hashes and are accessing services using NTLM authentication, it's likely that NTLM is being used.
