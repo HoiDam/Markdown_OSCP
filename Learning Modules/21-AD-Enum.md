@@ -106,12 +106,18 @@
 - enable ``` looping ``` to make snapshot (record changes)
 
 ## BloodHound
+- start neo4j : ``` sudo neo4j start ```
+- start bloodhound ``` sudo bloodhound ```
+- neo4j browser: ``` http://localhost:7474/browser  ```
 - my neo4j ~ usrname: neo4j | password: kali
 - reset db: ``` sudo rm -rf /usr/share/neo4j/data ```
 - get new data set when have new user compromised
 - useful thing: local admin rights -> first degree local admin
 - Thoughts: Can start from AD -> switch user by abusing AD weakness e.g. can control someone AD password -> login to that guy (maybe that guy is local admin of some machine) -> boom
 
+## Useful query
+- Show all computers/users ``` MATCH (m:Computer/User) RETURN m ```
+- Show all active sessions ``` MATCH p = (c:Computer)-[:HasSession]->(m:User) RETURN p ```
 
 # Window shit
 1. change user: ``` runas /user:{domain_name}\{user_name} "cmd" ```

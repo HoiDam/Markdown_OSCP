@@ -1,5 +1,5 @@
 # Metasploit Intro
-
+- ``` msfconsole -q ``` quiet mode 
 ## Rules:
 - Allow in ALL machines
     ```
@@ -104,10 +104,11 @@
 - print route table assigned ``` route print ```
 - test with port scan module e.g. ``` use auxiliary/scanner/portscan/tcp ``` to see if routing success
 - terminate all routes ``` route flush ``` | remove 1 only ``` route remove {ip}/24 {session_id} ```
-### Auto Route
+  
+### Auto Route (Part 1)
 - ``` use multi/manage/autoroute ``` and then bind to the shell session we made before
 
-### Proxy
+### Proxy (Part 2)
 - ``` use auxiliary/server/socks_proxy ``` & ``` set SRVHOST 127.0.0.1 ``` (only allow host to call seems more safe) & ``` set SRVPORT 9999 ```
 -  edit ```/etc/proxychains4.conf``` to the one we set e.g. ``` socks5 {SRVHOST} {SRVPORT}``` (entry point of the proxy)
 -  

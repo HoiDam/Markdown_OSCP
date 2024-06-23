@@ -12,7 +12,11 @@
 ## Burp Suite
 - You know what to do =]
 
+## enum version/ using which service
+- ``` whatweb ```
+
 # Web Enum
+
 ## Gobuster enum API
 - Provide pattern in pattern file
     ``` {GOBUSTER}/v1 ```
