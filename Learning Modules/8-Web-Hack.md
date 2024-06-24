@@ -16,6 +16,7 @@
 - ``` whatweb ```
 
 # Web Enum
+- curl POST ``` curl -X POST -d "code=2*2" http://192.168.171.117:50000/verify```
 
 ## Gobuster enum API
 - Provide pattern in pattern file

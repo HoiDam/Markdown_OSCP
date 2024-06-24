@@ -20,6 +20,6 @@ sudo nmap -sV -p 443 --script "vuln" 192.168.50.124
 ``` sudo nmap --script-updatedb ```
 
 ## Use
-``` sudo nmap -sV -p 443 --script "http-vuln-cve2021-41773" {ip} ```
+``` sudo nmap -T5 -sV -p 443 --script "http-vuln-cve2021-41773" {ip} ```
 
 
