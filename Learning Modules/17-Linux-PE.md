@@ -78,6 +78,7 @@
 - GTFO: https://gtfobins.github.io/ 
 - SBin: reboot/shutdown(harder caz u have know how to restart): https://exploit-notes.hdks.org/exploit/linux/privilege-escalation/sudo/sudo-reboot-privilege-escalation/ 
     1. editing writable service ``` find / -writable -name "*.service" 2>/dev/null ``` and impersonate root when restarted
+    2. OR directly write rev shell in the command and when restart will auto connect to our nc-lvnp
 
 ## Setuid binaries and others
 - GTFO: SetUID
