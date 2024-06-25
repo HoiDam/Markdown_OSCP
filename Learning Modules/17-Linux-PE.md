@@ -76,6 +76,8 @@
 # Fuck Linux system componenets
 ### Possible exploit
 - GTFO: https://gtfobins.github.io/ 
+- SBin: reboot/shutdown(harder caz u have know how to restart): https://exploit-notes.hdks.org/exploit/linux/privilege-escalation/sudo/sudo-reboot-privilege-escalation/ 
+    1. editing writable service ``` find / -writable -name "*.service" 2>/dev/null ``` and impersonate root when restarted
 
 ## Setuid binaries and others
 - GTFO: SetUID
@@ -100,3 +102,4 @@
 - search public exploit | sometime need pull file to victim compile and run
 - ``` file {binary}``` can see ELF file architecture
 - useful search: ``` searchsploit "linux kernel Ubuntu 16 Local Privilege Escalation"   | grep  "4." | grep -v " < 4.4.0" | grep -v "4.8" ```
+

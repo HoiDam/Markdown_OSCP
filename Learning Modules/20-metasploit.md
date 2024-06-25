@@ -1,5 +1,6 @@
 # Metasploit Intro
 - ``` msfconsole -q ``` quiet mode 
+- Care about port issue (sometimes not all port avaiable to use shell)
 ## Rules:
 - Allow in ALL machines
     ```
