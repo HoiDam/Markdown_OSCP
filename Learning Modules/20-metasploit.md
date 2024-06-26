@@ -40,7 +40,7 @@
 - show sessions in background ``` sessions -l ``` 
 - kill sessions ``` session -k {id} ``` | ``` session -K ``` kill all
 - reset workspace wont kill sessions
-- Change target(OS) ``` set target {0 or 1} ``` 0 = unix | 1 = windows
+- Change target(OS) ``` set target {0 or 1} ``` 0 = unix | 1 = windows <- depends!! ``` show targets ```
 
 # Payloads
 ## Staged vs Non-Staged
