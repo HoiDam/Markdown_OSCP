@@ -84,10 +84,10 @@ Test-NetConnection -Port {port} {ip}
   ``` smbmap ``` find disks
 
 ## 5. SMTP Enum
-
 - nc(linux) / telnet(windows) to communicate with SMTP server
 - ``` VRFY ``` verify users existence
 - If return 252 = yes, 550 = no
+- ``` smtp-user-enum -t 192.168.158.63 -U /usr/share/wordlists/dirb/big.txt -M VRFY ```
 
 ## 6. SNMP Enum
 

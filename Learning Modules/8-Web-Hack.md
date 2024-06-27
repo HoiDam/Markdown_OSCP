@@ -133,3 +133,4 @@ if (!class_exists('CLI_Runner')) {
 // Initialize the plugin
 $cli_runner = new CLI_Runner();
 ```
+

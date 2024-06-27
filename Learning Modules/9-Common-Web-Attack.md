@@ -60,6 +60,7 @@
 - Prepare a file that can run CMD
 - Reverse shell
 - file type exclusion e.g. php -> pHP
+- aspx -> mspx  
 
 
 ## w/o Executable Files
