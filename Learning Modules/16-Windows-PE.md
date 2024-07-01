@@ -21,9 +21,10 @@
 - get path of a process: ``` Get-Process | Select-Object Name,Path | Select-String "NonStandardProcess" ```
 - Check if have remote access (rdp) ``` net user xxx``` and see local group memberships
     have = *Remote Management Use Users*
+- ``` sc qc {Service} ``` check service running by who
 
 ## Hidden info
-- Searching attackable files in system ``` Get-ChildItem -Path C:\ -Include *.kdbx -File -Recurse -ErrorAction SilentlyContinue ```
+- Searching attackable files in system ``` Get-ChildItem -Path C:\ -Include *.kdbx -File -Recurse -ErrorAction SilentlyContinue ``` 
 - Can search if have password ``` Get-ChildItem -Path C:\xampp\apache -Include *.txt ,*.ini -File -Recurse -ErrorAction SilentlyContinue ```
 - Can search user desktop ``` C:\Users\{user_name}\Desktop ``` <- probably here lol
   

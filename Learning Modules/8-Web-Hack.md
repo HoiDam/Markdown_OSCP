@@ -32,6 +32,9 @@
 - Useful header info
 
     ``` X-??? ```
+
+- http file to markdown
+  ``` curl -s http://192.168.244.140:8000/ | html2markdown ```
     
 # Try Default password !!!
 
