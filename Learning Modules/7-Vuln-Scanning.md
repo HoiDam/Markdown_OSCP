@@ -24,8 +24,10 @@ sudo nmap -sV -p 443 --script "vuln" 192.168.50.124
 ``` locate *.nse ```
 
 ## Use
-- ``` sudo nmap -T5 -sCVS --min-rate 10000 -p 443 --script vuln -vvv {ip} ```
+1. ``` sudo nmap 192.168.172.59 -Pn -O ```
+
+2. ``` sudo nmap 192.168.172.59 -p22,53,80,5000 -sCVS --script vuln -vvv -T5 ```
+
+3. ``` nmap 192.168.172.59 -p1-65535 -sUT ```
 
 - ``` nmap -sCVS --script=smb-vuln-* {ip} -vvv ```
-
-

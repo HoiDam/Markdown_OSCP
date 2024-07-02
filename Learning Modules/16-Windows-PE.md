@@ -21,7 +21,7 @@
 - get path of a process: ``` Get-Process | Select-Object Name,Path | Select-String "NonStandardProcess" ```
 - Check if have remote access (rdp) ``` net user xxx``` and see local group memberships
     have = *Remote Management Use Users*
-- ``` sc qc {Service} ``` check service running by who
+- ``` sc qc {Service} ``` [CMD Only] check service running by who
 
 ## Hidden info
 - Searching attackable files in system ``` Get-ChildItem -Path C:\ -Include *.kdbx -File -Recurse -ErrorAction SilentlyContinue ``` 
