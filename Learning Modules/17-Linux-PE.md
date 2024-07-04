@@ -54,6 +54,11 @@
 - looks for sussy shit e.g. global writable thing
 
 # Exposed Confidential info
+## Backup files 
+- check linpeas result
+- e.g. /opt/backups /etc/backups ,etc...
+- Some files will have credentials can directly use e.g. /etc/passwd  ssh-key rsa
+
 ## User trails
 - ``` env ``` environ variable
 - ``` .bashrc ``` bash config file (this file is fucking hidden on99)
