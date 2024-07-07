@@ -7,10 +7,11 @@
 
 ## 2.  Attack Public machine
     1. Initial foothold: abusing public vulns/ sql injection? etc.
-    2. Steal ssh/ rdp credential of the machine  
-    3. See if have connection to internal network
-    4. If no , try Prividege esculation by enum (linpeas/ winpeas)
-    5. See old version of the machine e.g. files/ logs etc
+    2. (work in weak machine): use default password
+    3. Steal ssh/ rdp credential of the machine  
+    4. See if have connection to internal network
+    5. If no , try Prividege esculation by enum (linpeas/ winpeas)
+    6. See old version of the machine e.g. files/ logs etc
 ## 3. Gain access to internal network 
     1. Reorganize all credentials | example:
         ```

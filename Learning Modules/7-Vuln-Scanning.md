@@ -24,7 +24,7 @@ sudo nmap -sV -p 443 --script "vuln" 192.168.50.124
 ``` locate *.nse ```
 
 ## Use
-1. ``` sudo nmap 192.168.172.59 -Pn -O ```
+1. ``` sudo nmap 192.168.172.59 -p- -Pn -O -n ``` (-n = no dns resolve)
 
 2. ``` sudo nmap 192.168.172.59 -p22,53,80,5000 -sCVS --script vuln -vvv -T5 ```
 
