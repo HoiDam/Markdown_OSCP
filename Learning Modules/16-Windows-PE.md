@@ -1,4 +1,5 @@
 # Enum
+- Find all useful files when gained foothold
 ## Info useful
 - Usrname , hostname
 - Group memberships of current user

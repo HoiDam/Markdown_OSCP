@@ -10,6 +10,9 @@
     vim key
     chmod 400 dt_key
      ```
+    
+-  Window: 
+   ``` C:\Users\All Users\ssh\ssh_host_rsa_key.pub  ```
 
 - Encoding special character
     

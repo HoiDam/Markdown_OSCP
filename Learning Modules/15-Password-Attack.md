@@ -13,6 +13,8 @@
   ``` hydra -l admin -P /usr/share/wordlists/rockyou.txt 192.168.152.201 http-get "/index.php" ```
 
 
+## PDF Crack
+- ``` pdfcrack -f Infrastructure.pdf -w /usr/share/wordlists/rockyou.txt ```
 
 ## Cracking with Hashcat
 - Work w/ mutated password list (rockyou/other list)

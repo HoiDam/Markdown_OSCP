@@ -1,5 +1,5 @@
 # Enum
-
+- Find all useful files when gained foothold
 ## Useful Info
 - ``` ls -l /etc/shadow ``` see permission of if can see hashed password 
 - ```  id ``` check current user uid, gid (primary group) & groups (other groups)
