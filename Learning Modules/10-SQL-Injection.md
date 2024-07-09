@@ -59,6 +59,9 @@
 ## Manual shell
 ![alt text](image-1.png)
 
+## Postgres RCE
+- https://github.com/squid22/PostgreSQL_RCE/blob/main/postgresql_rce.py
+
 
 ## Automated 
 - BANNED
