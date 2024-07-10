@@ -48,6 +48,11 @@
 # Git 
 - Show any staged code ``` git status ```
 - show changes ``` git show {commit_id} ```
+## Git Tools
+- https://github.com/internetwache/GitTools?tab=readme-ov-file
+### Git Dumper:  
+1. ``` ./gitdumper.sh {ip} {store path}```download as much as possible from the found .git repository from webservers which do not have directory listing enabled
+2. ``` git checkout -- .``` Restore file via git
 
 # Simple networking
 1. 127.0.0.1 = loopback = only host can call | 0.0.0.0 means all traffic ok
