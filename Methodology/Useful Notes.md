@@ -95,3 +95,6 @@
   $ export TERM=xterm-256color
   $ stty rows <num> columns <cols>
   ```
+
+# OpenVPN
+- avoild collision: add ``` mssfix 1400 ``` to openvpn file

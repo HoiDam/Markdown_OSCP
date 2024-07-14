@@ -75,7 +75,7 @@
   
     Edit filename
 
-    ``` ../../../../../root/.ssh/authorized_keys ```
+    ``` ../../../../../root/.ssh/authorized_keys ``` : storing ``` 
 
 - Becareful have to remove ```.ssh/known_hosts``` in kali pc since different section computer
 
