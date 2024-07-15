@@ -7,7 +7,7 @@
 
     Gobuster fuzzing
 
-    ``` gobuster dir -u {ip} -w /usr/share/wordlists/dirb/common.txt -t 5 ```
+    ``` gobuster dir -u {ip} -w /usr/share/wordlists/dirb/common.txt -t 42 ```
 
 ## Burp Suite
 - You know what to do =]
@@ -23,7 +23,7 @@
     ``` {GOBUSTER}/v1 ```
 
 - Enum
-    ``` gobuster dir -u http://192.168.50.16:5002 -w /usr/share/wordlists/dirb/big.txt -p pattern -t 20```
+    ``` gobuster dir -u http://192.168.50.16:5002 -w /usr/share/wordlists/dirb/big.txt -p pattern -t 42```
 
 - Useful url
 

@@ -31,3 +31,5 @@ sudo nmap -sV -p 443 --script "vuln" 192.168.50.124
 - ``` sudo nmap 192.168.172.59 -p1-65535 -sUT -T5```
 
 - ``` nmap -sCVS --script=smb-vuln-* {ip} -vvv ```
+
+Advanced nmap ``` sudo nmap -Pn -n $IP -sC -sV -p- --open ```

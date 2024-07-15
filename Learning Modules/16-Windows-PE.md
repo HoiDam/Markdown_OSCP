@@ -1,5 +1,7 @@
 # Enum
 - Find all useful files when gained foothold
+- find flag pwsh: ``` Get-ChildItem -Path . -Filter local.txt -Recurse ```
+- find flag cmd: ``` dir /s local.txt ```
 ## Info useful
 - Usrname , hostname
 - Group memberships of current user
