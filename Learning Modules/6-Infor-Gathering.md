@@ -102,3 +102,11 @@ Test-NetConnection -Port {port} {ip}
 - sometimes no need domain (for education account?? e.g. offsec lab)
 ``` xfreerdp /v:192.168.220.196 /u:offsec /p:lab /cert-ignore  ```
 ``` rdesktop -u offsec -d corp.com -p lab 192.168.239.74 ```
+
+## 8. Brute Force idea
+- find user list
+- if have first name and last name try concat them 
+    e.g. First name: Anne Last name: Flora
+    username = anne.Flora
+- Try password with season + year 
+    e.g. Summer2023

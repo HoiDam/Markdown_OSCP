@@ -128,3 +128,12 @@
 1. Use tools like Mimikatz to dump the cached credentials and look for Kerberos tickets.
 2. Check the type of tickets being used when accessing a service. For example, if you see TGTs (Ticket Granting Tickets) or TGSs (Ticket Granting Services), it indicates Kerberos authentication.
 3. if you have NTLM hashes and are accessing services using NTLM authentication, it's likely that NTLM is being used.
+
+## Same machine lateral movement with Domain Controller
+1. Get SPN list
+2. Get ticket of the service account / user that you want to move to
+   ```
+    Add-Type -AssemblyName System.IdentityModel
+    New-Object System.IdentityModel.Tokens.KerberosRequestorSecurityToken -ArgumentList '{SPN}'
+    ```
+3. Kerberoast 

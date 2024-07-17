@@ -72,6 +72,7 @@
 ### leveragable tools w/ hash
 1. smbclient
    - ``` smbclient \\\\192.168.50.212\\secrets -U Administrator --pw-nt-hash 7a38310ea6f0027ee955abed1762964b ```
+   - 
 2. CrackMapExec
 3. impacket_
 4. psexec.py (shell with system identity)
