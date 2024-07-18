@@ -122,6 +122,10 @@
 # Windows
 1. Run As Admin
     https://github.com/antonioCoco/RunasCs 
+  ```
+    . .\RunAs.ps1
+    Invoke-RunasCs {username} {password} {cmd} 
+  ```
 
 2. PowerCat 
    - netcat for windows
@@ -131,3 +135,27 @@
 # SMB 
 1. List shares: ``` smbclient -L \\{IP}\ -N ```
 2. Connect to share ``` smbclient \\\\{IP}\\{share} -U '{domain}\{username}%{password}' ```
+
+# RPC
+- Microsoft Remote Procedure Call (RPC) defines a powerful technology for creating distributed client/server programs.
+- port 593 default
+- ``` rpcclient -U "svc_mssql" {ip}```
+## Enum
+1. enumdomusers
+2. enumdomgroups
+3. queryusergroups {rid of that user}
+4. 
+
+## setuserinfo
+- modify user ac info
+```
+  Level 0: Basic information, such as username and full name.
+
+  Level 1: Additional information, including home directory, script path, and profile path.
+
+  Level 2: Further information, like password age, privileges, and logon script.
+
+  Level 3: Detailed information, including all the above and group memberships.
+
+  Level 4: Even more detailed information, including all the above and security identifier (SID).
+```

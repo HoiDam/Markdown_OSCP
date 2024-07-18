@@ -101,7 +101,7 @@ Test-NetConnection -Port {port} {ip}
 ## 7. Connect Windows w/ rdp
 - sometimes no need domain (for education account?? e.g. offsec lab)
 ``` xfreerdp /v:192.168.220.196 /u:offsec /p:lab /cert-ignore  ```
-``` rdesktop -u offsec -d corp.com -p lab 192.168.239.74 ```
+``` rdesktop -u offsec -d corp.com -p lab -d {domain} 192.168.239.74 ```
 
 ## 8. Brute Force idea
 - find user list

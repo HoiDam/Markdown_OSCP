@@ -1,6 +1,7 @@
 # AD
 - ``` xfreerdp /u:stephanie /d:corp.com /v:192.168.50.75 ``` req domain name if AD activated
 - target domain admin
+- Detail of AD Domain ``` Get-ADdomain ```
 ## Manual Enum
 ### Legacy Tools
 - w/ CMD / PWSH
@@ -44,8 +45,11 @@
    - reference LDAP query online for query issue
    - Group maybe nested which means its a tree. Group A -> Group B + C -> Group D -> User
 
-- Auto Get SPN (Choose me first)
+## Auto Get SPN (Choose me first)
 - https://github.com/compwiz32/PowerShell/blob/master/Get-SPN.ps1?source=post_page-----b95d3146cfe9--------------------------------
+
+## Manually Get SPN 
+- ``` Get-ADUser -Filter {SamAccountName -eq "{USERNAME}"} -Properties ServicePrincipalNames ```
 
 ### Auto Enum 
 - PowerView.ps1 ``` Import-Module .\PowerView.ps1 ```
