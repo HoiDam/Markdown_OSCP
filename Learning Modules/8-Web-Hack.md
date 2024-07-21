@@ -25,6 +25,8 @@
 - Enum
     ``` gobuster dir -u http://192.168.50.16:5002 -w /usr/share/wordlists/dirb/big.txt -p pattern -t 42```
 
+- Enum try more file extension!!! (Dont be lazy)
+
 - Useful url
 
     ``` sitemap.xml robots.txt ```

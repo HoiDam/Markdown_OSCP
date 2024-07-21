@@ -117,7 +117,8 @@
 - not just using filetype alternatives
 1. upload htaccess with this ``` echo "AddType application/x-httpd-php .dork" > .htaccess ```
 2. upload shell.dork with reverse shell content (maybe Ivan Sincek?)
-
+## phpinfo.php
+- Look for interesting info e.g. $_DOCUMENT_ROOT (can inject files to the dir)
 
 # Windows
 1. Run As Admin
