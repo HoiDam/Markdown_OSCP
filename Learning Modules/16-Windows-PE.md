@@ -175,7 +175,8 @@
 - https://github.com/SecWiki/windows-kernel-exploits
 ### printspoofer
 -  If ```whoami /priv``` shows ``` SeImpersonatePrivlege``` enabled = can use 
--   ``` .\PrintSpoofer64.exe -i -c powershell.exe ```
+1. From LOCAL/NETWORK SERVICE to SYSTEM by abusing SeImpersonatePrivilege on Windows 10 and Server 2016/2019.:   ``` .\PrintSpoofer64.exe -i -c powershell.exe ```
+2. From Local user: https://github.com/BeichenDream/GodPotato (Windows Server 2012 - Windows Server 2022 Windows8 - Windows 11)
 -  ``` SeManageVolume``` : https://github.com/CsEnox/SeManageVolumeExploit/releases/tag/public
 
 # Struggling point

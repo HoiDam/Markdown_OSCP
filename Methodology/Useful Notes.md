@@ -34,6 +34,8 @@
 - disable passive mode to prevent entering extended passive mode error
   ``` epsv4 off ```
   ``` passive ```
+## SSL
+- ``` ftp-ssl -z secure -z verif=0 -p {ip} ```
 
 # Landing issue
 1. sometimes rmb spawn ANY shell since ssh not support stdin e.g. ``` python3 -c 'import pty; pty.spawn("/bin/bash")' ```
