@@ -86,8 +86,10 @@
 
     ./proxy -selfcert
     ```
-3. (After agent connected)
-   ```
+3. (After agent connected): ``` >>session >>start ```
+   https://www.calculator.net/ip-subnet-calculator.html?cclass=any&csubnet=24&cip=172.16.184.254&ctype=ipv4&x=Calculate
+
+4.  ```
     sudo ip route add 172.16.5.0/24 dev ligolo
     ```
 ## Agent (Victim)
