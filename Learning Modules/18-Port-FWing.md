@@ -92,6 +92,11 @@
 4.  ```
     sudo ip route add 172.16.5.0/24 dev ligolo
     ```
+5.  (Delete)
+    ```
+    sudo ip route remove 172.16.184.0/24
+    ```
+
 ## Agent (Victim)
 1. ```
     # The IP will be the IP of our Kali VM/attacking machine.

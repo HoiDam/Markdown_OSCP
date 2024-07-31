@@ -103,6 +103,7 @@
 
 # AD Persistence
 ## Golden Ticket
+- https://www.hackingarticles.in/mimikatz-for-pentester-kerberos/ 
 - Create self-made custom TGT
 - Create a TGT stating that a non-privileged user is a member of the Domain Admins group
 -  krbtgt account password is not automatically changed
