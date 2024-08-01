@@ -31,6 +31,8 @@
 - https://medium.com/@arunc4cyber/windows-privilege-escalation-service-binary-path-write-based-privesc-with-service-full-access-a9adec0112a7 
 1. Get all task``` tasklist /svc ```
 2. ``` sc qc {Service} ``` [CMD Only] check service running by who
+### Abusing insecure service (can edit by anyone but run as admin) 
+1.  ``` Restart-Service {service} -Force ``` (Powershell)
 
 ## Hidden info
 - Searching attackable files in system ``` Get-ChildItem -Path C:\ -Include *.kdbx -File -Recurse -ErrorAction SilentlyContinue ``` 
