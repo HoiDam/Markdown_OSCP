@@ -16,7 +16,7 @@
 ## Foothold
 
 
-# VM 4
+# VM 4 (pwned)
 - Web02
 - Microsoft Windows Server 2022 Standard
 - 10.0.20348 N/A Build 20348

