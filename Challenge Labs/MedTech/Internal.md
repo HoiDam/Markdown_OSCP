@@ -99,7 +99,7 @@ Host script results:
 
 ```
 
-# VM 6
+# VM 6 (pwned)
 - dev04.medtech.com
 ```
 135/tcp   open  msrpc         Microsoft Windows RPC
@@ -147,6 +147,13 @@ Host script results:
 ## Interesting Info
 1. leon logined 
     ```
+        * Username : leon
+         * Domain   : MEDTECH
+         * NTLM     : 2e208ad146efda5bc44869025e06544a
+         * SHA1     : 8d1c9e13d2d2c20dbee8b4eacb20b73f06573c96
+         * DPAPI    : a7bad14f64c3cf0d7ae2b5f6392a0b6d
+
+         Cracked = rabbit:)
     ```
 
 # VM 7
