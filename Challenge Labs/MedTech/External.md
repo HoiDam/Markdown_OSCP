@@ -1,4 +1,4 @@
-# VM 3
+# VM 3 (pwned)
 - WEB01
 - ```
     PORT   STATE SERVICE VERSION
@@ -13,6 +13,16 @@
     Service Info: OS: Linux; CPE: cpe:/o:linux:linux_kernel
   ```
 ## Foothold
+- found credential in DC01
+  ```
+  ssh offsec@192.168.220.120
+  century62hisan51
+  ```
+## Root
+- offsec is sudoer
+  ```
+  sudo su
+  ```
 
 
 # VM 4 (pwned)
