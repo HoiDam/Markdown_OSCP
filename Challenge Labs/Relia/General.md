@@ -1,10 +1,13 @@
 # User List
 1. zachary (local)
-2. mark (local)
-3. anita | fireball
+2. mark:!8@aBRBYdb3! (local)
+3. anita:fireball
 4. miranda
 5. steven
 6. offsec
+7. emma:SomersetVinyl1!
+8. Luigi:Papal1963 (not sure)
+9. bo:Luigi=Papal1963 (not sure)
 
 # Interesting Info
 1. ```

