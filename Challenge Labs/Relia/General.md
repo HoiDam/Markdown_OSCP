@@ -6,8 +6,9 @@
 5. steven
 6. offsec
 7. emma:SomersetVinyl1!
-8. Luigi:Papal1963 (not sure)
-9. bo:Luigi=Papal1963 (not sure)
+8. bo:Luigi=Papal1963 (not sure)
+9. adrian
+10. damon
 
 # Interesting Info
 1. ```

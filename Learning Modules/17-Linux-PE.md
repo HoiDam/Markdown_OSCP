@@ -21,7 +21,8 @@
 - ``` route ``` | ``` routel ``` show network routing tables (easy fuck itself localhost services to priv esc)
 - ``` ss -anp ``` list all connection
 - ``` cat /etc/iptables/rules.v4 ``` need root to see iptables (firewall rules)
-  
+- ``` sudo lsof -i -P -n | grep LISTEN ``` show exposed ports 
+
 - ``` ls -lah /etc/cron* ``` list all cron jobs with files and directories 
 - ``` crontab -l ``` list the cronjob that current user run | for ``` sudo crontab -l ``` can see jobs run by root
 - ``` dpkg -l | rpm ``` list all package 

