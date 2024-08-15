@@ -40,6 +40,10 @@ Host script results:
 |_    Message signing enabled but not required
 ```
 
+```
+
+```
+
 # VM 3 .191
 - LOGIN
 ```
@@ -513,4 +517,6 @@ Host script results:
 
 ## Interesting info
 ```
+maildmz@relia.com:DPuBT9tGCBrTbR
+jim@relia.com
 ```
