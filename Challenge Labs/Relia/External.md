@@ -48,42 +48,50 @@ Host script results:
 - LOGIN
 ```
 PORT      STATE SERVICE       VERSION
-25/tcp    open  smtp          hMailServer smtpd
-| smtp-commands: MAIL, SIZE 20480000, AUTH LOGIN, HELP
-|_ 211 DATA HELO EHLO MAIL NOOP QUIT RCPT RSET SAML TURN VRFY
-110/tcp   open  pop3          hMailServer pop3d
-|_pop3-capabilities: USER UIDL TOP
+80/tcp    open  http          Microsoft IIS httpd 10.0
+| http-auth: 
+| HTTP/1.1 401 Unauthorized\x0D
+|_  Basic realm=192.168.237.191
+|_http-server-header: Microsoft-IIS/10.0
+|_http-title: 401 - Unauthorized: Access is denied due to invalid credentials.
 135/tcp   open  msrpc         Microsoft Windows RPC
 139/tcp   open  netbios-ssn   Microsoft Windows netbios-ssn
-143/tcp   open  imap          hMailServer imapd
-|_imap-capabilities: NAMESPACE IMAP4rev1 CHILDREN RIGHTS=texkA0001 OK completed QUOTA IMAP4 ACL CAPABILITY SORT IDLE
 445/tcp   open  microsoft-ds?
-587/tcp   open  smtp          hMailServer smtpd
-| smtp-commands: MAIL, SIZE 20480000, AUTH LOGIN, HELP
-|_ 211 DATA HELO EHLO MAIL NOOP QUIT RCPT RSET SAML TURN VRFY
+3389/tcp  open  ms-wbt-server Microsoft Terminal Services
+|_ssl-date: 2024-08-18T08:47:46+00:00; -2s from scanner time.
+| rdp-ntlm-info: 
+|   Target_Name: RELIA
+|   NetBIOS_Domain_Name: RELIA
+|   NetBIOS_Computer_Name: LOGIN
+|   DNS_Domain_Name: relia.com
+|   DNS_Computer_Name: login.relia.com
+|   DNS_Tree_Name: relia.com
+|   Product_Version: 10.0.20348
+|_  System_Time: 2024-08-18T08:47:38+00:00
+| ssl-cert: Subject: commonName=login.relia.com
+| Not valid before: 2024-05-15T12:01:56
+|_Not valid after:  2024-11-14T12:01:56
 5985/tcp  open  http          Microsoft HTTPAPI httpd 2.0 (SSDP/UPnP)
 |_http-server-header: Microsoft-HTTPAPI/2.0
 |_http-title: Not Found
 47001/tcp open  http          Microsoft HTTPAPI httpd 2.0 (SSDP/UPnP)
 |_http-title: Not Found
 |_http-server-header: Microsoft-HTTPAPI/2.0
-49664/tcp open  unknown
+49664/tcp open  msrpc         Microsoft Windows RPC
 49665/tcp open  msrpc         Microsoft Windows RPC
 49666/tcp open  msrpc         Microsoft Windows RPC
 49667/tcp open  msrpc         Microsoft Windows RPC
 49668/tcp open  msrpc         Microsoft Windows RPC
 49669/tcp open  msrpc         Microsoft Windows RPC
 49670/tcp open  msrpc         Microsoft Windows RPC
-Service Info: Host: MAIL; OS: Windows; CPE: cpe:/o:microsoft:windows
+49671/tcp open  msrpc         Microsoft Windows RPC
+Service Info: OS: Windows; CPE: cpe:/o:microsoft:windows
+```
 
-Host script results:
-|_clock-skew: -1s
-| smb2-time: 
-|   date: 2024-08-06T13:59:24
-|_  start_date: N/A
-| smb2-security-mode: 
-|   3:1:1: 
-|_    Message signing enabled but not required
+## Foothold & root
+```
+    info from internal .14 host
+    xfreerdp /v:192.168.237.191 /u:dmzadmin /p:SlimGodhoodMope /cert-ignore
 ```
 
 # VM 10 .245 (pwned)

