@@ -47,7 +47,7 @@
 - Find all .kdbx database ``` Get-ChildItem -Path C:\ -Include *.kdbx -File -Recurse -ErrorAction SilentlyContinue ```
 - translate .kdbx to .hash ``` keepass2john Database.kdbx > keepass.hash ```
 - trim unwanted text e.g. $database: 
-- using hashcat func w/ keepass lib ``` hashcat -m 13400 keepass.hash /usr/share/wordlists/rockyou.txt -r /usr/share/hashcat/rules/rockyou-30000.rule --force ``` 
+- using hashcat func w/ keepass lib ``` hashcat -m 13400 keepass.hash /usr/share/wordlists/rockyou.txt -r /usr/share/hashcat/rules/rockyou-30000.rule --force -n 20``` 
 
 ## SSH Passphrase
 - DONT GRANT TOO MUCH RIGHTS TO id_rsa | 600 is enough

