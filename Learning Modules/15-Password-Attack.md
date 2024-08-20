@@ -116,3 +116,5 @@
 - use victim A to connect our rogue impacket server by dir \\xx\y
 - watch shell if have thing come
 
+## Password decrypter (for weak hash)
+1. MD5  https://md5decrypt.net/en/

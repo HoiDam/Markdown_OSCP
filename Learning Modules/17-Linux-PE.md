@@ -69,6 +69,7 @@
 ## Service footprints
 - ``` watch -n 1 "ps -aux | grep pass" ``` process
 - ``` sudo tcpdump -i lo -A | grep "pass" ``` tcp traffic
+- ``` pspy ``` but dunno how use yet
 
 # Bad File permissions 
 ## Cron jobss hack
