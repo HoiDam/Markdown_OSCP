@@ -280,7 +280,7 @@ xfreerdp /v:172.16.197.15 /u:andrea /p:'PasswordPassword_6' /d:relia.com /cert-i
     replacing rev shell exe to c:/updatecollector/updatecollctor.exe 
 ```
 
-# VM 7 .19
+# VM 7 .19 (pwned) 
 - backup
 ```
 22/tcp open  ssh     OpenSSH 8.2p1 Ubuntu 4ubuntu0.5 (Ubuntu Linux; protocol 2.0)
@@ -377,6 +377,12 @@ Service Info: OS: FreeBSD; CPE: cpe:/o:freebsd:freebsd
     Rb9kNokjDsjYyH
 ```
 
+## Root
+abusing doas (freebsd)
+```
+1.  doas service apache24 onestart
+
+```
 # VM 9 .21
 - FILES
 ```

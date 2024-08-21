@@ -11,6 +11,7 @@
 10. damon
 11. jim:Castello1!
 12. dmzadmin:SlimGodhoodMope
+13. andrew:Rb9kNokjDsjYyH
 
 # Domain User List
 1. Administrator (domain admin)
