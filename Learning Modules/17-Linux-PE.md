@@ -17,6 +17,7 @@
   
 - ``` cat /etc/issue ``` | ``` cat /etc/os-release ``` | ```uname -a```OS release & version (better OS Enum)
 - ``` ps aux``` show all process 
+- ``` netstat -anl ``` search exposed service
 - ``` ip a ``` list all network card & info in this machine
 - ``` route ``` | ``` routel ``` show network routing tables (easy fuck itself localhost services to priv esc)
 - ``` ss -anp ``` list all connection
@@ -45,6 +46,8 @@
 - ``` find / -perm -u=s -type f 2>/dev/null ``` find all SUID/SGID marked file for ez impersonate permission for everyone
 - Can Use ``` strings ``` to read binaries details under ``` /usr/bin ```
 - given binary to be executed with root permissions even when launched by a lower-privileged user is called the effective UID (EUID)
+- Reading history of Users ```/home/{username}/.history```
+
 
 ## Auto Enum
 - file transfer from kali to remote 
@@ -116,3 +119,5 @@
 - ``` file {binary}``` can see ELF file architecture
 - useful search: ``` searchsploit "linux kernel Ubuntu 16 Local Privilege Escalation"   | grep  "4." | grep -v " < 4.4.0" | grep -v "4.8" ```
 
+# doas
+- ``` doas -s ``` get root shell

