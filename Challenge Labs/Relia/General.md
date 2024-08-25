@@ -14,7 +14,7 @@
 13. andrew:Rb9kNokjDsjYyH
 
 # Domain User List
-1. Administrator (domain admin)
+1. Administrator:vau!XCKjNQBv2$ (domain admin)
 2. andrea:PasswordPassword_6
 3. anna
 4. brad
@@ -29,6 +29,9 @@
 13. michelle:NotMyPassword0k?
 14. milana
 15. mountuser
+
+## ??? weird pair
+1. RELIA\john.m:YouWillNeverTakeMyTractor!1922
 
 # Interesting Info
 1. ```

