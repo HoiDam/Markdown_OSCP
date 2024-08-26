@@ -7,6 +7,8 @@
 - w/ CMD / PWSH
 - ``` net user {user name} /domain ``` get user info | get all without providing
 - ``` net group "{group name}" /domain ``` get user list in xx group | get all without providing name
+### From Kali
+- ``` impacket-getadusers -all {domain}/{username} -dc-ip {ip} ```
 
 ### .NET & Pwsh modules/classes
 1. Get ldap path (since ldap can support other than AD)
@@ -129,3 +131,7 @@
 # Window shit
 1. change user: ``` runas /user:{domain_name}\{user_name} "cmd" ```
 2. change someone password: ``` net user {username} {new password} /domain ``` 
+3. remote using ``` runas /netonly /user:{domain_name}\{user_name} cmd```
+
+## Interesting file
+1. Group.xml ``` have username cpassword @ domain ``` 

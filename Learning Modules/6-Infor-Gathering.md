@@ -81,7 +81,7 @@ Test-NetConnection -Port {port} {ip}
   
   ``` enum4linux-ng -A 192.168.171.187 ``` List all info of SMB
 
-  ``` smbmap ``` find disks
+  ``` smbmap -R {share} -H {ip}``` list all files 
 
 ## 5. SMTP Enum
 - nc(linux) / telnet(windows) to communicate with SMTP server
