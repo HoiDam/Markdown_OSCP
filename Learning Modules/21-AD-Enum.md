@@ -108,6 +108,22 @@
 - interesting files: sysvol . Have domain policy file (for DC)
 - $ dollar sign = hidden share
 
+# RPC
+- Microsoft Remote Procedure Call (RPC) defines a powerful technology for creating distributed client/server programs.
+- Target Domain controller
+- port 593 default
+- ``` rpcclient -U "svc_mssql" {ip}```
+- ``` rpcclient -U "" {ip}``` can be empty also
+- 
+## Enum
+1. enumdomusers
+2. enumdomgroups
+3. queryusergroups {rid of that user}
+   
+## Kerbrute
+- https://github.com/ropnop/kerbrute/releases/tag/v1.0.3
+- ``` ./kerbrute userenum --dc {dc-ip} -d {domain name} user.txt ``` brute force enum the user name in dc
+
 # Auto Enum
 ## SharpHound
 - ``` Import-Module .\Sharphound.ps1 ```

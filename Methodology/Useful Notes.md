@@ -145,17 +145,6 @@
 1. List shares: ``` smbclient -L \\{IP}\ -N ```
 2. Connect to share ``` smbclient \\\\{IP}\\{share} -U '{domain}\{username}%{password}' ```
 
-# RPC
-- Microsoft Remote Procedure Call (RPC) defines a powerful technology for creating distributed client/server programs.
-- port 593 default
-- ``` rpcclient -U "svc_mssql" {ip}```
-- ``` rpcclient -U "" {ip}``` can be empty also
-## Enum
-1. enumdomusers
-2. enumdomgroups
-3. queryusergroups {rid of that user}
-4. 
-
 ## setuserinfo
 - modify user ac info
 ```

@@ -118,3 +118,13 @@
 
 ## Password decrypter (for weak hash)
 1. MD5  https://md5decrypt.net/en/
+
+# Interesting User Name Format
+- Brian Mark
+- Could be forming domain name like this:
+```
+1. brian.mark
+2. bmark
+3. brianm
+4. brian mark
+```
