@@ -108,6 +108,7 @@
 
 # LDAP
 1. LDAPsearch (kali)
+- ``` ldapsearch -h {host} -x -b "DC=??,DC=local" '(objectClass=User) samaccountname | grep samaccountname | awk '{print $2}' ``` Get user list | remember remove obviously not using account e.g. Guest, system account
 
 # Php
 ## PHP Wrappers
@@ -148,6 +149,7 @@
 - Microsoft Remote Procedure Call (RPC) defines a powerful technology for creating distributed client/server programs.
 - port 593 default
 - ``` rpcclient -U "svc_mssql" {ip}```
+- ``` rpcclient -U "" {ip}``` can be empty also
 ## Enum
 1. enumdomusers
 2. enumdomgroups
