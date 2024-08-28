@@ -54,6 +54,7 @@
 - ``` Get-ADUser -Filter {SamAccountName -eq "{USERNAME}"} -Properties ServicePrincipalNames ```
 
 ### Auto Enum 
+- LDAP Dump (https://github.com/n00py/LAPSDumper): ``` python laps.py -u user -p password -d domain.local ```
 - PowerView.ps1 ``` Import-Module .\PowerView.ps1 ```
 - https://gist.github.com/HarmJ0y/184f9822b195c52dd50c379ed3117993 
 - ``` Get-NetUser ``` | ``` Get-NetGroup ``` common cmd
@@ -139,6 +140,11 @@
 - get new data set when have new user compromised
 - useful thing: local admin rights -> first degree local admin
 - Thoughts: Can start from AD -> switch user by abusing AD weakness e.g. can control someone AD password -> login to that guy (maybe that guy is local admin of some machine) -> boom
+
+## Running Bloodhound in kali
+- https://github.com/dirkjanm/BloodHound.py 
+- ``` python3 bloodhound.py -c all -dc {dc-domain-name} -d {domain name} -u {username} -p {password} -ns {name server ip} ```
+
 
 ## Useful query
 - Show all computers/users ``` MATCH (m:Computer/User) RETURN m ```

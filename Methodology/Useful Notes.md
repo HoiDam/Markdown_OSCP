@@ -159,4 +159,3 @@
   Level 4: Even more detailed information, including all the above and security identifier (SID).
 ```
 
-

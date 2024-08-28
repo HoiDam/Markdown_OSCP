@@ -23,6 +23,7 @@
 2. SMB (Nois & slow)
     - Run in Kali Env
     - ``` crackmapexec smb {victim ip} -u users.txt -p 'YouAreFuckingGay' -d corp.com (--continue-on-success OR --shares) ``` 
+    - ``` -pass-pol ``` check password policy (before brute force)
     - If have local admin rights of that ac will show "Pwd3d!"
 3. Kerberos TGT
     - Run in Windows/ Kali

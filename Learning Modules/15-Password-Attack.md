@@ -30,6 +30,17 @@
 ## PDF Crack
 - ``` pdfcrack -f Infrastructure.pdf -w /usr/share/wordlists/rockyou.txt ```
 
+## Zip Crack
+1. ``` zip2john {original} > {new.hash} ```
+2. ``` john {new.hash} --wordlist=/opt/wordlists/rockyou.txt ```
+
+# Pfx crack
+1. ``` pfx2john {original} > {new.hash}```
+2. ``` john {new.hash} --wordlist=/opt/wordlists/rockyou.txt ```
+- ``` openssl pkcs12 -in {xxx.pfx} -info ``` Get general print data
+- ``` openssl pkcs12 -in {xxx.pfx} -nocerts -out key.pem -nodes ``` Get private key
+- ``` openssl pkcs12 -in {xxx.pfx} -nokeys -out key.cert ``` Get public key
+
 ## Cracking with Hashcat
 - Work w/ mutated password list (rockyou/other list)
 - hashcat rule explained: [https://github.com/zh54321/hashcat_rule_gen ](https://hashcat.net/wiki/doku.php?id=rule_based_attack)
