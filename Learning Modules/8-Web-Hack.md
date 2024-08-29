@@ -8,6 +8,10 @@
     Gobuster fuzzing
 
     ``` gobuster dir -u {ip} -w /usr/share/wordlists/dirb/common.txt -t 42 ```
+## ffuf
+- Check subdomain
+- ```ffuf -u http://{ip} -H "Host:FUZZ.{hostname}" -w /opt/seclists/discovery/dns/subdomains-top1million.txt ```
+- ``` -fs 1234 ``` filter size = 1234
 
 ## Burp Suite
 - You know what to do =]

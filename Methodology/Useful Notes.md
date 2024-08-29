@@ -39,6 +39,7 @@
 
 # Landing issue
 1. sometimes rmb spawn ANY shell since ssh not support stdin e.g. ``` python3 -c 'import pty; pty.spawn("/bin/bash")' ```
+2. let you can use arrows and short keys: ``` rlwrap {commands} ``` e.g. nc lvnp , smbclient , etc
 
 # Built-in web shell library in kali
 - ``` find / -name nc.exe 2>/dev/null ```

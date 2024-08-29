@@ -2,6 +2,8 @@
 - ``` xfreerdp /u:stephanie /d:corp.com /v:192.168.50.75 ``` req domain name if AD activated
 - target domain admin
 - Detail of AD Domain ``` Get-ADdomain ```
+- Check role usage: https://learn.microsoft.com/en-us/windows-server/identity/ad-ds/manage/understand-security-groups
+
 ## Manual Enum
 ### Legacy Tools
 - w/ CMD / PWSH

@@ -110,3 +110,6 @@ Test-NetConnection -Port {port} {ip}
     username = anne.Flora
 - Try password with season + year 
     e.g. Summer2023
+
+## File enum
+1. xxd (reading file in hex dump) ``` xxd interesting.file ```
