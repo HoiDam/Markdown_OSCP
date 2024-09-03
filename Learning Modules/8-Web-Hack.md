@@ -10,7 +10,7 @@
     ``` gobuster dir -u {ip} -w /usr/share/wordlists/dirb/common.txt -t 42 ```
 ## ffuf
 - Check subdomain
-- ```ffuf -u http://{ip} -H "Host:FUZZ.{hostname}" -w /opt/seclists/discovery/dns/subdomains-top1million.txt ```
+- ```ffuf -u http://{ip} -H "Host:FUZZ.{hostname}" -w /usr/share/seclists/discovery/dns/subdomains-top1million.txt ```
 - ``` -fs 1234 ``` filter size = 1234
 
 ## Burp Suite
@@ -30,8 +30,15 @@
 - Provide pattern in pattern file
     ``` {GOBUSTER}/v1 ```
 
-- Enum
+- Enum (RECURSIVELY IF NEEDED!)
     ``` gobuster dir -u http://192.168.50.16:5002 -w /usr/share/wordlists/dirb/big.txt -p pattern -t 42```
+
+- Try more seclists in still cant find e.g. https://github.com/danielmiessler/SecLists/blob/master/Discovery/Web-Content/raft-medium-directories.txt 
+    ```
+    /usr/share/SecLists/Discovery/Web-Content/raft-medium-directories.txt
+    /usr/share/dirbuster/wordlists/directory-list-2.3-medium.txt
+    ```
+
 
 - Enum try more file extension!!! (Dont be lazy)
 

