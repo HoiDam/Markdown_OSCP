@@ -112,7 +112,7 @@
 - list all current user can use sudo to run 
 - brute force those capabilities to PE
 - if not success -> check error ``` cat /var/log/syslog | grep {binary_name} ```
-- sometimes blocked by apparmor
+- [Can focus those unknown binary] 
 
 ## Kernal fuck
 - search public exploit | sometime need pull file to victim compile and run

