@@ -51,8 +51,10 @@
 # Git 
 - Show any staged code ``` git status ```
 - show changes ``` git show {commit_id} ```
+- show log ``` git log ``` (reading logs head)
 ## Git Tools
 - https://github.com/internetwache/GitTools?tab=readme-ov-file
+- https://github.com/arthaud/git-dumper (BETTER)
 ### Git Dumper:  
 1. ``` ./gitdumper.sh {ip} {store path}```download as much as possible from the found .git repository from webservers which do not have directory listing enabled
 2. ``` git checkout -- .``` Restore file via git

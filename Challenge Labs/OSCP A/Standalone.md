@@ -83,6 +83,13 @@ PORT   STATE SERVICE VERSION
 Service Info: OSs: Unix, Linux; CPE: cpe:/o:linux:linux_kernel
 ```
 
+## Foothold
+1. found password in git log (folder under domain/.git/ and dumped)
+```
+    ssh stuart@Crystal
+    BreakingBad92
+```
+
 # Hermes .145
 ```
 PORT     STATE SERVICE       VERSION
