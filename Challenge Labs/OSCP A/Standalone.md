@@ -90,6 +90,14 @@ Service Info: OSs: Unix, Linux; CPE: cpe:/o:linux:linux_kernel
     BreakingBad92
 ```
 
+## Root 
+1. Found zip file in opt/backup
+2. found chloe password in configuration.php
+```
+su chloe 
+Ee24zIK4cDhJHL4H
+```
+
 # Hermes .145
 ```
 PORT     STATE SERVICE       VERSION
