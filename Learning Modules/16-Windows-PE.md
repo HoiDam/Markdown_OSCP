@@ -15,7 +15,7 @@
 - ``` whoami /groups ```  display all groups our current user is a member
 - ``` whoami /all ``` Enum All [Gigachad!]
 - ``` Get-LocalUser ```  obtain a list of all local users 
-- ``` Get-LocalGroup ``` existing groups in local
+- ``` Get-LocalGroup ``` existing groups in local | ``` net localgroup Administrators ```
 - ``` Get-LocalGroupMember {Group_name} ``` list users under a group
 - ``` systeminfo ``` care 32 or 64 bits
 - ``` netstat -ano ``` search exposed service
