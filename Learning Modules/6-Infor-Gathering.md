@@ -89,7 +89,7 @@ Test-NetConnection -Port {port} {ip}
 - If return 252 = yes, 550 = no
 - ``` smtp-user-enum -t 192.168.158.63 -U /usr/share/wordlists/dirb/big.txt -M VRFY ```
 
-## 6. SNMP Enum
+## 6. SNMP Enum (If no interesting thing outside then play this)
 - 161,162,10161,10162 port could be possible
 - SNMP Mangement information base -> netw management
 - MIB Tree info: https://www.ibm.com/support/knowledgecenter/ssw_aix_71/commprogramming/mib.html

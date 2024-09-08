@@ -156,6 +156,7 @@
 1. change user: ``` runas /user:{domain_name}\{user_name} "cmd" ```
 2. change someone password: ``` net user {username} {new password} /domain ``` 
 3. remote using ``` runas /netonly /user:{domain_name}\{user_name} cmd```
+4. add someone to local admin: ``` net localgroup Administrators ms01\mary.williams /add ```
 
 ## Interesting file
 1. Group.xml ``` have username cpassword @ domain ``` 
