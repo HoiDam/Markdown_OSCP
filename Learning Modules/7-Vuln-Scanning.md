@@ -32,4 +32,4 @@ sudo nmap -sV -p 443 --script "vuln" 192.168.50.124
 
 - ``` nmap -sCVS --script=smb-vuln-* {ip} -vvv ```
 
-Advanced nmap ``` sudo nmap -Pn -n $IP -sC -sV -p- --open ```
+Advanced nmap ``` sudo nmap -Pn -n $IP -sC -sV -p- --open ``` (remove --open to get filtered) 

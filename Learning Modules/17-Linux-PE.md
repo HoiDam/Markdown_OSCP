@@ -121,3 +121,6 @@
 
 # doas
 - ``` doas -s ``` get root shell
+
+# Services
+1. some linux executable may need terminal to run --> can try to spawn python3 shell

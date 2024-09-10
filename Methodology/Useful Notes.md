@@ -125,6 +125,12 @@
 2. upload shell.dork with reverse shell content (maybe Ivan Sincek?)
 ## phpinfo.php
 - Look for interesting info e.g. $_DOCUMENT_ROOT (can inject files to the dir)
+- Look for disabled command (search disabled) --> ** dfunc_bypasser may helps **
+## using phar to smuggle php for LFI
+- https://book.hacktricks.xyz/pentesting-web/file-inclusion/lfi2rce-via-php-filters
+1. write shell in shell.phar
+2. ``` zip shell.phar {any type that bypass checking}```
+3. running call in LFI e.g. ``` phar://directory/shell.phar/shell ```
 
 # Windows
 1. Run As Admin
@@ -162,3 +168,5 @@
   Level 4: Even more detailed information, including all the above and security identifier (SID).
 ```
 
+## Python2
+1. RCE in input() ```__import__('os').system("bash") ```
