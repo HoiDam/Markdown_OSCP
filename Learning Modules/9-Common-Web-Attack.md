@@ -27,6 +27,8 @@
 - Loading a file and attach CMD
 
 - Reverse shell & web shell
+## Interesting Arguments
+1. ``` powershell.exe -EncodedCommand {base64 command} ```
 
 ## Local File Inclusion LFI
 - Less common

