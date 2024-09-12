@@ -11,6 +11,9 @@
 
     ``` -x php ```can add filetype here
 
+
+
+
 ### Gobuster enum API
 - Provide pattern in pattern file
     ``` {GOBUSTER}/v1 ```
@@ -25,11 +28,21 @@
     ```
 
 - Enum try more file extension!!! (Dont be lazy)
+- if website is not case-sentitive can use single case only wordlist
+
+## feroxbuster 
+- Support recursive and interactive scanning
+- ``` feroxbuster -k -u {url} -x {file_type} -o {outputfile} -w {wordlist} ```
+### Stop scanning some path within progress
+1. Hit 'enter' to start menu
+2. ``` c -f {number of branch} ```
 
 ## ffuf
-- Check subdomain
+### Check subdomain
 - ```ffuf -u http://{ip} -H "Host:FUZZ.{hostname}" -w /usr/share/seclists/discovery/dns/subdomains-top1million.txt ```
 - ``` -fs 1234 ``` filter size = 1234
+### Check special character
+- ``` using /opt/seclists/fuzzing/special-char.txt ```
 
 ## SSTI
 - https://www.cobalt.io/blog/a-pentesters-guide-to-server-side-template-injection-ssti

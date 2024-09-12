@@ -11,6 +11,8 @@
 
     example: ```table = offsec.dbo.users```
 
+- running mssql client in window box (local host) ``` sqlcmd -U {username} -P {password} -Q {query} ```
+
 # Manual SQL exploit
 
 ## Union based payload

