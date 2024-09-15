@@ -34,6 +34,7 @@
 - disable passive mode to prevent entering extended passive mode error
   ``` epsv4 off ```
   ``` passive ```
+- get all ``` mget * ```
 ## SSL
 - ``` ftp-ssl -z secure -z verif=0 -p {ip} ```
 

