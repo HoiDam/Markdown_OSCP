@@ -90,10 +90,10 @@ Test-NetConnection -Port {port} {ip}
 - ``` smtp-user-enum -t 192.168.158.63 -U /usr/share/wordlists/dirb/big.txt -M VRFY ```
 
 ## 6. SNMP Enum (If no interesting thing outside then play this)
-- 161,162,10161,10162 port could be possible
 - SNMP Mangement information base -> netw management
 - MIB Tree info: https://www.ibm.com/support/knowledgecenter/ssw_aix_71/commprogramming/mib.html
-- Enum which opened service first ``` sudo nmap -sU -A --open -p 161 {ip} -oG open-snmp.txt ``` 
+1. Enum which opened service first ``` sudo nmap -sU -A --open -p 161  {ip}``` 
+2. try this also ``` sudo nmap -sU  --script *snmp* {ip} ```
 - ``` onesixtyone ``` also can do similar enum
 - ``` snmpwalk -c {community name} {ip} {mib code} ``` to search info from mib e.g. running process, user acc
 - ``` -Oa ``` can translate hex to ascii for snmpwalk 
