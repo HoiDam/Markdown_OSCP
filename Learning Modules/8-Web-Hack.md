@@ -5,9 +5,9 @@
 
 ## Use Gobuster 
 
-    Gobuster fuzzing
+###  Gobuster fuzzing
 
-    ``` gobuster dir -u {ip} -w /usr/share/wordlists/dirb/common.txt -t 42 ```
+1.  ``` gobuster dir -u {ip} -w /usr/share/wordlists/dirb/common.txt -t 42 ```
 
     ``` -x php ```can add filetype here
 
@@ -15,17 +15,20 @@
 - Provide pattern in pattern file
     ``` {GOBUSTER}/v1 ```
 
-- Enum (RECURSIVELY IF NEEDED!)
+### Enum (RECURSIVELY IF NEEDED!)
     ``` gobuster dir -u http://192.168.50.16:5002 -w /usr/share/wordlists/dirb/big.txt -p pattern -t 42```
 
+### Try harder !
 - Try more seclists in still cant find e.g. https://github.com/danielmiessler/SecLists/blob/master/Discovery/Web-Content/raft-medium-directories.txt 
     ```
     /usr/share/SecLists/Discovery/Web-Content/raft-medium-directories.txt
     /usr/share/dirbuster/wordlists/directory-list-2.3-medium.txt
     ```
-
 - Enum try more file extension!!! (Dont be lazy)
 - if website is not case-sentitive can use single case only wordlist
+
+### With proxy simple!
+- ``` HTTP_PROXY="http://192.168.153.189:3128/" gobuster dir -u http://192.168.153.189:8080 -w /usr/share/dirbuster/wordlists/directory-list-2.3-medium.txt -t 42  ```
 
 ## feroxbuster 
 - Support recursive and interactive scanning

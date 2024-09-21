@@ -67,6 +67,7 @@
 ## Sevice binary
 - May require RDP to use
 - ``` Get-CimInstance -ClassName win32_service | Select Name,State,PathName | Where-Object {$_.State -like 'Running'} ``` get WMI (Windows Management Instrumentation)services and see starting path
+- Search services: ``` Get-CimInstance -ClassName Win32_Service -Filter "Name like 'FJTWSVIC'" | Select-Object Name, PathName, StartName, State ```
 - [Powershell]: ```  Get-Service ```
 - check if have customed path ``` --default-files```
 - [*Useful*] Check permission with ``` icacls {path} ```
