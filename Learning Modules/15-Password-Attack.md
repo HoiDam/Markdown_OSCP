@@ -66,6 +66,9 @@
 - trim unwanted text e.g. $database: 
 - using hashcat func w/ keepass lib ``` hashcat -m 13400 keepass.hash /usr/share/wordlists/rockyou.txt -r /usr/share/hashcat/rules/rockyou-30000.rule --force -n 20``` 
 
+### keepass.dmp 
+- https://github.com/vdohney/keepass-password-dumper : keepass < 2.54
+
 ## SSH Passphrase
 - DONT GRANT TOO MUCH RIGHTS TO id_rsa | 600 is enough
 - can get id_rsa , still need crack paraphase

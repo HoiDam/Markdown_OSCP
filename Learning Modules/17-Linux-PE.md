@@ -62,6 +62,10 @@
 - check linpeas result
 - e.g. /opt/backups /etc/backups ,etc...
 - Some files will have credentials can directly use e.g. /etc/passwd  ssh-key rsa
+## Abusing sudo backup function / scrips
+1. moving the old file to ``` file.old ```
+2. writing a symoblic link of a file ```ln -s /root/.ssh/id_rsa {file}``` 
+3. run the sudo able 
 
 ## User trails
 - ``` env ``` environ variable
