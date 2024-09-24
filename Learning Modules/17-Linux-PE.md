@@ -103,7 +103,10 @@
 - see have ``` cap_setuid+ep```
 - go gtfobins look for Capabilities 
 - find harder (lookup all bins & PwnKits!!)
-  
+
+### Binary hacks
+1. wildcards with tar in bash script: https://medium.com/@polygonben/linux-privilege-escalation-wildcards-with-tar-f79ab9e407fa 
+
 ### Write to system files for misconfigure Bins
 - Example: dosbox w/ SUID
 1. /etc/sudoers: ``` echo {current_user_id} ALL=(ALL:ALL) ALL >> /etc/sudoers ```
