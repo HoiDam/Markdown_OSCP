@@ -32,6 +32,7 @@ sudo nmap -sV -p 443 --script "vuln" 192.168.50.124
 
 - ``` nmap -sCVS --script=smb-vuln-* {ip} -vvv ```
 
-Advanced nmap ``` sudo nmap -Pn -n $IP -sC -sV -p- --open ``` (remove --open to get filtered) 
-
-Advanced nmap for udp ``` sudo nmap -sU --top-ports 100  {ip}```
+## OSCP
+1. Advanced nmap ``` sudo nmap -Pn -n $IP -sC -sV -p- --open ``` (remove --open to get filtered) 
+2. Advanced nmap for udp ``` sudo nmap -sU --top-ports 100  {ip}```
+3. Group of machines (tcp) : ``` sudo nmap -Pn -n -iL {internal_machines.txt} -sC -sV -p- --open ```

