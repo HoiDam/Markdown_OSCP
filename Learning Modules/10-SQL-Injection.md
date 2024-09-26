@@ -15,6 +15,9 @@
 
 # Manual SQL exploit
 
+## Login bypass
+1. https://github.com/danielmiessler/SecLists/blob/master/Fuzzing/Databases/MySQL-SQLi-Login-Bypass.fuzzdb.txt
+
 ## Union based payload
 ``` %' UNION SELECT database(), user(), @@version, null, null -- // ```
 

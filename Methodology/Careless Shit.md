@@ -5,3 +5,4 @@
    2. dir /a 
    3. dir -Force
    4. gci -force
+3. always possible find all file type ``` html,php,aspx ```

