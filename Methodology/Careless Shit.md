@@ -6,3 +6,5 @@
    3. dir -Force
    4. gci -force
 3. always possible find all file type ``` html,php,aspx ```
+4. read the exploit description & comments!!
+5. Dont forget the exploit/ways you do in initial foothold -> maybe useful for rooting too!

