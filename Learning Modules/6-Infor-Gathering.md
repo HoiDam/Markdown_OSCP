@@ -94,12 +94,17 @@ Test-NetConnection -Port {port} {ip}
 - MIB Tree info: https://www.ibm.com/support/knowledgecenter/ssw_aix_71/commprogramming/mib.html
 1. Enum which opened service first ``` sudo nmap -sU -A --open -p 161  {ip}``` 
 2. try this also ``` sudo nmap -sU  --script *snmp* {ip} ```
+
 ### onesixtyone
 - ``` onesixtyone ``` also can do similar enum
+
 ### snmpwalk
+- [IMPORTANT!]``` snmpwalk -v2c -c public {ip} -m all ``` load all mibs
+- [IMPORTANT!]``` snmpwalk -v2c -c public 192.168.233.156 NET-SNMP-EXTEND-MIB::nsExtendObjects ```Get password
+
+#### Optional
 - ``` snmpwalk -c {community name} {ip} {mib code} ``` to search info from mib e.g. running process, user acc
 - ``` -Oa ``` can translate hex to ascii for snmpwalk 
-- ``` snmpwalk -v2c -c public {ip} -m all ``` load all mibs
 
 ## 7. Connect Windows w/ rdp
 - sometimes no need domain (for education account?? e.g. offsec lab)

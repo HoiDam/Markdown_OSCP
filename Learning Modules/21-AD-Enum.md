@@ -147,7 +147,7 @@
 
 ## Running Bloodhound in kali
 - https://github.com/dirkjanm/BloodHound.py 
-- ``` python3 bloodhound.py -c all -dc {dc-domain-name} -d {domain name} -u {username} -p {password} -ns {name server ip} ```
+- ``` python3 ~/Downloads/WindowUsefulTools/BloodHoundKali/bloodhound.py -c all -dc {dc-domain-name} -d {domain name} -u {username} -p {password} -ns {name server ip} ```
 
 
 ## Useful query
@@ -159,6 +159,8 @@
 2. change someone password: ``` net user {username} {new password} /domain ``` 
 3. remote using ``` runas /netonly /user:{domain_name}\{user_name} cmd```
 4. add someone to local admin: ``` net localgroup Administrators ms01\mary.williams /add ```
+## Get stored credentials
+1. ``` cmdkey /list ``` (if someone ran ```runas /savedcred ```, will have cached secrets )
 
 ## Interesting file
 1. Group.xml ``` have username cpassword @ domain ``` 

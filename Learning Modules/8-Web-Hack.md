@@ -9,7 +9,7 @@
 
 1.  ``` gobuster dir -u {ip} -w /usr/share/wordlists/dirb/common.txt -t 42 ```
 
-    ``` -x html,php,aspx ```can add filetype here
+    ``` -x html,php,aspx ```can add filetype here (https://github.com/danielmiessler/SecLists/blob/master/Discovery/Web-Content/web-extensions.txt)
 
 ### Gobuster enum API
 - Provide pattern in pattern file
