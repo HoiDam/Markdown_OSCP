@@ -166,18 +166,64 @@ Host script results:
 ![alt text](image-1.png)
 
 # 2
+- charlie
 ## Nmap scan
 ```
-
+PORT      STATE SERVICE VERSION
+21/tcp    open  ftp     vsftpd 3.0.5
+| ftp-anon: Anonymous FTP login allowed (FTP code 230)
+|_drwxr-xr-x    2 114      120          4096 Nov 02  2022 backup
+| ftp-syst: 
+|   STAT: 
+| FTP server status:
+|      Connected to ::ffff:192.168.251.192
+|      Logged in as ftp
+|      TYPE: ASCII
+|      No session bandwidth limit
+|      Session timeout in seconds is 300
+|      Control connection is plain text
+|      Data connections will be plain text
+|      At session startup, client count was 3
+|      vsFTPd 3.0.5 - secure, fast, stable
+|_End of status
+22/tcp    open  ssh     OpenSSH 8.9p1 Ubuntu 3 (Ubuntu Linux; protocol 2.0)
+| ssh-hostkey: 
+|   256 0e:ad:d7:de:60:2b:49:ef:42:3b:1e:76:9c:77:33:85 (ECDSA)
+|_  256 99:b5:48:fb:77:df:18:b0:1d:ad:e0:92:f3:e1:26:0d (ED25519)
+80/tcp    open  http    Apache httpd 2.4.52 ((Ubuntu))
+|_http-server-header: Apache/2.4.52 (Ubuntu)
+|_http-title: Apache2 Ubuntu Default Page: It works
+20000/tcp open  http    MiniServ 1.820 (Webmin httpd)
+|_http-title: Site doesn't have a title (text/html; Charset=utf-8).
+|_http-server-header: MiniServ/1.820
+Service Info: OSs: Unix, Linux; CPE: cpe:/o:linux:linux_kernel
 ```
 ## Service Emumeration
-### ?
+### ftp
+- support anonymous
+- found pdfs -> get author names (Robert, Mark, Cassie)
+- try brute force username: password
+- found cassie:cassie
+### ssh
+- cannot ssh
+### 80:http
+- nothing
+### 20000:http
+- usermin 1.820
+- vuln to unauthN rce
+
 ## Exploit
+1. ``` get 50234.py ```
+2. ``` python3 50234.py -u 192.168.192.157 -l cassie -p cassie ``` Get local shell
 ## Post Exploitation
+- found that root is running cron job : ``` */2 * * * * root cd /opt/admin && tar -zxf /tmp/backup.tar.gz * ``` every 2minutes
 ## Privilege Esculation
+- leverage wildcard tar : poison with checkpoint and add sudoer sh 
 ## Proofs
+- ![alt text](image-2.png)
 
 # 3
+- 
 ## Nmap scan
 ```
 

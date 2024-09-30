@@ -92,7 +92,7 @@ Test-NetConnection -Port {port} {ip}
 ## 6. SNMP Enum (If no interesting thing outside then play this)
 - SNMP Mangement information base -> netw management
 - MIB Tree info: https://www.ibm.com/support/knowledgecenter/ssw_aix_71/commprogramming/mib.html
-1. Enum which opened service first ``` sudo nmap -sU -A --open -p 161  {ip}``` 
+1. Enum which opened service first ``` sudo nmap -sU -A --open -p 161,162  {ip}``` 
 2. try this also ``` sudo nmap -sU  --script *snmp* {ip} ```
 
 ### onesixtyone
