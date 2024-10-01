@@ -223,14 +223,63 @@ Service Info: OSs: Unix, Linux; CPE: cpe:/o:linux:linux_kernel
 - ![alt text](image-2.png)
 
 # 3
-- 
+- pascha 
 ## Nmap scan
 ```
-
+PORT      STATE SERVICE    VERSION
+80/tcp    open  http       Microsoft IIS httpd 10.0
+| http-methods: 
+|_  Potentially risky methods: TRACE
+|_http-title: IIS Windows
+7680/tcp  open  pando-pub?
+9099/tcp  open  unknown
+| fingerprint-strings: 
+|   FourOhFourRequest, GetRequest: 
+|     HTTP/1.0 200 OK 
+|     Server: Mobile Mouse Server 
+|     Content-Type: text/html 
+|     Content-Length: 321
+|_    <HTML><HEAD><TITLE>Success!</TITLE><meta name="viewport" content="width=device-width,user-scalable=no" /></HEAD><BODY BGCOLOR=#000000><br><br><p style="font:12pt arial,geneva,sans-serif; text-align:center; color:green; font-weight:bold;" >The server running on "OSCP" was able to receive your request.</p></BODY></HTML>
+9999/tcp  open  abyss?
+35913/tcp open  unknown
+1 service unrecognized despite returning data. If you know the service/version, please submit the following fingerprint at https://nmap.org/cgi-bin/submit.cgi?new-service :
+SF-Port9099-TCP:V=7.94SVN%I=7%D=10/1%Time=66FBC864%P=x86_64-pc-linux-gnu%r
+SF:(GetRequest,1A2,"HTTP/1\.0\x20200\x20OK\x20\r\nServer:\x20Mobile\x20Mou
+SF:se\x20Server\x20\r\nContent-Type:\x20text/html\x20\r\nContent-Length:\x
+SF:20321\r\n\r\n<HTML><HEAD><TITLE>Success!</TITLE><meta\x20name=\"viewpor
+SF:t\"\x20content=\"width=device-width,user-scalable=no\"\x20/></HEAD><BOD
+SF:Y\x20BGCOLOR=#000000><br><br><p\x20style=\"font:12pt\x20arial,geneva,sa
+SF:ns-serif;\x20text-align:center;\x20color:green;\x20font-weight:bold;\"\
+SF:x20>The\x20server\x20running\x20on\x20\"OSCP\"\x20was\x20able\x20to\x20
+SF:receive\x20your\x20request\.</p></BODY></HTML>\r\n")%r(FourOhFourReques
+SF:t,1A2,"HTTP/1\.0\x20200\x20OK\x20\r\nServer:\x20Mobile\x20Mouse\x20Serv
+SF:er\x20\r\nContent-Type:\x20text/html\x20\r\nContent-Length:\x20321\r\n\
+SF:r\n<HTML><HEAD><TITLE>Success!</TITLE><meta\x20name=\"viewport\"\x20con
+SF:tent=\"width=device-width,user-scalable=no\"\x20/></HEAD><BODY\x20BGCOL
+SF:OR=#000000><br><br><p\x20style=\"font:12pt\x20arial,geneva,sans-serif;\
+SF:x20text-align:center;\x20color:green;\x20font-weight:bold;\"\x20>The\x2
+SF:0server\x20running\x20on\x20\"OSCP\"\x20was\x20able\x20to\x20receive\x2
+SF:0your\x20request\.</p></BODY></HTML>\r\n");
+Service Info: OS: Windows; CPE: cpe:/o:microsoft:windows
 ```
 ## Service Emumeration
-### ?
+### http
+- gobusted enum -> nothing intesting
+### 7680:tcp
+- nothing interesting
+### 9099 Mobile Mouse Server
+- found RCE exploit edb:51010
+### 9999:tcp
+- nothing interesting
+### 35913:tcp
+- nothing interesting
 ## Exploit
+- msfconsole runing exploit(windows/misc/mobile_mouse_rce) module
 ## Post Exploitation
+1. Found MilleGPG5 5.9.2 (Gennaio 2023) - Local Privilege Escalation / Incorrect Access Control exploit
 ## Privilege Esculation
+1. Finding which service is set by system: ``` Get-CimInstance -ClassName win32_service | Select Name,State,PathName ```
+2. replaced GPGService.exe to rev_shell.exe
+3. ``` Restart-Service GPGOrchestrator ```
 ## Proofs
+- ![alt text](image-3.png)

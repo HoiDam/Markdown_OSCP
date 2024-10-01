@@ -19,7 +19,7 @@
     ``` gobuster dir -u http://192.168.50.16:5002 -w /usr/share/wordlists/dirb/big.txt -p pattern -t 42```
 
 ### Try harder !
-- Try more seclists in still cant find e.g. https://github.com/danielmiessler/SecLists/blob/master/Discovery/Web-Content/raft-medium-directories.txt 
+- Try more seclists
     ```
     /usr/share/SecLists/Discovery/Web-Content/raft-medium-directories.txt
     /usr/share/dirbuster/wordlists/directory-list-2.3-medium.txt
