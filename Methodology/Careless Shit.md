@@ -12,3 +12,4 @@
 7. Oscp cheat sheet: Windows Files & Linux Files. Try Read them all!!
 8. Sometimes dont need be so tech. keep it simple with sweeping passwords!
 9. Make username and password list. Spray all possible assholes (services)
+10. CHECK TYPO !

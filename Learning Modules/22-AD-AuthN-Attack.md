@@ -108,7 +108,7 @@
 
 ## Domain Controller Sync
 - Only works in sync turned on DC (Production real world will have)
-- Requires DC admin ( Replicating Directory Changes Permissions )
+- Requires DCsync Rights( Replicating Directory Changes Permissions )
 - NLTM module 1000
 - Windows (Victim way)
   1. Login to DC admin
