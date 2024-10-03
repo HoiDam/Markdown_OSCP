@@ -145,6 +145,11 @@
 - useful thing: local admin rights -> first degree local admin
 - Thoughts: Can start from AD -> switch user by abusing AD weakness e.g. can control someone AD password -> login to that guy (maybe that guy is local admin of some machine) -> boom
 
+### BloodHound Intersting Path
+- Reading Node info harder!!  (those you owned / rooted)
+1. Outbound Object Control: 1st degree
+2. RDP Privileges
+
 ## Running Bloodhound in kali
 - https://github.com/dirkjanm/BloodHound.py 
 - ``` python3 ~/Downloads/WindowUsefulTools/BloodHoundKali/bloodhound.py -c all -dc {FQDN || NOT DOMAIN NAME} -d {domain name} -u {username} -p {password} -ns {name server ip} ```
