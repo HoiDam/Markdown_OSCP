@@ -114,11 +114,12 @@
 # RPC
 - Microsoft Remote Procedure Call (RPC) defines a powerful technology for creating distributed client/server programs.
 - Target Domain controller
-- port 593 default
-- ``` rpcclient -U "svc_mssql" {ip}```
 - ``` rpcclient -U "" {ip}``` can be empty also
+## Identified 139 & 445 Port can try:
+- Try more commands instead of enum
+- ``` rpcclient -U "{Username}" {ip}```
 - ``` [rpcclient $>] setuserinfo2 {username} 23 {password}``` change user password (number 23) https://learn.microsoft.com/en-us/openspecs/windows_protocols/ms-samr/6b0dff90-5ac0-429a-93aa-150334adabf6?redirectedfrom=MSDN 
-- 
+
 ## Enum
 1. enumdomusers
 2. enumdomgroups
