@@ -66,7 +66,7 @@
 - ``` .\Rubeus.exe asktgt /user:administrator /certificate:xxx.pfx /getcredentials /show /nowrap``` show ntlm hash
 
 ## Silver Tickets
-- Forge service tickets step
+- ** If the user is service account, High Prob can impersonate as Administrator e.g. mssql_svc, smb_svc, etc **
 - Target forging TGS
 - Requires: 
     1. SPN password hash
