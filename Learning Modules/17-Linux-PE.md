@@ -3,6 +3,12 @@
 ## Useful Info
 - ``` ls -l /etc/shadow ``` see permission of if can see hashed password 
 - ```  id ``` check current user uid, gid (primary group) & groups (other groups)
+
+### Disk group / Others
+- If saw ``` 6(disk)  ```, can see who disk
+- https://book.hacktricks.xyz/linux-hardening/privilege-escalation/interesting-groups-linux-pe 
+- Persistant: crack /etc/shadow password OR find root ssh keys 
+
 - ``` cat /etc/passwd ``` lists several user accounts
     ```
         1. Login Name: Indicates the username used for login.
