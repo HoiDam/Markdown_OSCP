@@ -88,6 +88,8 @@ Test-NetConnection -Port {port} {ip}
 - ``` VRFY ``` verify users existence
 - If return 252 = yes, 550 = no
 - ``` smtp-user-enum -t 192.168.158.63 -U /usr/share/wordlists/dirb/big.txt -M VRFY ```
+### GUI 
+1. thunderbird
 
 ## 6. SNMP Enum (If no interesting thing outside then play this)
 - SNMP Mangement information base -> netw management

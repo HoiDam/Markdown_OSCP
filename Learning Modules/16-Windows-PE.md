@@ -10,6 +10,7 @@
 - Network Info
 - Installed app
 - Running process
+- Group Policy (may leak local admin passwords by powerup.ps1)
 
 ## Basic enum
 - ``` whoami /groups ```  display all groups our current user is a member
