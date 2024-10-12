@@ -24,7 +24,7 @@
 - ``` cat /etc/issue ``` | ``` cat /etc/os-release ``` | ```uname -a```OS release & version (better OS Enum)
 - ``` ps aux``` show all process 
   ### Arbitrary file read
-  1. for reading process command line``` /proc/self/cmdline``` || ``` /proc/{pid}/cmdline```
+  1. for reading process command line``` /proc/self/cmdline``` || ``` /proc/{pid}/cmdline``` || ``` /proc/self/environ ```
   2. for reading all processes ``` /proc/sched_debug```
   3. ssh config ``` /etc/ssh/sshd_config ```
   4. [read as Root] All interesting file same as normal PrivEsc e.g. ``` .bash_history``` || ``` id_rsa ``` || ```authoirzed_keys ``` etc... 
@@ -50,6 +50,8 @@
         OpenBSD: pkg_add, OpenBSD Ports
     ```
 - ``` find / -writable -type d 2>/dev/null ``` find all writable file of current user
+- ``` find / -user {username} -ls 2>/dev/null ``` find all files the user own
+- ``` find / -group {groupname} -ls 2>/dev/null ```  find all files the group own
 - ``` mount ``` check all mounted filesystems
 - ``` cat /etc/fstab ``` check all drives in boot time
 - ``` lsblk ``` list all available disk
@@ -59,7 +61,7 @@
 - Can Use ``` strings ``` to read binaries details under ``` /usr/bin ```
 - given binary to be executed with root permissions even when launched by a lower-privileged user is called the effective UID (EUID)
 - Reading history of Users ```/home/{username}/.history```
-
+- Debugging a executable ``` strace {app name e.g. bash} ```
 
 ## Auto Enum
 - file transfer from kali to remote 
@@ -84,6 +86,11 @@
 - ``` .bashrc ``` bash config file (this file is fucking hidden on99)
 - ``` sudo -l``` list sudoer capabilities to user
 - ``` find / -name flag.txt 2>/dev/null ``` find flag.txt in linux
+
+### Hijacking $PATH injection
+- if something not absolute path --> can hijack to the file we forged e.g. rev shell
+1. Get current $Path first ``` echo $PATH ```
+2. add the new directory to $path ``` export "PATH=$(pwd): {the value you get in step 1} " ```
 
 ## Service footprints
 - ``` watch -n 1 "ps -aux | grep pass" ``` process
