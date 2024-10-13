@@ -87,7 +87,7 @@ Test-NetConnection -Port {port} {ip}
 - nc(linux) / telnet(windows) to communicate with SMTP server
 - ``` VRFY ``` verify users existence
 - If return 252 = yes, 550 = no
-- ``` smtp-user-enum -t 192.168.158.63 -U /usr/share/wordlists/dirb/big.txt -M VRFY ```
+- ``` smtp-user-enum -t 192.168.158.63 -U /usr/share/SecLists/Usernames/xato-net-10-million-usernames.txt -M VRFY ```
 ### GUI 
 1. thunderbird
 

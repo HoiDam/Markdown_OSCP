@@ -1,12 +1,11 @@
 # Wordpress
-
 - Wordpress scan
 - enumerate vulnerable plugins, users, vulrenable themes, timthumbs, plugins
 ``` wpscan --url {url} --enumerate {vp,u,vt,tt,p} --plugins-detection {mixed, aggressive, passive}```
-
 - Enum plugins & themes for vulns
-
 - Possble to use hashcat reverse hash (Not suggest)
+## Wordpress authenicated admin to RCE
+- https://medium.com/@akshadjoshi/from-wordpress-to-reverse-shell-3857ee1f4896
 
 # Non wordpress php
 - Check script if have sqli

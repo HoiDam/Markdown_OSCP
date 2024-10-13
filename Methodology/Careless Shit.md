@@ -13,3 +13,11 @@
 8. Sometimes dont need be so tech. keep it simple with sweeping passwords!
 9. Make username and password list. Spray all possible assholes (services)
 10. CHECK TYPO !
+11. All uncommon string can be sub directory -,- e.g. you found weeb maybe can try 192.168.55.66/weeb  
+12. Try more rev shell command and remember will have outbound port blocking! (think which port may be used even can curl =/= port can use)
+
+
+# Kill port command
+- dont ask why i put here LMAO
+1. ```sudo ss -lptn 'sport = :8080'```
+2. ``` kill {pid} ```
