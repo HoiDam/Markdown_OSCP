@@ -39,4 +39,4 @@ sudo nmap -sV -p 443 --script "vuln" 192.168.50.124
 
 
 ### Nmap juicy info
-1. basic realm will show what product is running on the server
+1. basic realm will show what product is running on the server to do authenication

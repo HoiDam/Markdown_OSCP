@@ -2,6 +2,11 @@
 - Find all useful files when gained foothold
 - find flag pwsh: ``` Get-ChildItem -Path . -Filter local.txt -Recurse ```
 - find flag cmd: ``` dir /s local.txt ```
+- brute force password : ``` Get-ChildItem -Path C:\ -Recurse -File -ErrorAction SilentlyContinue | ForEach-Object {
+    if (Test-Path -Path $_.FullName -ErrorAction SilentlyContinue) {
+        Select-String -Path $_.FullName -Pattern "password" -ErrorAction SilentlyContinue
+    }
+}```
 ## Info useful
 - Usrname , hostname
 - Group memberships of current user
@@ -259,3 +264,7 @@
 ## AD Recycle Bin role in local
 1. ``` Get-ADObject -SearchBase "CN=Deleted Objects,DC={DC},DC=Local" Filter {ObjectClass -eq "user"} -IncludeDeletedObjects -Properties * ``` find interesting deleted users password & map the password to which account (you get earlier from enumuserlist) | maybe administrator also
 2. ``` Get-RecoverableItems ``` 
+
+
+# Bash in Windows
+1. Interesting path of subsystem ``` C:\users\{username}\appdata\local\packages\CanonicalGroupLimited.Ubuntu18.04onWindows_xxxxxx\LocalState\rootfs\root ```
