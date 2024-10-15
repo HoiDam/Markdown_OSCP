@@ -5,3 +5,4 @@
 3. Enum better: https://github.com/saisathvik1/OSCP-Cheatsheet
 4. Emum better 2: https://github.com/xapax/oscp/tree/master
 5. Insane monster: https://infosec.jaelkoh.com/2024/my-first-year-in-infosec-zero-to-osce3
+6. Runbook: https://readmedium.com/en/https:/medium.com/@Fanicia/oscp-prep-introducing-my-runbooks-enumeration-46d7ce270033
