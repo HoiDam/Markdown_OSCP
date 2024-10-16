@@ -16,6 +16,7 @@
 11. Try more rev shell command and remember will have outbound port blocking! (think which port may be used even can curl =/= port can use)
 12. Maybe can search password on the webapp you pwned (Go look app folder directory or GUI)
 13. Press every button on the web.
+14. Check Sbin for GTFO also!
 
 # Kill port command
 - dont ask why i put here LMAO
