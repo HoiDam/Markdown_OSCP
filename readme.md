@@ -6,4 +6,4 @@
 4. Insane monster: https://infosec.jaelkoh.com/2024/my-first-year-in-infosec-zero-to-osce3
 5. Runbook (Foothold): https://readmedium.com/en/https:/medium.com/@Fanicia/oscp-prep-introducing-my-runbooks-enumeration-46d7ce270033
 6. Runbook (Windows): https://readmedium.com/oscp-prep-introducing-my-runbooks-rce-on-windows-9d78e59dc2d2
-7. Runbook (Linux): https://medium.com/@Fanicia/oscp-prep-introducing-my-runbooks-rce-on-linux-44099b36aa34
+7. Runbook (Linux): https://readmedium.com/en/https:/medium.com/@Fanicia/oscp-prep-introducing-my-runbooks-rce-on-linux-44099b36aa34
