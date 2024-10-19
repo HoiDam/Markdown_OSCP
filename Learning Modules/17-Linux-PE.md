@@ -100,7 +100,10 @@
 ## Service footprints
 - ``` watch -n 1 "ps -aux | grep pass" ``` process
 - ``` sudo tcpdump -i lo -A | grep "pass" ``` tcp traffic
-- ``` timeout 2m ./pspy64 ``` but dunno how use yet
+- ``` timeout 5m ./pspy64 ``` but dunno how use yet
+### Careful of every Process cmdline
+- [PSPY64] if process ends with ```/etc/cron.{hourly} ``` , can abuse
+- Carefully read every processes when found writable files in $PATH!
 
 # Bad File permissions 
 ## Cron jobss hack
