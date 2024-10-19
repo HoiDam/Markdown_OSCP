@@ -28,12 +28,14 @@
 
 # FTP
 - Anonymous ftp user ``` anonymous ``` user name to login & input random password can login 
+- [Anonymous] Check if can put files!
 - use binary mode ``` binary```
 - ``` ftp -A ``` to use active mode
 - disable passive mode to prevent entering extended passive mode error
   ``` epsv4 off ```
   ``` passive ```
 - get all ``` mget * ```
+- Default path in OS: ``` /var/ftp ``` 
 ## SSL
 - ``` ftp-ssl -z secure -z verif=0 -p {ip} ```
 
