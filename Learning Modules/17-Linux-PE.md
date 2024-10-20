@@ -6,9 +6,7 @@
 - ```  id ``` check current user uid, gid (primary group) & groups (other groups)
 
 ### Disk group / Others
-- If saw ``` 6(disk)  ```, can see who disk
-- https://book.hacktricks.xyz/linux-hardening/privilege-escalation/interesting-groups-linux-pe 
-- Persistant: crack /etc/shadow password OR find root ssh keys 
+
 
 - ``` cat /etc/passwd ``` lists several user accounts
     ```
@@ -54,9 +52,19 @@
 ### Writable file
 1. Not every file can be replaced and move so try to modify the content by echo
 2. try ``` echo "sussy thing" > {writable file} ```
+3. If the files cannot directly access, try symlink to accessable path
+   ```
+        ln -sf /home/m.sander/personal/creds-for-2022.txt creds.txt
+   ```
 
-- ``` find / -user {username} -ls 2>/dev/null ``` find all files the user own
-- ``` find / -group {groupname} -ls 2>/dev/null ```  find all files the group own
+- ``` find / -user {username} -ls 2>/dev/null  | grep -v '^/proc\|^/run\|^/sys\|^/snap' ``` find all files the user own
+### Look for unusual groups also
+1. Disk group
+- If saw ``` 6(disk)  ```, can see who disk
+- https://book.hacktricks.xyz/linux-hardening/privilege-escalation/interesting-groups-linux-pe 
+- Persistant: crack /etc/shadow password OR find root ssh keys 
+2. Other interesting non system group: get files belonging to that group ``` find / -group {group name} 2>/dev/null | grep -v '^/proc\|^/run\|^/sys\|^/snap' ```
+
 - ``` mount ``` check all mounted filesystems
 - ``` cat /etc/fstab ``` check all drives in boot time
 - ``` lsblk ``` list all available disk
@@ -181,7 +189,7 @@
             touch @root.txt
         
         # 3. add symlink
-            ln -s /file/you/want/to/read root.txt
+            ln -sf /file/you/want/to/read root.txt
 
    ```
 

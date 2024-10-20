@@ -74,6 +74,17 @@
 # SSH 
 1. SSH too open: https://stackoverflow.com/questions/9270734/ssh-permissions-are-too-open ``` chmod 600 ``` or ``` chmod 400 ```
 2. If u think password correct but still denied then related to ssh key, find it !
+3. Sudoer file explained:
+   ```
+    /etc/sudoer: 
+      (m.sander) /usr/bin/sync.sh
+   ```
+    - Means that the user t.tyler has sudo privileges to run the script /usr/bin/sync.sh as the user m.sander.
+4. Sudo command run as other user
+    ```
+      t.tyler@/tmp: sudo -u m.sander /usr/bin/sync.sh 
+    ```
+    You should enter """t.tyler""" password
 
 # Netcat 
 1. Sometimes have firewall, not all service can nc (e.g. available services already using ,50000 <- want fuck this? 18000 service also on. we can impersonate this port)
