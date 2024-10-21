@@ -217,7 +217,7 @@
 - https://github.com/SecWiki/windows-kernel-exploits
 
 ## whoami /priv
-### SeImpersonatePrivlege 
+### SeImpersonatePrivlege & SeAssignPrimaryTokenPrivlege
 1. From LOCAL/NETWORK SERVICE to SYSTEM by abusing SeImpersonatePrivilege on Windows 10 and Server 2016/2019.:   ``` .\PrintSpoofer64.exe -i -c powershell.exe ```
 2. From Local user & .NET version: https://github.com/BeichenDream/GodPotato (Windows Server 2012 - Windows Server 2022 Windows8 - Windows 11)
    ``` 
