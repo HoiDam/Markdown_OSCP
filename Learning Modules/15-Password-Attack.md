@@ -52,6 +52,7 @@
 - sometimes use fasttrack.txt too
 - ``` c ``` in rule = captilized letter
 - ``` u d ``` in rule = upper all char & duplicated once
+- ``` --show ``` if have cracked history
 
 - Hash mode: https://hashcat.net/wiki/doku.php?id=example_hashes
 - Hash type analyzer: https://www.tunnelsup.com/hash-analyzer/ 
