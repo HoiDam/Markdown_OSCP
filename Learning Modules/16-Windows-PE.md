@@ -251,7 +251,7 @@
 1. SeBackupPrivilege (disabled) still can hack!
     - https://github.com/giuliano108/SeBackupPrivilege 
     - after enabled then copy the file out and read 
-2. Interesting file
+2. Interesting file (!! Read all users' powershell history)
    ```
    1. c:\users\{name}\APPDATA\roaming\microsoft\windows\powershell\psreadline\consolehost_history.txt
    2. config file in web server / app server
