@@ -156,6 +156,13 @@
 - compile to dll ``` x86_64-w64-mingw32-gcc myDLL.cpp --shared -o myDLL.dll ```
 - move dll to the folder next to the exe 
 
+### Winpspy
+- https://github.com/strobejb/winspy/releases/tag/v1.8.4 <- this
+- https://github.com/xct/winpspy 
+#### Auto timeout
+- CMD: ``` start /b pspy.exe & timeout /t 120 & taskkill /f /im winpspy.exe ```
+- POWERSHELL: ``` $process = Start-Process -FilePath "winpspy.exe" -PassThru; Start-Sleep -Seconds 120; Stop-Process -Id $process.Id -Force ``` 
+
 ### Auto tool: Powerup.ps1
 - ``` cp /usr/share/windows-resources/powersploit/Privesc/PowerUp.ps1 . ``` script location
 - pull to victim pc  
