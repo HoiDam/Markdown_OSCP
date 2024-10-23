@@ -157,7 +157,8 @@
 - move dll to the folder next to the exe 
 
 ### Winpspy
-- https://github.com/strobejb/winspy/releases/tag/v1.8.4 <- this
+- for windows, there's so much garbage, you gotta filter it out
+so it's normally easier to just look around and do basic enum
 - https://github.com/xct/winpspy 
 #### Auto timeout
 - CMD: ``` start /b pspy.exe & timeout /t 120 & taskkill /f /im winpspy.exe ```
@@ -251,6 +252,9 @@
 7. [Kali] Register domain name in /etc/hosts
 8. [Kali] RCE ``` sudo impacket-psexec -k -no-pass {FQDN} -dc-ip {dc-ip}```
 
+### SeShutdownPrivledge
+- HIGH PROBABLY need to abuse DLL injection / unquoted path injection
+
 # Struggling point
 - may need one user jump to another and then jump to another and still not priviledged
 
@@ -280,4 +284,5 @@
 
 
 # Bash in Windows
-1. Interesting path of subsystem ``` C:\users\{username}\appdata\local\packages\CanonicalGroupLimited.Ubuntu18.04onWindows_xxxxxx\LocalState\rootfs\root ```
+1. Interesting path of subsystem SSH ``` C:\Users\{username}\Appdata\Local\Packages\CanonicalGroupLimited.Ubuntu18.04onWindows_xxxxxx\LocalState\rootfs\root ```
+2. SSH Private Keys in Windows ``` C:\Users\{username}\.ssh\id_rsa ```

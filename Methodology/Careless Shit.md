@@ -17,6 +17,8 @@
 12. Maybe can search password on the webapp you pwned (Go look app folder directory or GUI)
 13. Press every button on the web.
 14. Check Sbin for GTFO also!
+15. Privlege Esculation maybe using some exploit you discarded in foothold
+16. Recheck the config file as other users ( may differs from exploit read )
 
 # Kill port command
 - dont ask why i put here LMAO
