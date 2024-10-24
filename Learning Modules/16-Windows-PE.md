@@ -102,7 +102,7 @@
 - restart service ``` net stop / start xxx```
 - ``` Get-CimInstance -ClassName win32_service | Select Name, StartMode | Where-Object {$_.Name -like 'mysql'} ``` Get list of have auto start enabled 
 - ``` whoami /priv ``` check priviledge
-- If no shutdown priv -> reboot ``` shutdown /r /t 0 ```
+- If shutdown priv [=disabled] -> reboot ``` shutdown /r /t 0 ```
 - ``` Start-Process powershell -Verb runAs ``` run as administrator
 
 ## DLL
@@ -223,6 +223,10 @@ so it's normally easier to just look around and do basic enum
 ## public exploit
 -  kernel exploit (easy crash)
 - https://github.com/SecWiki/windows-kernel-exploits
+1. check systeminfo which os version (win10/11?) e.g. ``` 10.0.22621 N/A Build 22621 ```
+2. check security updates ``` Get-CimInstance -Class win32_quickfixengineering | Where-Object { $_.Description -eq "Security Update" } ```
+3. search which latest patch version is: e.g. google Security Update  KB5025239 -> found its ``` Version 22H2 ```
+4. seach ``` windows version ? priv esc ```
 
 ## whoami /priv
 ### SeImpersonatePrivlege & SeAssignPrimaryTokenPrivlege
