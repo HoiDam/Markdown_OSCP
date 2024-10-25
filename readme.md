@@ -8,6 +8,7 @@
 6. Runbook (Windows): https://readmedium.com/oscp-prep-introducing-my-runbooks-rce-on-windows-9d78e59dc2d2
 7. Runbook (Linux): https://readmedium.com/en/https:/medium.com/@Fanicia/oscp-prep-introducing-my-runbooks-rce-on-linux-44099b36aa34
 8. AD Domain lateral movement: https://github.com/S1ckB0y1337/Active-Directory-Exploitation-Cheat-Sheet#skeleton-key-attack
+9. oscp_writeups: https://tonyharris.io/posts/oscp_writeup/
 
 ## Exam guide when stuck
 1. https://ippsec.rocks
