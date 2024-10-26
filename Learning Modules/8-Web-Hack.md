@@ -59,7 +59,11 @@
 
 # Web Enum
 - curl traversal check ``` curl --path-as-is {URL} ```
-  
+
+## Source code
+1. ctrl-u to read source code
+2. Try finding libraries, engine, plugins, hyperlinks
+   
 ## Dirb
 - check hidden shit
 - ``` dirb http://192.168.1.224/ /usr/share/wordlists/dirb/common.txt ```
