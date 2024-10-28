@@ -110,6 +110,9 @@ Test-NetConnection -Port {port} {ip}
 - ``` snmpwalk -c {community name} {ip} {mib code} ``` to search info from mib e.g. running process, user acc
 - ``` -Oa ``` can translate hex to ascii for snmpwalk 
 
+## snmpbrute
+- https://github.com/SECFORCE/SNMP-Brute/blob/master/snmpbrute.py
+
 ## 7. Connect Windows w/ rdp
 - sometimes no need domain (for education account?? e.g. offsec lab)
 ``` xfreerdp /v:192.168.220.196 /u:offsec /p:lab /cert-ignore  ```
