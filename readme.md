@@ -13,3 +13,4 @@
 ## Exam guide when stuck
 1. https://ippsec.rocks
 2. https://book.hacktricks.xyz
+3. https://github.com/RajChowdhury240/OSCP-CheatSheet 
