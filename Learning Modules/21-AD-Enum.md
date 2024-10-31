@@ -3,6 +3,7 @@
 - target domain admin
 - Detail of AD Domain ``` Get-ADdomain ```
 - Check role usage: https://learn.microsoft.com/en-us/windows-server/identity/ad-ds/manage/understand-security-groups
+- Login as local host in CMD: ``` .\myname```
 
 ## Manual Enum
 ### Legacy Tools
@@ -177,3 +178,7 @@
 
 ## Interesting file
 1. Group.xml ``` have username cpassword @ domain ``` 
+
+# LAPS
+1. if found user name with LADMIN -> high prob can crack by pyLAPS
+2. they have different password on every machine but same domain name

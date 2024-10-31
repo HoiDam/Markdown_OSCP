@@ -2,7 +2,10 @@
 - Find all useful files when gained foothold
 - find flag pwsh: ``` Get-ChildItem -Path . -Filter local.txt -Recurse ```
 - find flag cmd: ``` dir /s local.txt ```
-- 
+- find useful files: ``` dir /s/b c:\*.docx``
+1. docx/doc
+2. kdbx
+3. pdf
 
 ## Tricks
 1. Run As Admin or other users
@@ -309,7 +312,8 @@ so it's normally easier to just look around and do basic enum
    ```
 ## AD Recycle Bin role in local
 1. ``` Get-ADObject -SearchBase "CN=Deleted Objects,DC={DC},DC=Local" Filter {ObjectClass -eq "user"} -IncludeDeletedObjects -Properties * ``` find interesting deleted users password & map the password to which account (you get earlier from enumuserlist) | maybe administrator also
-2. ``` Get-RecoverableItems ``` 
+2. ``` Get-RecoverableItems ```
+3. [Admin command prompt] ``` dir /A C:\$Recycle.Bin\{sid}\ ```
 
 
 # Bash in Windows

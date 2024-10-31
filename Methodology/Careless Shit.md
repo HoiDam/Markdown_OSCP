@@ -5,6 +5,7 @@
    2. dir /a <------- [Windows cmd]
    3. dir -force <-------- [Windows powershell]
    4. gci -force
+   5. tree /F {dir} <-- windows
 3. Read the exploit description & comments!!
 4. Dont forget the exploit/ways you do in initial foothold -> maybe useful for rooting too!
 5. Watch password in mimikatz dump CAREFULLY!!! 
