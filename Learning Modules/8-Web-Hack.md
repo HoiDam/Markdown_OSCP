@@ -15,6 +15,9 @@
 - Provide pattern in pattern file
     ``` {GOBUSTER}/v1 ```
 
+### Gobuster enun vhost
+1. ``` gobuster vhost -u {http://goolugoolu.com} -w /usr/share/seclists/discovery/dns/subdomains-top1million-5000.txt ```
+
 ### Enum (RECURSIVELY IF NEEDED!)
     ``` gobuster dir -u http://192.168.50.16:5002 -w /usr/share/wordlists/dirb/big.txt -p pattern -t 42```
 
