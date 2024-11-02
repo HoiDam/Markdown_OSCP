@@ -43,6 +43,7 @@
 ## ffuf
 ### Check subdomain
 - ```ffuf -u http://{ip} -H "Host:FUZZ.{hostname}" -w /usr/share/seclists/discovery/dns/subdomains-top1million.txt ```
+- ``` -fc 403 ``` filter code = 403
 - ``` -fs 1234 ``` filter size = 1234
 ### Check special character
 - ``` using /opt/seclists/fuzzing/special-char.txt ```
