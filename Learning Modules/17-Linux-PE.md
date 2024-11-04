@@ -1,13 +1,11 @@
 # Enum
-- Find all useful files when gained foothold
+- Find all useful files (config file, env file) when gained foothold
 - brute force find password: ``` find / -type f -readable -exec grep -H "password" {} + 2>/dev/null ```
 ## Useful Info
 - ``` ls -l /etc/shadow ``` see permission of if can see hashed password 
 - ```  id ``` check current user uid, gid (primary group) & groups (other groups)
 
 ### Disk group / Others
-
-
 - ``` cat /etc/passwd ``` lists several user accounts
     ```
         1. Login Name: Indicates the username used for login.
@@ -20,7 +18,7 @@
     ```
 - ``` hostname``` OS Type + description (not too useful)
   
-- ``` cat /etc/issue ``` | ``` cat /etc/os-release ``` | ```uname -a```OS release & version (better OS Enum)
+- ``` cat /etc/lsb-release ``` | ``` cat /etc/issue ``` | ``` cat /etc/os-release ``` | ```uname -a``` OS release & version (Search the OS + exploit in google!)
 - ``` ps aux``` show all process 
   ### Arbitrary file read
   1. for reading process command line``` /proc/self/cmdline``` || ``` /proc/{pid}/cmdline``` || ``` /proc/self/environ ```
@@ -112,7 +110,9 @@
 ### Careful of every Process cmdline
 - [PSPY64] if process ends with ```/etc/cron.{hourly} ``` , can abuse
 - Carefully read every processes when found writable files in $PATH!
-
+### sudo -l with .sh file
+1. if the .sh file has some command line with sentitive params e.g. mysql -u root -p {masked}
+2. good to start pspy first -> then run the sudo .sh file
 
 # Bad File permissions 
 ## Cron jobss hack
@@ -193,6 +193,12 @@
 
    ```
 
+### Bypass authN in script with *
+1. https://mywiki.wooledge.org/BashPitfalls 
+2. e.g. 
+    ```
+        if [[ $DB_PASS == $USER_PASS ]] 
+    ```
 ### Exiftool RCE 
 - If version < 12.23, and cronjob running sudo of exiftool
 - https://github.com/convisolabs/CVE-2021-22204-exiftool
