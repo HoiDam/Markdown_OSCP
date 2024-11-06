@@ -254,6 +254,10 @@ so it's normally easier to just look around and do basic enum
 2. check security updates ``` Get-CimInstance -Class win32_quickfixengineering | Where-Object { $_.Description -eq "Security Update" } ```
 3. search which latest patch version is: e.g. google Security Update  KB5025239 -> found its ``` Version 22H2 ```
 4. seach ``` windows version ? priv esc ```
+- Using suggestor 
+1. update db ``` python2 ~/Downloads/WindowUsefulTools/Windows-Exploit-Suggester/windows-exploit-suggester.py --update ```
+2. run systeminfo in victim
+3. get suggestion ``` python2 ~/Downloads/WindowUsefulTools/Windows-Exploit-Suggester/windows-exploit-suggester.py --systeminfo sysinfo.txt ```
 
 ## whoami /priv
 ### SeImpersonatePrivlege & SeAssignPrimaryTokenPrivlege

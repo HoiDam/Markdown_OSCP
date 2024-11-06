@@ -38,7 +38,10 @@
 2. can use it to priv esc too! -> creating a rogue php inside the file system and load it e.g. /run/redis/test.php || CHECK ALL WRITABLE PATH!!c
 3. See the source code of the web! e.g. index.php, main.py
 ### Interesting file path
-1. [Windows] Progra~1 = program files | Progra~2 = program files (x86)
+1. Service configuration files
+2. leaked db file path e.g. /var/db/mydb <- this is sqlite
+3. oscp cheat sheet listed files
+4. [Windows] Progra~1 = program files | Progra~2 = program files (x86)
 
 ### WAF?
 1. Only Local host:

@@ -128,3 +128,4 @@ Test-NetConnection -Port {port} {ip}
 
 ## File enum
 1. xxd (reading file in hex dump) ``` xxd interesting.file ```
+2. reverse read a hex file ``` cat passwd.hex | xxd -r -p ``` (p for  Output in plain hexdump style (no addresses, no ASCII). )
