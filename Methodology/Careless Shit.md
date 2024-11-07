@@ -21,6 +21,7 @@
 15. Privlege Esculation maybe using some exploit you discarded in foothold
 16. Recheck the config file as other users ( may differs from exploit read )
 17. For Impacket modules, domain name is use full domain name (Not netbios) e.g. corp.facebook.com 
+18. netexec also try ``` -k ``` if guess ntlm not working, -> use kerberos
 
 # Kill port command
 - dont ask why i put here LMAO

