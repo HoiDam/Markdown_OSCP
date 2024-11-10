@@ -301,7 +301,8 @@ so it's normally easier to just look around and do basic enum
 2. Interesting file (!! Read all users' powershell history)
    ```
    1. c:\users\{name}\APPDATA\roaming\microsoft\windows\powershell\psreadline\consolehost_history.txt
-   2. config file in web server / app server
+   2. config file in web server / app server 
+    .cfg
    ```
 
 # Local Group privesc
