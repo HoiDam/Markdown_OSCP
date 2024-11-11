@@ -161,7 +161,7 @@
 
 ## Running Bloodhound in kali
 - https://github.com/dirkjanm/BloodHound.py 
-- ``` python3 ~/Downloads/WindowUsefulTools/BloodHoundKali/bloodhound.py -c all -dc {FQDN || NOT DOMAIN NAME} -d {domain name} -u {username} -p {password} -ns {name server ip} ```
+- ``` python3 ~/Downloads/WindowUsefulTools/BloodHoundKali/bloodhound.py -c all -dc {FQDN || NOT DOMAIN NAME} -d {domain name xxx.com} -u {username} -p {password} -ns {name server ip} ```
 
 
 ## Useful query

