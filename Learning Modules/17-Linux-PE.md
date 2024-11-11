@@ -221,7 +221,7 @@
 - list all current user can use sudo to run 
 - brute force those capabilities to PE
 - if not success -> check error ``` cat /var/log/syslog | grep {binary_name} ```
-- [Can focus those unknown binary] 
+- ***Can focus those unknown binary, if the binary doesnot directly drop privesc, find what is it running, see if can edit command inside some params e.g. makefile? 
 
 ### Interesting sudo leveraging
 1. Binding to process with sudo
