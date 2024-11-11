@@ -15,6 +15,7 @@
     Invoke-RunasCs {username} {password} {cmd} 
   ```
   OR if you are rdp 3389 ing. Can try to search cmd and click 'run as administrator' and input username password
+    - Oneliner to enable user RDP: https://github.com/crazywifi/Enable-RDP-One-Liner-CMD
 
 2. PowerCat 
    - netcat for windows
