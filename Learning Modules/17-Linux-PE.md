@@ -21,7 +21,7 @@
 - ``` cat /etc/lsb-release ``` | ``` cat /etc/issue ``` | ``` cat /etc/os-release ``` | ```uname -a``` OS release & version (Search the OS + exploit in google!)
 - ``` ps aux``` show all process 
   ### Arbitrary file read
-  1. for reading process command line``` /proc/self/cmdline``` || ``` /proc/{pid}/cmdline``` || ``` /proc/self/environ ```
+  1. for reading process command line``` /proc/self/cmdline``` || ``` /proc/{pid}/cmdline``` || ``` /proc/self/environ ``` || ``` /proc/self/cwd/.env ``` || ``` /proc/self/stat ```
   2. for reading all processes ``` /proc/sched_debug```
   3. ssh config ``` /etc/ssh/sshd_config ```
   4. [read as Root] All interesting file same as normal PrivEsc e.g. ``` .bash_history``` || ``` id_rsa ``` || ```authoirzed_keys ``` etc... 
