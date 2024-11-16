@@ -1,5 +1,5 @@
 # Wordpress
-- Wordpress scan
+- Juicy file: ``` wp-config.php ```
 - enumerate vulnerable plugins, users, vulrenable themes, timthumbs, plugins
 ``` wpscan --url {url} --detection-mode aggressive --plugins-detection aggressive -e ap,at ```
 

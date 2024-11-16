@@ -23,6 +23,8 @@
 
     ``` -x txt,bak,php,html,js,asp,aspx ```can add filetype here (https://github.com/danielmiessler/SecLists/blob/master/Discovery/Web-Content/web-extensions.txt)
 
+    ``` -d ``` discover backup file e.g. .bak
+
 ### Gobuster enum API
 - Provide pattern in pattern file
     ``` {GOBUSTER}/v1 ```

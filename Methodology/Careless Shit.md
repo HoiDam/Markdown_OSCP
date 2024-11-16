@@ -22,6 +22,7 @@
 16. For Impacket modules, domain name is use full domain name (Not netbios) e.g. corp.facebook.com 
 17. netexec also try ``` -k ``` if guess ntlm not working, -> use kerberos
 18. Use exiftool when see documents to check authors
+19. Try to find version running on machine (BUT dont fully trust. Only try the latest exploit early. if not working try others)
 
 # Kill port command
 - dont ask why i put here LMAO

