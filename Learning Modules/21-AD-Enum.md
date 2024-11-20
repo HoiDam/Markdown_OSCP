@@ -135,7 +135,7 @@
    
 ## Kerbrute
 - https://github.com/ropnop/kerbrute/releases/tag/v1.0.3
-- ``` ./kerbrute userenum --dc {dc-ip} -d {domain name} /usr/share/SecLists/Usernames/xato-net-10-million-usernames.txt ``` brute force enum the user name in dc
+- ``` /home/kali/Downloads/WindowUsefulTools/kerbrute_linux_amd64 userenum --dc {dc-ip} -d {domain name} /usr/share/SecLists/Usernames/xato-net-10-million-usernames.txt ``` brute force enum the user name in dc
 - 
 
 # Auto Enum
