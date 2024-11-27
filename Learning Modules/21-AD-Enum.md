@@ -4,6 +4,7 @@
 - Detail of AD Domain ``` Get-ADdomain ```
 - Check role usage: https://learn.microsoft.com/en-us/windows-server/identity/ad-ds/manage/understand-security-groups
 - Login as local host in CMD: ``` .\myname```
+- Using local pc authN instead of AD Domain: ``` netexec --local-auth ``` 
 
 ## Manual Enum
 ### Legacy Tools
