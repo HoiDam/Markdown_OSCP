@@ -74,26 +74,25 @@
 # File Upload Vuln
  
 ## w/ Executable Files
-- Prepare a file that can run CMD
-- Reverse shell
-- file type exclusion e.g. php -> pHP
-- aspx -> mspx  
+1. Prepare a file that can run CMD
+2. Reverse shell
+3. file type exclusion e.g. php -> pHP
+4. aspx -> mspx  
 
 
 ## w/o Executable Files
-- Generate SSH key 
+1. Generate SSH key: will get id_rsa and id_rsa.pub 
 
     ``` ssh-keygen ```
 
-- Directory traversal for http request header
-  
-    Edit filename
+2. Edit filename of ``` id_rsa.pub ``` to ``` authorized_keys ```
 
-    ``` ../../../../../root/.ssh/authorized_keys ``` : storing ``` 
+3. Upload to the file to /home/{user}/.ssh OR /root/.ssh
+
+4. Login with ssh ``` ssh emilia@ip -i -id_rsa ```
 
 - Becareful have to remove ```.ssh/known_hosts``` in kali pc since different section computer
 
-- run ``` ssh -i fileup root@{ip} ```
 
 # OS Cmd injection
 

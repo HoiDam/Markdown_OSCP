@@ -23,6 +23,7 @@
 17. netexec also try ``` -k ``` if guess ntlm not working, -> use kerberos
 18. Use exiftool when see documents to check authors
 19. Try to find version running on machine (BUT dont fully trust. Only try the latest exploit early. if not working try others)
+20. READ All http request and response carefully (maybe can change some parameter)
 
 # Kill port command
 - dont ask why i put here LMAO

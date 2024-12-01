@@ -90,6 +90,9 @@
       t.tyler@/tmp: sudo -u m.sander /usr/bin/sync.sh 
     ```
     You should enter """t.tyler""" password
+5. PrivEsc (ssh ing within the same machine)
+   - https://stackoverflow.com/questions/75890387/ssh-too-many-authentication-failures 
+   - TDLR ``` ssh -i root root@127.0.0.1 -o IdentitiesOnly=yes ```
 
 # Netcat 
 1. Sometimes have firewall, not all service can nc (e.g. available services already using ,50000 <- want fuck this? 18000 service also on. we can impersonate this port)
