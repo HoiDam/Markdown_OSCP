@@ -1,4 +1,7 @@
 # My OSCP Experience
+
+*** Passed on 12/12/2024 w/ 70points (Whole AD set + 2 local + 1 root)  ***
+
 ## Useful Links
 1. Exam FAQ: https://help.offsec.com/hc/en-us/articles/4412170923924-OSCP-Exam-FAQ
 2. Something may forget: https://eins.li/posts/oscp-secret-sauce/
